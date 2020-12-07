@@ -1,0 +1,199 @@
+<h4 class="mb-2">Gastos Energéticos</h4>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title h5-custom">Cálculos para determinação das necessidades energéticas diárias e nutricionais
+            do
+            paciente</h5>
+        <h6 class="card-subtitle mb-2 text-muted">O gasto energético total (GET), corresponde à energia gasta por um
+            indivíduo em 24 h.</h6>
+        <br>
+        <form class="form-horizontal my-3" [formGroup]="formularioPrincipal">
+            <div class="row">
+
+                <div class="col-md-4 mr-3">
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label for="desc">Descrição</label>
+                            <textarea class="form-control note-editor note-editor-margin" formControlName="desc"
+                                id="desc" cols="30" rows="10" maxlength="200"></textarea>
+                            <small>
+                                Caracteres restantes
+                                <span>{{ formularioPrincipal.get('desc').value === null ? 200 : 200 - formularioPrincipal.get('desc').value.length }}</span>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label for="dataAtend">Data Atend.</label>
+                            <input type="date" class="form-control"
+                                formControlName="dataAtend" id="dataAtend">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="altura">Altura*</label>
+                            <input type="text" class="form-control" formControlName="altura" id="altura"
+                                placeholder="metros" [textMask]="{mask: mask, placeholderChar:' '}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="peso">Peso*</label>
+                            <input type="text" class="form-control" formControlName="peso" id="peso"
+                                placeholder="quilos" [textMask]="{mask: maskNumber, placeholderChar:' '}">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="idade">Idade*</label>
+                            <input type="text" class="form-control" formControlName="idade" id="idade"
+                                placeholder="anos" [textMask]="{mask: maskNumber2, placeholderChar:' '}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="idade">Sexo*</label>
+                            <div class="row ml-1">
+                                <div class="col-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" formControlName="sexo" value="F">
+                                        <span class="custom-control-description">Feminino</span>
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" formControlName="sexo" value="M">
+                                        <span class="custom-control-description">Masculino</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-7">
+
+                    <div class="row mb-3">
+                        <div class="col-sm-12">
+                            <label for="protocolo">Protocolo</label>
+                            <select class="form-control" id="protocolo" formControlName="protocolo">
+                                <option *ngFor="let row of protocolosArray" [title]="row.title" [value]="row.value">
+                                    {{ row.label }}</option>
+                            </select>
+                            <small>{{ title }}</small>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3" *ngIf="nivelAtivArray.length > 0">
+                        <div class="col-sm-12">
+                            <label for="nivelAtiv">Nível de Atividade*</label>
+                            <select class="form-control" id="nivelAtiv" formControlName="nivelAtiv">
+                                <option *ngFor="let row of nivelAtivArray" [value]="row.value">{{ row.label }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3" *ngIf="this.formularioPrincipal.controls.protocolo.value === '2'">
+                        <div class="col-sm-12">
+                            <label for="classificacao">Classificação*</label>
+                            <select class="form-control" id="classificacao" formControlName="classificacao">
+                                <option value="0">Eutrófico</option>
+                                <option value="1">Sobrepeso / Obeso</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3" *ngIf="this.formularioPrincipal.controls.protocolo.value === '3'">
+                        <div class="col-sm-4">
+                            <label for="massaMagra">Massa Magra*</label>
+                            <input type="text" class="form-control" formControlName="massaMagra" id="massaMagra"
+                                placeholder="quilos" [textMask]="{mask: maskNumber, placeholderChar:' '}">
+                        </div>
+                    </div>
+
+                    <div class="row my-4" *ngIf="nivelAtivArray.length > 0">
+                        <div class="col-sm-6">
+                            <label class="mr-3">TMB</label>
+                            <ng-container *ngIf="TMB === 0 || TMB === NaN || TMB < 0; else elseTemplateTMB">
+                                <label>-</label>
+                            </ng-container>
+                            <ng-template #elseTemplateTMB>
+                                <label>{{ TMB | round }} Kcal</label>
+                            </ng-template>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="mr-3">GET</label>
+                            <ng-container *ngIf="GET === 0 || GET === NaN || GET < 0; else elseTemplateGET">
+                                <label>-</label>
+                            </ng-container>
+                            <ng-template #elseTemplateGET>
+                                <label>{{ GET | round }} Kcal</label>
+                            </ng-template>
+                        </div>
+
+                    </div>
+
+                    <div class="row my-4" *ngIf="nivelAtivArray.length === 0">
+                        <div class="col-sm-4">
+                            <label>Perda de Peso:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <label>{{ regraBolsoObj.perdaPeso }}</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="mr-3">Manutenção de Peso:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <label>{{ regraBolsoObj.manutPeso }}</label>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="mr-3">Ganho de Peso:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <label>{{ regraBolsoObj.ganhoPeso }}</label>
+                        </div>
+                    </div>
+
+                    <hr *ngIf="nivelAtivArray.length > 0">
+
+                    <small *ngIf="nivelAtivArray.length > 0">
+                        TMB - Taxa Metabólica Basal
+                        <br>
+                        GET - Gasto Energético Total
+                    </small>
+
+                    <hr>
+
+                    <div class="row mt-4">
+                        <div class="col-sm-4" title="">
+                            <label for="gastoEnergFinal">Gasto Energético Final**</label>
+                            <input type="text" class="form-control" formControlName="gastoEnergFinal"
+                                id="gastoEnergFinal" placeholder="Kcal"
+                                [textMask]="{mask: maskNumber3, placeholderChar:' '}">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="row mb-2">
+            <div class="col-lg-10">
+                <p class="card-text">*Escolha qual protocolo utilizar, dependendo do sexo e ciclo da vida do paciente. A
+                    escolha
+                    do protocolo depende da sua conduta profissional.
+                    <br>
+                    **Gasto energético será usado para cálculo no plano alimentar.
+                </p>
+            </div>
+            <div class="col-lg-2" style="text-align: right;">
+                <button type="button" class="btn btn-outline-primary">Download pdf</button>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</div>
