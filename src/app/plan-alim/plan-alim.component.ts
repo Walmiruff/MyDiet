@@ -255,7 +255,7 @@ export class PlanAlimComponent implements OnInit {
       });
   }
 
-  
+
   public updateRef(refId: string, isCopy: boolean): void {
     // carregar o  modal de refeiçoes
     let copyRefeicaoSelectyAlim: any[] = [];
@@ -307,12 +307,12 @@ export class PlanAlimComponent implements OnInit {
 
   public separetePrimOrSecOption(): void {
     this.alimStorePrimary$ = this.alimStore$.pipe(
-       filter(alim => alim !== null ),
+      filter(alim => alim !== null),
       map(alims => alims.filter(alim => alim.ordemListagem === 1)),
     );
 
     this.alimStoreSecond$ = this.alimStore$.pipe(
-      filter(alim => alim !== null ),
+      filter(alim => alim !== null),
       map(alims => alims.filter(alim => alim.ordemListagem === 2)),
     );
   }

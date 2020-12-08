@@ -3,3 +3,44 @@
 .card-text{
     font-size: 12px;
 }
+
+em {
+    color: dodgerblue;
+    cursor: pointer;
+}
+em:hover {
+    color: rgba(30, 143, 255, 0.844);
+}
+
+.p-custom{
+    font-size: 13px;
+    margin-left: 8px;
+    margin-bottom: 0px;
+}
+
+.p-custom-color {
+    font-size: 13px;
+    color: dodgerblue;
+    margin-bottom: 0px;
+    margin-left: -6px;
+    cursor: pointer;
+    p:hover {
+        color: rgba(30, 143, 255, 0.844);
+    }
+}
+
+.ref-custom{
+    p, a {
+        font-size: 13px;
+    };
+    a {
+        color: dodgerblue;
+        cursor: pointer;
+    };
+    a:hover {
+        color: rgba(30, 143, 255, 0.844);
+    }
+    p {
+        margin-bottom: 8px;
+    }
+}

@@ -32,12 +32,16 @@
                     </div>
                     <hr>
                     <!--Refeiçoes-->
-                    <div *ngIf="refeicoes$ | async as refs">
-                        <div class="row mb-4" *ngFor="let ref of refs">
+                    <div class="ref-custom" *ngIf="refeicoes$ | async as refs">
+                        <div class="row mb-5" *ngFor="let ref of refs">
                             <div class="col-sm-4">
-                                {{ ref.horario }} - {{ ref.descricao }}
-                                <div class="row mt-2">
-                                    <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <p>{{ ref.horario }} - {{ ref.descricao }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 d-flex justify-content-end">
                                         <em class="fa mr-2 fas fa-edit"
                                             (click)="updateRef(ref.id, false); classicModal.show()"></em>
                                         <em class="fa mr-2 fas fa-trash" (click)="deleteRef(ref.id)"></em>
@@ -48,16 +52,16 @@
                             </div>
                             <div class="col-sm-8">
                                 <ul *ngFor="let alim of ref.alimentos | primOrSecOp: 1">
-                                    <li (click)="showAlimInfo(alim.idAlimento)">
-                                        <a>{{ alim.descricao }} - </a>
-                                        <span>{{ alim.porcao }}</span>
+                                    <li class="d-flex justify-content-between" (click)="showAlimInfo(alim.idAlimento)">
+                                        <a>{{ alim.descricao }}</a>
+                                        <p>{{ alim.quantidade }} - {{ alim.porcao }}</p>
                                     </li>
                                 </ul>
                                 <p *ngIf="hasSecondOption(ref.alimentos)"><strong>Segunda Opção</strong></p>
                                 <ul *ngFor="let alim of ref.alimentos | primOrSecOp: 2">
                                     <li (click)="showAlimInfo(alim.idAlimento)">
                                         <a>{{ alim.descricao }} - </a>
-                                        <span>{{ alim.porcao }}</span>
+                                        <p>{{ alim.porcao }}</p>
                                     </li>
                                 </ul>
                             </div>
@@ -95,18 +99,18 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="overflow-y: auto;">
+            <div class="modal-body" style="overflow-y: auto; height: 450px;">
                 <div class="container">
                     <form [formGroup]="formModalRef">
 
                         <div class="row" style="max-width: 496px;">
                             <div class="col-sm-5 form-group">
-                                <label class="col-form-label">Horário*</label>
+                                <label class="col-form-label">Horário</label>
                                 <input class="form-control" id="horarioRefeicao" formControlName="horarioRefeicao"
                                     type="time" placeholder="hh:mm" />
                             </div>
                             <div class="col-sm-7 form-group">
-                                <label class="col-form-label">Descrição*</label>
+                                <label class="col-form-label">Descrição</label>
                                 <select id="tipoRefeicao" class="form-control" formControlName="tipoRefeicao"
                                     id="tipoRefeicao">
                                     <option value="Café da Manhã">Café da Manhã</option>
@@ -141,21 +145,31 @@
                             </div>
                         </div>
                     </form>
+                    <br>
                     <div class="row">
                         <div class="col-12">
                             <div *ngIf="alimStorePrimary$ | async as alimsPrimary">
                                 <div *ngFor="let alim of alimsPrimary">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <p>{{ alim.descricao }} ( {{ alim.porcao }} : {{alim.quantidade}} )
-                                            </p>
+                                    <hr>
+                                    <div class="row d-flex justify-content-between">
+                                        <div class="col-9">
+                                            <p class="p-custom">{{ alim.descricao }} ( {{ alim.porcao }} :
+                                                {{alim.quantidade}} )</p>
                                         </div>
-                                        <div class="col-7">
+                                        <div class="col-3">
                                             <div class="row">
-                                                <button type="button" class="btn btn-success"
-                                                    (click)="updateAlim(alim.id); smModal.show(); modalHiddenRef(); addOptionFalse()">Editar</button>
-                                                <button type="button" class="btn btn-secondary ml-2"
-                                                    (click)="removeAlim(alim.idAlimento)">Remover</button>
+                                                <div class="row"
+                                                    (click)="updateAlim(alim.id); smModal.show(); modalHiddenRef(); addOptionFalse()">
+                                                    <em class="fa mr-2 fas fa-edit">
+                                                    </em>
+                                                    <p class="p-custom-color">Editar</p>
+                                                </div>
+                                                <div class="row ml-5" (click)="removeAlim(alim.idAlimento)">
+                                                    <em class="fa mr-2 fas fa-trash">
+                                                    </em>
+                                                    <p class="p-custom-color">Remover</p>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -164,22 +178,31 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-2">
                         <div class="col-12">
                             <div *ngIf="alimStoreSecond$ | async as alimsSecondary">
                                 <p *ngIf="alimsSecondary.length > 0"><strong>Segunda Opção</strong></p>
                                 <div *ngFor="let alim of alimsSecondary">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <p>{{ alim.descricao }} ( {{ alim.porcao }} : {{alim.quantidade}} )
-                                            </p>
+                                    <hr>
+                                    <div class="row d-flex justify-content-between">
+                                        <div class="col-9">
+                                            <p class="p-custom">{{ alim.descricao }} ( {{ alim.porcao }} :
+                                                {{alim.quantidade}} )</p>
                                         </div>
-                                        <div class="col-7">
+                                        <div class="col-3">
                                             <div class="row">
-                                                <button type="button" class="btn btn-success"
-                                                    (click)="updateAlim(alim.id); smModal.show(); modalHiddenRef(); addOption()">Editar</button>
-                                                <button type="button" class="btn btn-secondary ml-2"
-                                                    (click)="removeAlim(alim.idAlimento)">Remover</button>
+                                                <div class="row"
+                                                    (click)="updateAlim(alim.id); smModal.show(); modalHiddenRef(); addOptionFalse()">
+                                                    <em class="fa mr-2 fas fa-edit">
+                                                    </em>
+                                                    <p class="p-custom-color">Editar</p>
+                                                </div>
+                                                <div class="row ml-5" (click)="removeAlim(alim.idAlimento)">
+                                                    <em class="fa mr-2 fas fa-trash">
+                                                    </em>
+                                                    <p class="p-custom-color">Remover</p>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
