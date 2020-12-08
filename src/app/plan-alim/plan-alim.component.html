@@ -130,14 +130,18 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-between mt-5">
-                            <div class="d-flex justify-content-between">
-                                <h5>Alimentos Selecionados</h5>
-                                <button type="button" class="mr-1 mb-1 btn btn-outline-primary"
-                                    (click)="smModal.show(); modalHiddenRef(); clearModalAlim(); addOptionFalse()">+
-                                    Adicionar Alimento</button>
+                        <div class="row mt-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Alimentos Selecionados</h5>
+                                        <button type="button" class="mr-1 mb-1 btn btn-outline-primary"
+                                            (click)="smModal.show(); modalHiddenRef(); clearModalAlim(); addOptionFalse()">+
+                                            Adicionar Alimento</button>
+                                    </div>
+                                </div>
                             </div>
-                            <hr>
+
                             <div class="row">
                                 <div class="col-12">
                                     <div *ngIf="alimStorePrimary$ | async as alims">
@@ -285,12 +289,12 @@
 
             </div>
             <div class="modal-footer">
-                <button id="btn-mostrar-nutrientes-alimento" type="button" class="btn btn-info disabled">Mostrar
+                <button id="btn-mostrar-nutrientes-alimento" type="button" class="btn btn-info">Mostrar
                     Nutrientes</button>
-                <button id="btn-add-alimento-continuar" type="button" class="btn btn-primary disabled"
+                <button id="btn-add-alimento-continuar" type="button" class="btn btn-primary"
                     (click)="saveAlim()">Incluir e
                     Continuar</button>
-                <button id="btn-add-alimento-fechar" type="button" class="btn btn-success disabled"
+                <button id="btn-add-alimento-fechar" type="button" class="btn btn-success"
                     (click)="saveAlim(); smModal.hide(); modalHiddenRef()">Incluir e Fechar</button>
                 <button type="button" class="btn btn-default" (click)="smModal.hide(); modalHiddenRef()">Fechar</button>
             </div>
