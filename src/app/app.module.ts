@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,13 +19,14 @@ import { RoundPipe } from './shared/pipes/round.pipe';
     NotFoundComponent,
     AvaAntropComponent,
     PlanAlimComponent,
-    RoundPipe
+    RoundPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     TextMaskModule,
+    ModalModule.forRoot(),
     AppRoutingModule
   ],
   providers: [],
