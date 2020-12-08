@@ -138,12 +138,14 @@ export class PlanAlimComponent implements OnInit {
 
   public onConfirm(): void {
     this.formPorcao.controls.id.patchValue(this.formModalAlim.controls.alimento.value);
+    this.portionStore.add(this.formPorcao.value);
+    this.getPortionCustom(this.formModalAlim.controls.alimento.value);
   }
 
   public getPortionCustom(idAlim: number | string): void {
     this.portionStore.portions$.pipe(
       take(1),
-      filter(porcoes => porcoes.length > 0),
+      filter(porcoes => porcoes !== null),
       map((porcoes) => porcoes.filter((porcao) => porcao.id === idAlim)),
     ).subscribe((porcoes) => {
       porcoes.map(element => {
@@ -253,24 +255,7 @@ export class PlanAlimComponent implements OnInit {
       });
   }
 
-  public saveOrUpdatePA(): void {
-    // this.refeicaoStore.refs$.pipe(take(1))
-    //   .subscribe((refs) => {
-    //     const planoAlim: IPlanoAlim = {
-    //       codTipoDieta: 0,
-    //       diasSemana: [0, 1, 2, 3, 4, 5, 6],
-    //       refeicoes: refs,
-    //       calculado: true,
-    //       data: '09/11/2020',
-    //       descricao: 'texto text area',
-    //       nome: ''
-    //     };
-    //     const id = this.formPlanoAlim.controls.idPlanoAlim.value;
-    //     id === null ? this.planosAlimentaresService.addPlano(planoAlim) :
-    //       this.planosAlimentaresService.updatePlano(planoAlim, id);
-    //   });
-  }
-
+  
   public updateRef(refId: string, isCopy: boolean): void {
     // carregar o  modal de refeiçoes
     let copyRefeicaoSelectyAlim: any[] = [];
@@ -322,30 +307,16 @@ export class PlanAlimComponent implements OnInit {
 
   public separetePrimOrSecOption(): void {
     this.alimStorePrimary$ = this.alimStore$.pipe(
-      filter(alim => alim !== null && alim.length > 0),
+       filter(alim => alim !== null ),
       map(alims => alims.filter(alim => alim.ordemListagem === 1)),
     );
 
     this.alimStoreSecond$ = this.alimStore$.pipe(
-      filter(alim => alim !== null && alim.length > 0),
+      filter(alim => alim !== null ),
       map(alims => alims.filter(alim => alim.ordemListagem === 2)),
     );
   }
 
-  /** Carregar um modelo ou recordatorio **/
-  public loadModelosPlanosAlim(): void {
-    // this.modeloPlanoAlim$ = this.modelosPlanosAlimentaresService.getMin();
-  }
-
-  public findModeloPlanoAlim(idPA: string): void {
-    // this.modelosPlanosAlimentaresService.getId(idPA)
-    //   .subscribe((planoAlim: IPlanoAlim) => {
-    //     this.formPlanoAlim.patchValue({
-    //       idPlanoAlim: uuid(),
-    //     });
-    //     this.refeicaoStore.set(planoAlim.refeicoes);
-    //   });
-  }
 
   public hasSecondOption(alims: IAlimento[]): boolean {
     return alims.some((e) => {

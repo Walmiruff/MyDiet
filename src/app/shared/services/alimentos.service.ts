@@ -39,7 +39,6 @@ export class AlimentosService {
       map((resp) => resp['alimentos']),
       shareReplay(1),
     );
-
   }
 
   public getAllAlimentos(): Observable<Array<IAlimento>> {

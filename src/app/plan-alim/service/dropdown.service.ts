@@ -32,10 +32,6 @@ export class DropdownService {
       {
         nome: 'Suplementos',
         valor: 'Suplementos'
-      },
-      {
-        nome: 'Meus Alimentos',
-        valor: 'NUTRI'
       }
     ];
   }

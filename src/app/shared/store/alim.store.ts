@@ -16,7 +16,7 @@ export class AlimStore {
 
     public set(alims: IAlimento[]): void {
         this.alims = alims;
-        this.alimsSource.next(this.alims);
+        this.alimsSource.next(alims);
     };
 
     public add(alim: IAlimento): void {
