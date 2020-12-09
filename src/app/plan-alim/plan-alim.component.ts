@@ -101,7 +101,10 @@ export class PlanAlimComponent implements OnInit {
       sab: [false],
       data: [null],
       descricao: [null],
-      idPlanoAlim: [null]
+      idPlanoAlim: [null],
+      peso: [null],
+      energia: [null],
+      ptnGKgPeso: [null]
     });
   }
 

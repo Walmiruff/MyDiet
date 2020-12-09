@@ -8,8 +8,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mr-3">
-                    <div class="row">
-                        <form [formGroup]="formPlanoAlim">
+                    <form [formGroup]="formPlanoAlim">
+                        <div class="row">
                             <div class="col-sm-12 mb-3">
                                 <label class="strong-class" for="desc">Descrição</label>
                                 <textarea class="form-control note-editor note-editor-margin" cols="30" rows="10"
@@ -19,8 +19,58 @@
                                     <span>{{ formPlanoAlim.get('descricao').value === null ? 200 : 200 - formPlanoAlim.get('descricao').value.length }}</span>
                                 </small>
                             </div>
-                        </form>
-                    </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-3">
+                                <label for="dataAtend" class="strong-class">Dias da Semana <i
+                                        class="fa mr-2 fas fa-info-circle"
+                                        title="Nesta função, programe cardápios diferentes para cada dia da semana"></i></label>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="dom" formControlName="dom">
+                                        <label class="margin-left-4" for="dom">Domingo</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="seg" formControlName="seg">
+                                        <label class="margin-left-4" for="seg">Segunda-Feira</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="ter" formControlName="ter">
+                                        <label class="margin-left-4" for="scales">Terça-Feira</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="qua" formControlName="qua">
+                                        <label class="margin-left-4" for="scales">Quarta-Feira</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="qui" formControlName="qui">
+                                        <label class="margin-left-4" for="scales">Quinta-Feira</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="sex" formControlName="sex">
+                                        <label class="margin-left-4" for="scales">Sexta-Feira</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="checkbox" id="sab" formControlName="sab">
+                                        <label class="margin-left-4" for="scales">Sábado</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-7">
                     <div class="d-flex justify-content-between">
@@ -69,21 +119,59 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+
+                    <div class="d-flex justify-content-between mt-5">
+                        <label class="strong-class">Planejamento Dietético</label>
+                    </div>
+                    <hr>
+                    <form [formGroup]="formPlanoAlim">
+                        <div class="row mb-4">
+                            <div class="col-5">
+                                <div class="row">
+                                    <label>Peso <i class="fa mr-2 fas fa-info-circle"
+                                            title="Peso inserido na Avaliação Antropométrica, para ser utilizado no cálculo de Proteína por Kg de Peso, pode ser o peso atual ou desejado conforme a estratégia do tratamento."></i></label>
+                                    <input type="text" class="form-control" formControlName="peso" id="peso"
+                                        placeholder="quilos">
+                                </div>
+                            </div>
+                            <div class="col-5 ml-3">
+                                <div class="row">
+                                    <label>Energia <i class="fa mr-2 fas fa-info-circle" title="Energia inserida no gastos energéticos"></i></label>
+                                    <input type="text" class="form-control" formControlName="energia" id="energia"
+                                        placeholder="Kcal">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <label>Proteína g/Kg de Peso <i
+                                            class="fa mr-2 fas fa-info-circle i-color"></i></label>
+                                    <input type="text" class="form-control" formControlName="ptnGKgPeso" id="ptnGKgPeso"
+                                        placeholder="g">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
+
             </div>
         </div>
-        <div class="row mb-2">
-            <div class="col-lg-10">
-                <!-- <p class="card-text">*Escolha qual protocolo utilizar, dependendo do sexo e ciclo da vida do paciente. A
+    </div>
+    <div class="row mb-2">
+        <div class="col-lg-10">
+            <!-- <p class="card-text">*Escolha qual protocolo utilizar, dependendo do sexo e ciclo da vida do paciente. A
                     escolha
                     do protocolo depende da sua conduta profissional.
                     <br>
                     **Gasto energético será usado para cálculo no plano alimentar.
                 </p> -->
-            </div>
-            <div class="col-lg-2" style="text-align: right;">
-                <button type="button" class="btn btn-outline-primary">Download pdf</button>
-            </div>
+        </div>
+        <div class="col-lg-2" style="text-align: right;">
+            <button type="button" class="btn btn-outline-primary">Download pdf</button>
         </div>
     </div>
 </div>
@@ -557,10 +645,10 @@
                                 <span>{{ alim.magnesio | replace:'mg' }}</span>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="col-sm-6 span-custom">
-                       
+
                         <div class="d-flex justify-content-center">
                             <div class="col-6 d-flex justify-content-end">
                                 <b>Zinco:</b>
@@ -614,7 +702,7 @@
                                 <span>{{ alim.vitaminaD | replace:'mcg' }}</span>
                             </div>
                         </div>
-                        
+
                         <div class="d-flex justify-content-center">
                             <div class="col-6 d-flex justify-content-end">
                                 <b>Vitamina E:</b>
@@ -704,7 +792,7 @@
                                 <span>{{ alim.vitaminaB12 | replace:'mcg' }}</span>
                             </div>
                         </div>
-                   
+
                     </div>
                 </div>
             </div>
@@ -714,3 +802,5 @@
         </div>
     </div>
 </div>
+
+<!--Modal Proteína g/Kg de Peso-->

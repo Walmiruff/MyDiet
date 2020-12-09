@@ -10,12 +10,16 @@ ul {
     margin: 0px;
 }
 
-em {
+em, .i-color {
     color: dodgerblue;
     cursor: pointer;
 }
 em:hover {
     color: rgba(30, 143, 255, 0.844);
+}
+
+.margin-left-4{
+    margin-left: 4px;
 }
 
 .span-custom {
