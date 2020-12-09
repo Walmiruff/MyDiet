@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
 
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
-import { IPlanoAlim } from '../shared/models/plano-alim.model';
 import { PortionStore } from '../shared/store/porcoes.store';
 import { AlimStore } from '../shared/store/alim.store';
 import { RefeicaoStore } from '../shared/store/refeicao.store';
@@ -34,6 +32,7 @@ export class PlanAlimComponent implements OnInit {
   public alimStorePrimary$: Observable<Array<IAlimento>>;
   public alimStoreSecond$: Observable<Array<IAlimento>>;
   public refeicoes$: Observable<Array<IRefeicao>>;
+  public alimentoCalculado$ = new BehaviorSubject<IAlimento>(null);;
   public id: string;
   public isSegundaOpcao = false;
 
@@ -77,16 +76,16 @@ export class PlanAlimComponent implements OnInit {
     });
 
     this.formPorcao = this.formBuilder.group({
-      descricao: [null],
-      gramas: [null],
+      descricao: [null, [Validators.required]],
+      gramas: [null, [Validators.required]],
       editavel: true,
       id: [null],
       statusOnline: 1,
     });
 
     this.formModalRef = this.formBuilder.group({
-      horarioRefeicao: [null],
-      tipoRefeicao: [null],
+      horarioRefeicao: [null, [Validators.required]],
+      tipoRefeicao: [null, [Validators.required]],
       observacaoRefeicao: [null],
       id: [null]
     });
@@ -110,6 +109,7 @@ export class PlanAlimComponent implements OnInit {
     this.formModalAlim.controls.tabelas.valueChanges.subscribe(value => {
       this.alimentos$ = null;
       this.porcoes.splice(0);
+      this.formModalAlim.controls.porcoes.patchValue(null);
       this.formModalAlim.controls.alimento.reset();
       this.formModalAlim.controls.quantidade.patchValue(1);
       value === 0 ? this.alimentos$ = this.alimentosService.getAllAlimentos() :
@@ -117,11 +117,15 @@ export class PlanAlimComponent implements OnInit {
     });
     this.formModalAlim.controls.alimento.valueChanges
       .pipe(
-        filter(value => value !== null),
-        switchMap(value => {
+        tap(() => {
+          this.formModalAlim.controls.porcoes.patchValue(null);
           this.porcoes.splice(0);
+        }),
+        filter(value => value !== 'null' && value !== null),
+        switchMap(value => {
           return this.alimentos$
             .pipe(
+              filter((alimentos) => alimentos !== undefined && alimentos.length > 0),
               map((alimentos) => alimentos.filter((alimento) => alimento.id == (value))),
               map((alimentos) => {
                 this.alimSelected = alimentos[0];
@@ -154,15 +158,25 @@ export class PlanAlimComponent implements OnInit {
     });
   }
 
-  public novaPorcao(): void {
-    // this.modalService.showModalAlim();
+  // public novaPorcao(): void {
+  //    this.modalService.showModalAlim();
+  // }
+
+  public buildAndShowAlimInfo(): void {
+    const alimCopy = JSON.parse(JSON.stringify(this.buildAlim()));
+    const alimCopyCalc = this.alimStore.alimCalc(alimCopy);
+    this.alimentoCalculado$.next(alimCopyCalc);
   }
 
-  public showAlimInfo(id: string): void {
-    // this.modalService.showModalInfoAlim(id);
+  public showAlimInfo(alim: IAlimento): void {
+    this.alimentoCalculado$.next(alim);
   }
 
   public saveAlim(): void {
+    this.formModalAlim.controls.idAlimento.value === null ? this.alimStore.add(this.buildAlim()) : this.alimStore.update(this.buildAlim());
+  }
+
+  public buildAlim(): IAlimento {
     const alim: IAlimento = {
       idAlimento: this.formModalAlim.controls.idAlimento.value === null ? uuid() : this.formModalAlim.controls.idAlimento.value,
       porcao: this.formModalAlim.controls.porcoes.value.split('-')[1],
@@ -211,7 +225,7 @@ export class PlanAlimComponent implements OnInit {
       id: this.alimSelected.id,
       statusOnline: this.alimSelected.statusOnline
     };
-    this.formModalAlim.controls.idAlimento.value === null ? this.alimStore.add(alim) : this.alimStore.update(alim);
+    return alim;
   }
 
   public saveOrUpdateRef(): void {
@@ -317,6 +331,11 @@ export class PlanAlimComponent implements OnInit {
     );
   }
 
+  public resetModalAlim(): void {
+    this.formModalAlim.controls.porcoes.patchValue(null);
+    this.formModalAlim.controls.alimento.patchValue(null);
+    this.formModalAlim.controls.quantidade.patchValue(1);
+  }
 
   public hasSecondOption(alims: IAlimento[]): boolean {
     return alims.some((e) => {

@@ -8,4 +8,9 @@ a.active {
     color: #ba55d3b9 !important;
 }
 
+.strong-class {
+  font-weight: 500;
+  color: #85868d;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";
