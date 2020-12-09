@@ -12,6 +12,7 @@ import { AvaAntropComponent } from './ava-antrop/ava-antrop.component';
 import { PlanAlimComponent } from './plan-alim/plan-alim.component';
 import { RoundPipe } from './shared/pipes/round.pipe';
 import { PrimOrSecOpPipe } from './shared/pipes/prim-or-sec-op.pipe';
+import { ReplacePipe } from './shared/pipes/replace.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PrimOrSecOpPipe } from './shared/pipes/prim-or-sec-op.pipe';
     AvaAntropComponent,
     PlanAlimComponent,
     RoundPipe,
-    PrimOrSecOpPipe
+    PrimOrSecOpPipe,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,
