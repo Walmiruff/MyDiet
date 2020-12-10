@@ -137,43 +137,734 @@
                             </div>
                             <div class="col-5 ml-3">
                                 <div class="row">
-                                    <label>Energia <i class="fa mr-2 fas fa-info-circle" title="Energia inserida no gastos energéticos"></i></label>
+                                    <label>Energia <i class="fa mr-2 fas fa-info-circle"
+                                            title="Energia inserida no gastos energéticos"></i></label>
                                     <input type="text" class="form-control" formControlName="energia" id="energia"
                                         placeholder="Kcal">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-6">
                                 <div class="row">
-                                    <label>Proteína g/Kg de Peso <i
-                                            class="fa mr-2 fas fa-info-circle i-color"></i></label>
+                                    <label>Proteína g/Kg de Peso</label>
                                     <input type="text" class="form-control" formControlName="ptnGKgPeso" id="ptnGKgPeso"
                                         placeholder="g">
                                 </div>
                             </div>
                         </div>
 
+                        <div class="row">
+                            <button type="button" class="btn btn-outline-primary" (click)="showDistMacroMicro()">Exibir
+                                distribuição de Macro e Micronutrientes</button>
+                        </div>
+
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5" id="macro" [hidden]="isDistMacroMicro">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Macronutrientes</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">Distribuição Energética por Refeição</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                        aria-controls="nav-contact" aria-selected="false">Nutrientes</a>
+                    <a class="nav-item nav-link" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
+                        aria-controls="nav-contact2" aria-selected="false">Gráficos</a>
+                </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="panel-body">
+                        <table class="table table-bordered margn-t-md">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" style="vertical-align: middle;">Nutrientes</th>
+                                    <th class="text-center">Distribuição (%)</th>
+                                    <th class="text-center">kcal</th>
+                                    <th class="text-center">Gramas</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-sm-6">Planejado</div>
+                                            <div class="col-sm-6">Obtido</div>
+                                        </div>
+                                    </th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-sm-6">Planejado</div>
+                                            <div class="col-sm-6">Obtido</div>
+                                        </div>
+                                    </th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-sm-6">Planejado</div>
+                                            <div class="col-sm-6">Obtido</div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="padd-t-md-important">Carboidratos</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs text-success">52,87 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">981,5 kcal</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">245,4 g</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Proteinas</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs text-success">5,46 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">101,3 kcal</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">25,3 g</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Lipideos</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs text-danger">
+                                                41,68 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">773,7 kcal</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">86,0 g</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">100,00 %</div>
+                                            <div class="col-md-6">100,00 %</div>
+                                        </div>
+                                    </th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">1856,5 kcal</div>
+                                        </div>
+                                    </th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">356,7 g</div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <div class="row margn-t-lg mt-2">
+                            <div class="col-sm-6 col-xs-12">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="no-border"></th>
+                                            <th class="no-border text-center">Planejado</th>
+                                            <th class="no-border text-center">Obtido</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Proteína por kg de Peso</th>
+                                            <td class="text-center" id="planej-alim-proteina-quilo">-</td>
+                                            <td class="text-center" id="planej-alim-proteina-quilo-result">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total</th>
+                                            <td class="text-center" id="planej-alim-proteina-total">-</td>
+                                            <td class="text-center" id="planej-alim-proteina-total-result">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="no-border"></th>
+                                            <th class="no-border text-center">Planejado</th>
+                                            <th class="no-border text-center">Obtido</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Calorias por kg de Peso</th>
+                                            <td class="text-center" id="planej-alim-calorias-quilo">-</td>
+                                            <td class="text-center" id="planej-alim-calorias-quilo-result">-</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total</th>
+                                            <td class="text-center" id="planej-alim-calorias-total">-</td>
+                                            <td class="text-center" id="planej-alim-calorias-total-result">-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" style="vertical-align: middle;">Refeição</th>
+                                    <th class="text-center">Distribuição (%)</th>
+                                    <th class="text-center">kcal</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-sm-6">Planejado</div>
+                                            <div class="col-sm-6">Obtido</div>
+                                        </div>
+                                    </th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-sm-6">Planejado</div>
+                                            <div class="col-sm-6">Obtido</div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="padd-t-md-important">Café da Manhã</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">71,47 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">1206,5 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Lanche da Manhã</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">0,00 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">0,0 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Almoço</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">28,53 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">481,7 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Lanche da Tarde</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">0,00 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">0,0 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Jantar</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">0,00 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">0,0 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Lanche da Noite</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">0,00 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">0,0 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Lanche Extra 1</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">0,00 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">0,0 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="padd-t-md-important">Lanche Extra 2</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input class="form-control center-block text-center" type="text"
+                                                    placeholder="%">
+                                            </div>
+                                            <div class="col-md-6 padd-t-xs">0,00 %</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center padd-t-md-important">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">0,0 kcal</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">100,00 %</div>
+                                            <div class="col-md-6">100,00 %</div>
+                                        </div>
+                                    </th>
+                                    <th class="text-center">
+                                        <div class="row">
+                                            <div class="col-md-6">-</div>
+                                            <div class="col-md-6">1688,2 kcal</div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="panel-body">
+                        <div class="row">
+                            <br><br>
+                            <div class="col-6">
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Carboidrato</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Açúcar Total</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Proteína</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Fibra</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Colesterol</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina A</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina C</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina D</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina E</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina K</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina B1</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina B2</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina B3</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina B6</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina B9</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Vitamina B12</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Gordura Total</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Gordura Saturada</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Gordura Monoinsaturada</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Gordura Poli-insaturada</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Gordura Trans</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Cálcio</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Cobre</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Ferro</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Fósforo</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Magnésio</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Potássio</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Selênio</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Sódio</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <span>Zinco</span>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <span>245,37 g</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact2-tab">www
+
                 </div>
 
             </div>
         </div>
+
     </div>
-    <div class="row mb-2">
-        <div class="col-lg-10">
-            <!-- <p class="card-text">*Escolha qual protocolo utilizar, dependendo do sexo e ciclo da vida do paciente. A
-                    escolha
-                    do protocolo depende da sua conduta profissional.
-                    <br>
-                    **Gasto energético será usado para cálculo no plano alimentar.
-                </p> -->
-        </div>
-        <div class="col-lg-2" style="text-align: right;">
-            <button type="button" class="btn btn-outline-primary">Download pdf</button>
+    
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-lg-10">
+                <!-- <p class="card-text">*Escolha qual protocolo utilizar, dependendo do sexo e ciclo da vida do paciente. A
+                        escolha
+                        do protocolo depende da sua conduta profissional.
+                        <br>
+                        **Gasto energético será usado para cálculo no plano alimentar.
+                    </p> -->
+            </div>
+            <div class="col-lg-2" style="text-align: right;">
+                <button type="button" class="btn btn-outline-primary">Download pdf</button>
+            </div>
         </div>
     </div>
+
 </div>
 
 
@@ -368,10 +1059,10 @@
                                         Alimento
                                     </strong>
                                 </label>
-                                <select class="form-control" formControlName="alimento" id="alimento">
-                                    <option *ngFor="let alim of alimentos" [value]="alim.id">{{ alim.descricao }}
-                                    </option>
-                                </select>
+                                <ng-select formControlName="alimento" id="alimento">
+                                    <ng-option *ngFor="let alim of alimentos" [value]="alim.id">{{ alim.descricao }}
+                                    </ng-option>
+                                </ng-select>
                             </div>
                             <div class="col-6 d-flex align-items-end">
                                 <!-- <button id="btn-novo-alim" class="btn btn-link" (click)="novaPorcao()"
@@ -802,5 +1493,3 @@
         </div>
     </div>
 </div>
-
-<!--Modal Proteína g/Kg de Peso-->

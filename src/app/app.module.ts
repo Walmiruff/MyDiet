@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { ReplacePipe } from './shared/pipes/replace.pipe';
     FormsModule,
     ReactiveFormsModule,
     TextMaskModule,
+    NgSelectModule,
     ModalModule.forRoot(),
     AppRoutingModule
   ],

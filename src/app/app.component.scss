@@ -13,4 +13,8 @@ a.active {
   color: #85868d;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";

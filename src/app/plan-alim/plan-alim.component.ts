@@ -35,6 +35,7 @@ export class PlanAlimComponent implements OnInit {
   public alimentoCalculado$ = new BehaviorSubject<IAlimento>(null);;
   public id: string;
   public isSegundaOpcao = false;
+  public isDistMacroMicro = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -344,6 +345,14 @@ export class PlanAlimComponent implements OnInit {
     return alims.some((e) => {
       return e.ordemListagem === 2;
     });
+  }
+
+  public showDistMacroMicro(): void {
+    this.isDistMacroMicro = !this.isDistMacroMicro;
+    var element = document.getElementById('macro');
+    setTimeout(() => {
+            element.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    }, 300);
   }
 
 
