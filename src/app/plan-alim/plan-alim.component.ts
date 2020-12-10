@@ -6,9 +6,11 @@ import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/oper
 
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
+import { IMacronutrientes } from '../shared/models/plano-alim.model';
 import { PortionStore } from '../shared/store/porcoes.store';
 import { AlimStore } from '../shared/store/alim.store';
 import { RefeicaoStore } from '../shared/store/refeicao.store';
+import { GastosEnergStore } from '../shared/store/gastos-energ.store';
 import { DropdownService } from './service/dropdown.service';
 import { AlimentosService } from '../shared/services/alimentos.service';
 
@@ -32,10 +34,19 @@ export class PlanAlimComponent implements OnInit {
   public alimStorePrimary$: Observable<Array<IAlimento>>;
   public alimStoreSecond$: Observable<Array<IAlimento>>;
   public refeicoes$: Observable<Array<IRefeicao>>;
+  public macro$: Observable<IMacronutrientes>;
   public alimentoCalculado$ = new BehaviorSubject<IAlimento>(null);;
   public id: string;
   public isSegundaOpcao = false;
   public isDistMacroMicro = true;
+  public macroPlan = {
+    kcalCho: -1,
+    kcalPtn: -1,
+    kcalLip: -1,
+    gCho: -1,
+    gPtn: -1,
+    gLip: -1,
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,18 +55,28 @@ export class PlanAlimComponent implements OnInit {
     private portionStore: PortionStore,
     private alimStore: AlimStore,
     private refeicaoStore: RefeicaoStore,
-  ) { }
+    private gastosEnergStore: GastosEnergStore,
+  ) {
+    this.buildForms()
+  }
 
   ngOnInit() {
-    this.buildForms();
     this.triggersControls();
     this.alimentos$ = this.alimentosService.getAllAlimentos();
     this.tabelas = this.dropdownService.getTabelas();
 
     this.refeicoes$ = this.refeicaoStore.refs$;
     this.alimStore$ = this.alimStore.alims$.pipe(shareReplay(1));
+    this.macro$ = this.refeicaoStore.macro$.pipe(shareReplay(1));
 
     this.separetePrimOrSecOption();
+
+    this.gastosEnergStore.gastosEnerg$
+    .pipe(
+      filter(resp => resp !== null),
+      tap(resp => this.formPlanoAlim.controls.energia.patchValue(resp.gastoEnergFinal))
+      )
+    .subscribe();
 
     this.refeicaoStore.refs$.subscribe((refs) => console.log('refs', refs));
     this.alimStore.alims$.subscribe((alims) => console.log('alims', alims));
@@ -105,7 +126,10 @@ export class PlanAlimComponent implements OnInit {
       idPlanoAlim: [null],
       peso: [null],
       energia: [null],
-      ptnGKgPeso: [null]
+      ptnGKgPeso: [null],
+      distChoPlan: [null],
+      distPtnPlan: [null],
+      distLipPlan: [null],
     });
   }
 
@@ -142,6 +166,7 @@ export class PlanAlimComponent implements OnInit {
         }),
       )
       .subscribe();
+    this.formPlanoAlim.valueChanges.subscribe(() => this.calMacroPlan());
   }
 
   public onConfirm(): void {
@@ -351,9 +376,23 @@ export class PlanAlimComponent implements OnInit {
     this.isDistMacroMicro = !this.isDistMacroMicro;
     var element = document.getElementById('macro');
     setTimeout(() => {
-            element.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+      element.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
     }, 300);
   }
 
+  public calMacroPlan(): void {
+    const energia = this.formPlanoAlim.controls.energia.value === null ? -1 : this.formPlanoAlim.controls.energia.value;
+    const distChoPlan = this.formPlanoAlim.controls.distChoPlan.value === null ? 0 : this.formPlanoAlim.controls.distChoPlan.value;
+    const distPtnPlan = this.formPlanoAlim.controls.distPtnPlan.value === null ? 0 : this.formPlanoAlim.controls.distPtnPlan.value
+    const distLipPlan = this.formPlanoAlim.controls.distLipPlan.value === null ? 0 : this.formPlanoAlim.controls.distLipPlan.value;
 
+    this.macroPlan.kcalCho = (energia * distChoPlan) / 100;
+    this.macroPlan.gCho = this.macroPlan.kcalCho / 4;
+
+    this.macroPlan.kcalPtn = (energia * distPtnPlan) / 100;
+    this.macroPlan.gPtn = this.macroPlan.kcalPtn / 4;
+
+    this.macroPlan.kcalLip = (energia * distLipPlan) / 100;
+    this.macroPlan.gLip = this.macroPlan.kcalLip / 9;
+  }
 }

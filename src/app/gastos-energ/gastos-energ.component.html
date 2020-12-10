@@ -170,9 +170,8 @@
                     <div class="row mt-4">
                         <div class="col-sm-4" title="">
                             <label for="gastoEnergFinal" class="strong-class">Gasto Energético Final**</label>
-                            <input type="text" class="form-control" formControlName="gastoEnergFinal"
-                                id="gastoEnergFinal" placeholder="Kcal"
-                                [textMask]="{mask: maskNumber3, placeholderChar:' '}">
+                            <input type="number" class="form-control" formControlName="gastoEnergFinal"
+                                id="gastoEnergFinal" placeholder="Kcal" step="0.01">
                         </div>
                     </div>
 
