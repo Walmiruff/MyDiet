@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -12,6 +12,7 @@ import { PortionStore } from '../shared/store/porcoes.store';
 import { AlimStore } from '../shared/store/alim.store';
 import { RefeicaoStore } from '../shared/store/refeicao.store';
 import { GastosEnergStore } from '../shared/store/gastos-energ.store';
+import { PlanAlimStore } from '../shared/store/plano-alim.store';
 import { DropdownService } from './service/dropdown.service';
 import { AlimentosService } from '../shared/services/alimentos.service';
 
@@ -20,7 +21,7 @@ import { AlimentosService } from '../shared/services/alimentos.service';
   templateUrl: './plan-alim.component.html',
   styleUrls: ['./plan-alim.component.scss']
 })
-export class PlanAlimComponent implements OnInit {
+export class PlanAlimComponent implements OnInit, OnDestroy {
 
   public alimentos$: Observable<Array<IAlimento>>;
   public porcoes: any[] = [];
@@ -59,6 +60,7 @@ export class PlanAlimComponent implements OnInit {
     private alimStore: AlimStore,
     private refeicaoStore: RefeicaoStore,
     private gastosEnergStore: GastosEnergStore,
+    private planAlimStore: PlanAlimStore,
   ) {
     this.buildForms();
   }
@@ -76,17 +78,17 @@ export class PlanAlimComponent implements OnInit {
 
     this.separetePrimOrSecOption();
 
+    this.planAlimStore.patienteAlim$.pipe(
+      filter(resp => resp !== null),
+      tap(resp => this.formPlanoAlim.patchValue(resp))
+    ).subscribe();
+
     this.gastosEnergStore.gastosEnerg$
       .pipe(
         filter(resp => resp !== null),
         tap(resp => this.formPlanoAlim.controls.energia.patchValue(resp.gastoEnergFinal))
       )
       .subscribe();
-
-    this.refeicaoStore.refs$.subscribe((refs) => console.log('refs', refs));
-    this.alimStore.alims$.subscribe((alims) => console.log('alims', alims));
-    this.refeicaoStore.macro$.subscribe((macro) => console.log('macro', macro));
-    this.refeicaoStore.distEnergRef$.subscribe((distEnergRef) => console.log('distEnergRef', distEnergRef));
   }
 
   public modalHiddenRef(): void {
@@ -407,5 +409,9 @@ export class PlanAlimComponent implements OnInit {
 
     this.macroPlan.kcalLip = (energia * distLipPlan) / 100;
     this.macroPlan.gLip = this.macroPlan.kcalLip / 9;
+  }
+
+  ngOnDestroy(): void {
+    this.planAlimStore.set(this.formPlanoAlim.value);
   }
 }

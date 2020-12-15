@@ -11,6 +11,28 @@ export interface IPlanoAlim {
     id?: string;
     statusOnline?: number;
     refeicoes?: Array<IRefeicao>;
+    dom: boolean;
+    seg: boolean;
+    ter: boolean;
+    qua: boolean;
+    qui: boolean;
+    sex: boolean;
+    sab: boolean;
+    idPlanoAlim: number;
+    peso: string | number;
+    energia: string | number;
+    ptnGKgPeso: string | number;
+    distChoPlan: string | number;
+    distPtnPlan: string | number;
+    distLipPlan: string | number;
+    cafe: number;
+    lancheManha: number;
+    almoco: number;
+    lancheTarde: number;
+    jantar: number;
+    lancheNoite: number;
+    lancheExtra1: number;
+    lancheExtra2: number;
 }
 
 export interface IMacronutrientes {
