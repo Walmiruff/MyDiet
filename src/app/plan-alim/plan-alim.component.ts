@@ -301,6 +301,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     this.alimStore.alims$.pipe(
       take(1),
       map((alims) => alims.filter((alim) => alim.id === alimId)),
+      delay(2000)
     )
       .subscribe(alimSelected => {
         this.formModalAlim.patchValue({
