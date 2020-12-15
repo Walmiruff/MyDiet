@@ -6,12 +6,12 @@ export interface IAlimento {
     porcao?: string;
     porcaoGramas?: number;
     quantidade?: number;
-    descricao: string;
-    idGrupo: number;
-    grupoAlimentar: string;
-    origem: string;
-    auditado: boolean;
-    calorias: number;
+    descricao?: string;
+    idGrupo?: number;
+    grupoAlimentar?: string;
+    origem?: string;
+    auditado?: boolean;
+    calorias?: number;
     proteinas: number;
     gordurasTotais: number;
     gordurasSaturadas: number;
@@ -22,7 +22,7 @@ export interface IAlimento {
     fibras: number;
     calcio: number;
     magnesio: number;
-    manganes: number;
+    manganes?: number;
     fosforo: number;
     ferro: number;
     sodio: number;
@@ -34,9 +34,9 @@ export interface IAlimento {
     vitaminaB1: number;
     vitaminaB2: number;
     vitaminaB3: number;
-    vitaminaB5: number;
+    vitaminaB5?: number;
     vitaminaB6: number;
-    vitaminaB7: number;
+    vitaminaB7?: number;
     vitaminaB9: number;
     vitaminaB12: number;
     vitaminaD: number;
@@ -45,7 +45,7 @@ export interface IAlimento {
     colesterol: number;
     acucar: number;
     porcoes?: Array<IPorcoes>;
-    editavel: boolean;
-    id: number | string;
-    statusOnline: number;
+    editavel?: boolean;
+    id?: number | string;
+    statusOnline?: number;
 }

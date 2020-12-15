@@ -7,6 +7,7 @@ import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/oper
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
 import { IMacronutrientes } from '../shared/models/plano-alim.model';
+import { IDistEnergRef } from '../shared/models/plano-alim.model';
 import { PortionStore } from '../shared/store/porcoes.store';
 import { AlimStore } from '../shared/store/alim.store';
 import { RefeicaoStore } from '../shared/store/refeicao.store';
@@ -35,7 +36,9 @@ export class PlanAlimComponent implements OnInit {
   public alimStoreSecond$: Observable<Array<IAlimento>>;
   public refeicoes$: Observable<Array<IRefeicao>>;
   public macro$: Observable<IMacronutrientes>;
-  public alimentoCalculado$ = new BehaviorSubject<IAlimento>(null);;
+  public alimentoCalculado$ = new BehaviorSubject<IAlimento>(null);
+  public distEnergRef$: Observable<IDistEnergRef>;
+  public vitMinerals$: Observable<IAlimento>;
   public id: string;
   public isSegundaOpcao = false;
   public isDistMacroMicro = true;
@@ -57,7 +60,7 @@ export class PlanAlimComponent implements OnInit {
     private refeicaoStore: RefeicaoStore,
     private gastosEnergStore: GastosEnergStore,
   ) {
-    this.buildForms()
+    this.buildForms();
   }
 
   ngOnInit() {
@@ -68,15 +71,17 @@ export class PlanAlimComponent implements OnInit {
     this.refeicoes$ = this.refeicaoStore.refs$;
     this.alimStore$ = this.alimStore.alims$.pipe(shareReplay(1));
     this.macro$ = this.refeicaoStore.macro$.pipe(shareReplay(1));
+    this.distEnergRef$ = this.refeicaoStore.distEnergRef$.pipe(shareReplay(1));
+    this.vitMinerals$ = this.refeicaoStore.vitMinerals$.pipe(shareReplay(1));  
 
     this.separetePrimOrSecOption();
 
     this.gastosEnergStore.gastosEnerg$
-    .pipe(
-      filter(resp => resp !== null),
-      tap(resp => this.formPlanoAlim.controls.energia.patchValue(resp.gastoEnergFinal))
+      .pipe(
+        filter(resp => resp !== null),
+        tap(resp => this.formPlanoAlim.controls.energia.patchValue(resp.gastoEnergFinal))
       )
-    .subscribe();
+      .subscribe();
 
     this.refeicaoStore.refs$.subscribe((refs) => console.log('refs', refs));
     this.alimStore.alims$.subscribe((alims) => console.log('alims', alims));
@@ -130,6 +135,14 @@ export class PlanAlimComponent implements OnInit {
       distChoPlan: [null],
       distPtnPlan: [null],
       distLipPlan: [null],
+      cafe: [25],
+      lancheManha: [5],
+      almoco: [35],
+      lancheTarde: [10],
+      jantar: [20],
+      lancheNoite: [5],
+      lancheExtra1: [null],
+      lancheExtra2: [null],
     });
   }
 
