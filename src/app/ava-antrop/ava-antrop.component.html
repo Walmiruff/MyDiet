@@ -1,22 +1,117 @@
 <h4>Avaliação Antropométrica</h4>
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title h5-custom">Método de investigação em nutrição baseado na medição das variações físicas e na composição corporal global.</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Para obter os resultados corretos preencha Altura, Peso atual e Pregas Cutâneas de acordo com o protocolo escolhido.</h6>
+        <h5 class="card-title h5-custom">Método de investigação em nutrição baseado na medição das variações físicas e
+            na composição corporal global.</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Para obter os resultados corretos preencha Altura, Peso atual e Pregas
+            Cutâneas de acordo com o protocolo escolhido.</h6>
         <br>
 
-        <div class="row mb-2">
-            <div class="col-lg-10">
-                <!-- <p class="card-text">*Escolha qual protocolo utilizar, dependendo do sexo e ciclo da vida do paciente. A
-                    escolha
-                    do protocolo depende da sua conduta profissional.
-                    <br>
-                    **Gasto energético será usado para cálculo no plano alimentar.
-                </p> -->
+        <form class="form-horizontal my-3" [formGroup]="form">
+            <div class="row">
+                <div class="col-md-4 mr-3">
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label for="desc" class="strong-class">Descrição</label>
+                            <textarea class="form-control note-editor note-editor-margin" formControlName="desc"
+                                id="desc" cols="30" rows="10" maxlength="200"></textarea>
+                            <small>
+                                Caracteres restantes
+                                <span>{{ form.get('desc').value === null ? 200 : 200 - form.get('desc').value.length }}</span>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label for="dataAtend" class="strong-class">Data Atend.</label>
+                            <input type="date" class="form-control" formControlName="dataAtend" id="dataAtend">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label for="dataAtend" class="strong-class">Tipo</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="tipo" id="tipo" value="0">
+                                <label class="form-check-label">
+                                    Criança (Menor de 5 anos)
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="tipo" id="tipo" value="1">
+                                <label class="form-check-label" >
+                                    Criança ou Adolescente (5 - 19 anos)
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" formControlName="tipo" id="tipo" value="2">
+                                <label class="form-check-label">
+                                    Adulto / Idoso (a partir de 20 anos)
+                                </label>
+                              </div>
+                              
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="altura" class="strong-class">Altura*</label>
+                            <input type="text" class="form-control" formControlName="altura" id="altura"
+                                placeholder="metros" [textMask]="{mask: mask, placeholderChar:' '}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="peso" class="strong-class">Peso*</label>
+                            <input type="text" class="form-control" formControlName="peso" id="peso"
+                                placeholder="quilos" [textMask]="{mask: maskNumber, placeholderChar:' '}">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="idade" class="strong-class">Idade*</label>
+                            <input type="text" class="form-control" formControlName="idade" id="idade"
+                                placeholder="anos" [textMask]="{mask: maskNumber2, placeholderChar:' '}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="idade" class="strong-class">Sexo*</label>
+                            <div class="row ml-1">
+                                <div class="col-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" formControlName="sexo" value="F">
+                                        <span class="custom-control-description">Feminino</span>
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" formControlName="sexo" value="M">
+                                        <span class="custom-control-description">Masculino</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-7">
+                    <span [ngSwitch]="form.controls.tipo.value">
+                    <div *ngSwitchCase="0">
+                    0
+                    </div>
+                    <div *ngSwitchCase="1">
+                    1
+                    </div>
+                    <div *ngSwitchCase="2">
+                    2
+                    </div>
+                    <div *ngSwitchDefault>
+                    
+                    </div>
+                    </span>
+                </div>
             </div>
-            <!-- <div class="col-lg-2" style="text-align: right;">
-                <button type="button" class="btn btn-outline-primary">Download pdf</button>
-            </div> -->
-        </div>
+        </form>
+
     </div>
 </div>

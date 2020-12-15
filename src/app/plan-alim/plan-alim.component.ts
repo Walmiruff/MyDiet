@@ -120,6 +120,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     });
 
     this.formPlanoAlim = this.formBuilder.group({
+      dataAtend: [null],
       calculado: [null],
       dom: [false],
       seg: [false],

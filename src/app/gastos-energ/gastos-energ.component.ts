@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { filter, tap, take, switchMap } from 'rxjs/operators';
 
 import { nivelAtivArray } from './const';
@@ -37,8 +36,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private patienteStore: PatientStore,
-    private gastoEnergStore: GastosEnergStore,
-    private route: ActivatedRoute,
+    private gastoEnergStore: GastosEnergStore
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.maskNumber = [/\d+/, /\d+/, /\d+/];
@@ -73,8 +71,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.route.params.pipe(
-    ).subscribe(() => this.setStore());
+   this.setStore()
   }
 
   public buildForm(): void {

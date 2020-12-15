@@ -33,6 +33,7 @@ export interface IPlanoAlim {
     lancheNoite: number;
     lancheExtra1: number;
     lancheExtra2: number;
+    dataAtend: string;
 }
 
 export interface IMacronutrientes {
