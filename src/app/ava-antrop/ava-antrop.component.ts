@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { filter, tap, take, switchMap } from 'rxjs/operators';
 
+import { constDiagnosticos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
 
 @Component({
@@ -16,20 +17,21 @@ export class AvaAntropComponent implements OnInit {
   public maskNumber: Array<string | RegExp>;
   public maskNumber2: Array<string | RegExp>;
   public maskNumber3: Array<string | RegExp>;
+  public diagnosticos = constDiagnosticos[0];
 
   constructor(
     private formBuilder: FormBuilder,
     private patienteStore: PatientStore,
-    ) {
+  ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.maskNumber = [/\d+/, /\d+/, /\d+/];
     this.maskNumber2 = [/\d+/, /\d+/];
     this.maskNumber3 = [/\d+/, /\d+/, /\d+/, /\d+/, /\d+/];
     this.buildForm();
-   }
+  }
 
   ngOnInit(): void {
-    this.form.valueChanges.subscribe((v) => console.log('valor', v) );
+     this.triggersControls();
   }
 
   public buildForm(): void {
@@ -41,8 +43,18 @@ export class AvaAntropComponent implements OnInit {
       sexo: [null],
       altura: [null, Validators.required],
       peso: [null, Validators.required],
-      tipo: [null]
+      tipo: [null],
+      diagnostico: [null],
+      tricepsCrianca: [null],
+      subescapularCrianca: [null]
     });
+  }
+
+  public triggersControls(): void {
+    this.form.controls.tipo.valueChanges.subscribe(valor => { 
+      this.diagnosticos = constDiagnosticos[valor];
+      this.form.controls.diagnostico.patchValue(null);
+    })
   }
 
 }

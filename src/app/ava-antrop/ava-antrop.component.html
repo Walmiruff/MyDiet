@@ -10,6 +10,7 @@
         <form class="form-horizontal my-3" [formGroup]="form">
             <div class="row">
                 <div class="col-md-4 mr-3">
+
                     <div class="row">
                         <div class="col-sm-12 mb-3">
                             <label for="desc" class="strong-class">Descrição</label>
@@ -33,24 +34,33 @@
                         <div class="col-sm-12 mb-3">
                             <label for="dataAtend" class="strong-class">Tipo</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="tipo" id="tipo" value="0">
                                 <label class="form-check-label">
-                                    Criança (Menor de 5 anos)
+                                    <input class="form-check-input" type="radio" formControlName="tipo" id="tipo"
+                                        value="0">
+                                    <span class="custom-control-description">
+                                        Criança (Menor de 5 anos)
+                                    </span>
                                 </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="tipo" id="tipo" value="1">
-                                <label class="form-check-label" >
-                                    Criança ou Adolescente (5 - 19 anos)
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="tipo" id="tipo" value="2">
+                            </div>
+                            <div class="form-check">
                                 <label class="form-check-label">
-                                    Adulto / Idoso (a partir de 20 anos)
+                                    <input class="form-check-input" type="radio" formControlName="tipo" id="tipo"
+                                        value="1">
+                                    <span class="custom-control-description">
+                                        Criança ou Adolescente (5 - 19 anos)
+                                    </span>
                                 </label>
-                              </div>
-                              
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="radio" formControlName="tipo" id="tipo"
+                                        value="2">
+                                    <span class="custom-control-description">
+                                        Adulto / Idoso (a partir de 20 anos)
+                                    </span>
+                                </label>
+                            </div>
+
                         </div>
                     </div>
 
@@ -69,9 +79,10 @@
 
                     <div class="row mb-3">
                         <div class="col-sm-6">
-                            <label for="idade" class="strong-class">Idade*</label>
+                            <label for="idade" class="strong-class"> Idade*
+                                {{ form.controls.tipo.value == 0 ? '(meses)' : '(anos)' }}</label>
                             <input type="text" class="form-control" formControlName="idade" id="idade"
-                                placeholder="anos" [textMask]="{mask: maskNumber2, placeholderChar:' '}">
+                                [placeholder]="form.controls.tipo.value == 0 ? 'meses' : 'anos'" [textMask]="{mask: maskNumber2, placeholderChar:' '}">
                         </div>
                         <div class="col-sm-6">
                             <label for="idade" class="strong-class">Sexo*</label>
@@ -95,20 +106,154 @@
                 </div>
 
                 <div class="col-md-7">
-                    <span [ngSwitch]="form.controls.tipo.value">
-                    <div *ngSwitchCase="0">
-                    0
+                    <div [ngSwitch]="form.controls.tipo.value">
+                        <div *ngSwitchCase="0">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label class="strong-class">Pregas Cutâneas</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row my-5">
+                                <div class="col-sm-6">
+                                    <label for="tricepsCrianca" class="strong-class">Tríceps</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="tricepsCrianca" id="tricepsCrianca" placeholder="milímetros">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="subescapularCrianca" class="strong-class">Subescapular</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="subescapularCrianca" id="subescapularCrianca"
+                                        placeholder="milímetros">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <label class="strong-class">Resultado</label>
+                                    <p>Referência: <a>OMS (2006)</a></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="panel-body">
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Percentual de Gordura</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="gordura-crianca">&gt; 35,5%</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 text-center-xs">
+                                        <span id="gordura-crianca-classif" class="label label-danger">Muito Alta</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Peso Atual</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="peso-crianca">12 kg</span>
+                                    </div>
+                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span class="label label-danger">Peso para Idade: Baixo</span> <span class="label label-danger ml-2">Peso para Estatura: Obesidade</span></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Peso para Idade (Referência)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="peso-crianca-ref-idade">16,10 kg</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Peso para Estatura (Referência)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="peso-crianca-ref-estatura">2,50 kg</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Estatura Atual</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="estatura-crianca">0,45 m</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 text-center-xs">
+                                        <span id="estatura-crianca-classif" class="label label-danger">Baixa estatura para a idade</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Estatura para Idade (Referência)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="estatura-crianca-ref">1,03 m</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">IMC (Atual)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="imc-crianca">59,26</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 text-center-xs">
+                                        <span id="imc-crianca-classif" class="label label-danger">Obesidade</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">IMC (Referência)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="imc-crianca-ref">15,30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="1">
+                            <div class="row">
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <label class="strong-class">Resultado</label>
+                                    <p>Referência: <a>OMS (2007)</a></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="panel-body">
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Estatura Atual</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="estatura-adolescente">1,80 m</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 text-center-xs">
+                                        <span id="estatura-adolescente-classif" class="label label-danger">110,46 % - Muito Alta Estatura para a Idade</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">Estatura para Idade (Referência)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="estatura-adolescente-ref">1,63 m</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">IMC (Atual)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="imc-adolescente">21,60</span>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 text-center-xs">
+                                        <span id="imc-adolescente-classif" class="label label-success">Eutrofia</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="text-right col-sm-4 col-xs-6">IMC (Referência)</div>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <span id="imc-adolescente-ref">21.15</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngSwitchCase="2">
+                            2
+                        </div>
+                        <div *ngSwitchDefault>
+
+                        </div>
                     </div>
-                    <div *ngSwitchCase="1">
-                    1
+                    <hr class="mt-5">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="strong-class">Diagnóstico</label>
+                            <select class="form-control" formControlName="diagnostico" id="diagnostico">
+                                <option *ngFor="let item of diagnosticos" [value]="item.value">
+                                    {{ item.label }}
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                    <div *ngSwitchCase="2">
-                    2
-                    </div>
-                    <div *ngSwitchDefault>
-                    
-                    </div>
-                    </span>
                 </div>
             </div>
         </form>
