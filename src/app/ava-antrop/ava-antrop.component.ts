@@ -4,6 +4,7 @@ import { filter, tap, take, switchMap } from 'rxjs/operators';
 
 import { constDiagnosticos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
+import { CalcService } from './service/calc.service';
 
 @Component({
   selector: 'app-ava-antrop',
@@ -19,9 +20,13 @@ export class AvaAntropComponent implements OnInit {
   public maskNumber3: Array<string | RegExp>;
   public diagnosticos = constDiagnosticos[0];
 
+  // criança menor 5 anos
+  public estaturaIdadeReferenciaCriancaMenor: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private patienteStore: PatientStore,
+    private calcService: CalcService
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.maskNumber = [/\d+/, /\d+/, /\d+/];
@@ -31,7 +36,7 @@ export class AvaAntropComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.triggersControls();
+    this.triggersControls();
   }
 
   public buildForm(): void {
@@ -51,10 +56,17 @@ export class AvaAntropComponent implements OnInit {
   }
 
   public triggersControls(): void {
-    this.form.controls.tipo.valueChanges.subscribe(valor => { 
+    this.form.controls.tipo.valueChanges.subscribe(valor => {
       this.diagnosticos = constDiagnosticos[valor];
       this.form.controls.diagnostico.patchValue(null);
+      if (valor == 0) {
+        if (this.form.controls.sexo.value == 'M') {
+          this.calcService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value));
+        }
+      }
     })
   }
+
+  
 
 }
