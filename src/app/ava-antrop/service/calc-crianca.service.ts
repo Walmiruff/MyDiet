@@ -1815,7 +1815,7 @@ export class CalcCriancaService {
     }
   }
 
-    public pesoIdadeMenina(idade: number, peso: number): IObj {
+  public pesoIdadeMenina(idade: number, peso: number): IObj {
     switch (idade) {
       case 0:
         if (peso < 2) {
@@ -2490,5 +2490,2340 @@ export class CalcCriancaService {
     }
   }
 
+  public pesoEstaturaMenino(peso: number, altura: number): IObj {
+    switch (altura) {
+      case 0.45:
+        if (peso < 1.9) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.0) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 2.7) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.3) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.46:
+        if (peso < 2.0) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.2) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 2.9) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.1) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.5) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.47:
+        if (peso < 2.1) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.3) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.3) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.7) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.48:
+        if (peso < 2.3) {
+          return this.obj = { ref: '2,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.5) {
+          return this.obj = { ref: '2,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.2) {
+          return this.obj = { ref: '2,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.6) {
+          return this.obj = { ref: '2,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.9) {
+          return this.obj = { ref: '2,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.49:
+        if (peso < 2.4) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.6) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.4) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.8) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.2) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.5:
+        if (peso < 2.6) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.8) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.6) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.4) {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.51:
+        if (peso < 2.7) {
+          return this.obj = { ref: '3,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.0) {
+          return this.obj = { ref: '3,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.9) {
+          return this.obj = { ref: '3,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4.2) {
+          return this.obj = { ref: '3,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.7) {
+          return this.obj = { ref: '3,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.52:
+        if (peso < 2.9) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.2) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 4.1) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4.5) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 5) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.53:
+        if (peso < 3.1) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.4) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 4.4) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4.8) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 5.3) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.54:
+        if (peso < 3.3) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.6) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 4.7) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 5.1) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.55:
+        if (peso < 3.6) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.8) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 5.4) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 6) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.56:
+        if (peso < 3.8) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.1) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5.3) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 5.8) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 6.3) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.57:
+        if (peso < 4.0) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.3) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 6.1) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 6.7) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.58:
+        if (peso < 4.3) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.6) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5.9) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 6.4) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.59:
+        if (peso < 4.5) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.8) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 6.2) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 6.8) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.60:
+        if (peso < 4.7) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.1) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 6.5) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 7.8) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.61:
+        if (peso < 4.9) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.3) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 6.8) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 8.1) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.62:
+        if (peso < 5.1) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 7.7) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 8.5) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.63:
+        if (peso < 5.3) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.8) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.0) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 8.8) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.64:
+        if (peso < 5.5) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.0) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.6) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.3) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 9.1) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.65:
+        if (peso < 5.7) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.2) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.9) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.66:
+        if (peso < 5.9) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.4) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.2) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 9.7) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.67:
+        if (peso < 6.1) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.6) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.68:
+        if (peso < 6.3) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.8) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.7) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10.3) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.69:
+        if (peso < 6.5) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.0) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 9.7) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10.6) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.70:
+        if (peso < 6.6) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.2) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.71:
+        if (peso < 6.8) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10.2) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 11.2) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.72:
+        if (peso < 7.0) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.6) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.6) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.73:
+        if (peso < 7.2) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.7) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.9) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.74:
+        if (peso < 7.3) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.9) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.1) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.1) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.75:
+        if (peso < 7.5) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.1) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.3) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.3) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.76:
+        if (peso < 7.6) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.3) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.6) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.6) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.77:
+        if (peso < 7.8) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11.7) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.78:
+        if (peso < 7.9) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.0) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.0) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.1) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.79:
+        if (peso < 8.1) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.7) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.2) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.8:
+        if (peso < 8.2) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.4) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.4) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.81:
+        if (peso < 8.4) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.1) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.6) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.6) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.8) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.82:
+        if (peso < 8.5) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.83:
+        if (peso < 8.7) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.1) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14.3) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.84:
+        if (peso < 8.9) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.6) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14.6) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.85:
+        if (peso < 9.1) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.8) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14.9) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.86:
+        if (peso < 9.3) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.0) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.9) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 15.2) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.87:
+        if (peso < 9.5) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.2) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.0) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 14.2) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 15.5) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.88:
+        if (peso < 9.7) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 14.5) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 15.8) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.89:
+        if (peso < 9.9) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.7) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.5) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 14.7) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 16.1) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.90:
+        if (peso < 10.1) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.8) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.0) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.91:
+        if (peso < 10.3) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.1) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.1) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.3) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 16.7) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.92:
+        if (peso < 10.5) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.3) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.6) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.93:
+        if (peso < 10.7) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.6) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.8) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.3) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.94:
+        if (peso < 10.8) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.7) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.8) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 16.1) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.95:
+        if (peso < 11.0) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.9) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.96:
+        if (peso < 11.0) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.9) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.97:
+        if (peso < 11.4) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.3) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.6) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 17) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 18.5) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.98:
+        if (peso < 11.6) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 17.3) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 18.9) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.99:
+        if (peso < 11.8) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.7) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 16.2) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 19.2) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1:
+        if (peso < 12.0) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.9) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 16.5) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 18.0) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 19.6) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.01:
+        if (peso < 12.2) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.2) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 16.8) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 20) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.02:
+        if (peso < 12.4) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.4) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 17.1) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 18.7) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 20.4) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.03:
+        if (peso < 12.6) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 17.4) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 19.0) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 20.8) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.04:
+        if (peso < 12.8) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.9) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 17.8) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 19.4) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 21.2) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.05:
+        if (peso < 13.0) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.1) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 18.1) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 19.8) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 21.7) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.06:
+        if (peso < 13.3) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.4) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 18.5) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 20.2) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 22.1) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.07:
+        if (peso < 13.5) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.6) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 18.8) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 20.6) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 22.6) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.08:
+        if (peso < 13.7) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.9) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 19.2) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 21.0) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 23.1) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.09:
+        if (peso < 14.0) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 19.6) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 21.4) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 23.6) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.10:
+        if (peso < 14.2) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.4) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.0) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 21.9) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.11:
+        if (peso < 14.6) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.7) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 22.7) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 25) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.12:
+        if (peso < 14.6) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.7) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 22.7) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 25) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.13:
+        if (peso < 14.6) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.7) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 22.7) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 25) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.14:
+        if (peso < 15.4) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 16.8) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 21.9) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 26.6) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.15:
+        if (peso < 15.7) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 17.1) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 22.4) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 24.6) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 27.2) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.16:
+        if (peso < 16) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 17.4) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 22.8) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 25.1) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 27.8) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 1.17:
+        if (peso < 16.2) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 17.7) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 23.3) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 25.6) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 28.3) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.18:
+        if (peso < 16.5) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.0) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 23.7) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 26.1) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 28.9) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.19:
+        if (peso < 16.8) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 26.6) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 29.5) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.19:
+        if (peso < 16.8) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 26.6) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 29.5) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+        case 1.20:
+        if (peso < 17.1) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.6) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 24.6) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 27.2) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 30.1) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+    }
+  }
+
+  public pesoEstaturaMenina(peso: number, altura: number): IObj {
+    switch (altura) {
+      case 0.45:
+        if (peso < 1.9) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.0) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 2.7) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.3) {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.46:
+        if (peso < 2.0) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.2) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 2.9) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.1) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.5) {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.47:
+        if (peso < 2.2) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.4) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.1) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.4) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 3.7) {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '2,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.48:
+        if (peso < 2.3) {
+          return this.obj = { ref: '3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.5) {
+          return this.obj = { ref: '3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.3) {
+          return this.obj = { ref: '3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.6) {
+          return this.obj = { ref: '3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.0) {
+          return this.obj = { ref: '3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.49:
+        if (peso < 2.4) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.6) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.5) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 3.8) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.2) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.5:
+        if (peso < 2.6) {
+          return this.obj = { ref: '3,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 2.8) {
+          return this.obj = { ref: '3,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.7) {
+          return this.obj = { ref: '3,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4) {
+          return this.obj = { ref: '3,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.5) {
+          return this.obj = { ref: '3,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.51:
+        if (peso < 2.8) {
+          return this.obj = { ref: '3,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.0) {
+          return this.obj = { ref: '3,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 3.9) {
+          return this.obj = { ref: '3,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4.3) {
+          return this.obj = { ref: '3,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 4.8) {
+          return this.obj = { ref: '3,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.52:
+        if (peso < 2.9) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.2) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 4.1) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4.5) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 5) {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '3,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.53:
+        if (peso < 3.1) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.4) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 4.4) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 4.8) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 5.3) {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.54:
+        if (peso < 3.3) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.6) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 4.7) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 5.1) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.55:
+        if (peso < 3.6) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 3.8) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 5.4) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 6) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.56:
+        if (peso < 3.8) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.1) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5.3) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 5.8) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 6.3) {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '4,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.57:
+        if (peso < 4.0) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.3) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 6.1) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 6.7) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.58:
+        if (peso < 4.3) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.6) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 5.9) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 6.4) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '5,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.59:
+        if (peso < 4.5) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 4.8) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 6.2) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 6.8) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '5,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.60:
+        if (peso < 4.7) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.1) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 6.5) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 7.8) {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.61:
+        if (peso < 4.9) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.3) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 6.8) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 8.1) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.62:
+        if (peso < 5.1) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 7.7) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 8.5) {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.63:
+        if (peso < 5.3) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 5.8) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.0) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 8.8) {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '6,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.64:
+        if (peso < 5.5) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.0) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.6) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.3) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 9.1) {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.65:
+        if (peso < 5.7) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.2) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 7.9) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.66:
+        if (peso < 5.9) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.4) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.2) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 9.7) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.67:
+        if (peso < 6.1) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.6) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10) {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '7,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.68:
+        if (peso < 6.3) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 6.8) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.7) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10.3) {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.69:
+        if (peso < 6.5) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.0) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 9.7) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10.6) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.70:
+        if (peso < 6.6) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.2) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.71:
+        if (peso < 6.8) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10.2) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 11.2) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.72:
+        if (peso < 7.0) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.6) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.6) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.73:
+        if (peso < 7.2) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.7) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 9.9) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.74:
+        if (peso < 7.3) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 7.9) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.1) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.1) {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.75:
+        if (peso < 7.5) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.1) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.3) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.3) {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.76:
+        if (peso < 7.6) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.3) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.6) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.6) {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.77:
+        if (peso < 7.8) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 11.7) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.78:
+        if (peso < 7.9) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.0) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.0) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.1) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.79:
+        if (peso < 8.1) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.7) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.2) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.8:
+        if (peso < 8.2) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.4) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.4) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.81:
+        if (peso < 8.4) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.1) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.6) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.6) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 13.8) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.82:
+        if (peso < 8.5) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14) {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '10,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.83:
+        if (peso < 8.7) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.1) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14.3) {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.84:
+        if (peso < 8.9) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.6) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14.6) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.85:
+        if (peso < 9.1) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 9.8) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 14.9) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.86:
+        if (peso < 9.3) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.0) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 13.9) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 15.2) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.87:
+        if (peso < 9.5) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.2) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.0) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 14.2) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 15.5) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.88:
+        if (peso < 9.7) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 14.5) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 15.8) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.89:
+        if (peso < 9.9) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.7) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.5) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 14.7) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 16.1) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.90:
+        if (peso < 10.1) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 13.8) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.0) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.91:
+        if (peso < 10.3) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.1) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.1) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.3) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 16.7) {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.92:
+        if (peso < 10.5) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.3) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.6) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17) {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.93:
+        if (peso < 10.7) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.6) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 15.8) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.3) {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 0.94:
+        if (peso < 10.8) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.7) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 14.8) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 16.1) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.95:
+        if (peso < 11.0) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.9) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.96:
+        if (peso < 11.0) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 11.9) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,1 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.97:
+        if (peso < 11.4) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.3) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.6) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 17) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 18.5) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.98:
+        if (peso < 11.6) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 17.3) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 18.9) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 0.99:
+        if (peso < 11.8) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.7) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 16.2) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 19.2) {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '14,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1:
+        if (peso < 12.0) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 12.9) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 16.5) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 18.0) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 19.6) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.01:
+        if (peso < 12.2) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.2) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 16.8) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 20) {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '15,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.02:
+        if (peso < 12.4) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.4) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 17.1) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 18.7) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 20.4) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.03:
+        if (peso < 12.6) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 17.4) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 19.0) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 20.8) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.04:
+        if (peso < 12.8) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 13.9) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 17.8) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 19.4) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 21.2) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.05:
+        if (peso < 13.0) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.1) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 18.1) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 19.8) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 21.7) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.06:
+        if (peso < 13.3) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.4) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 18.5) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 20.2) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 22.1) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.07:
+        if (peso < 13.5) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.6) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 18.8) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 20.6) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 22.6) {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '16,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.08:
+        if (peso < 13.7) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 14.9) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 19.2) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 21.0) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 23.1) {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '17,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.09:
+        if (peso < 14.0) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 19.6) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 21.4) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 23.6) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.10:
+        if (peso < 14.2) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.4) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.0) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 21.9) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.11:
+        if (peso < 14.6) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.7) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 22.7) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 25) {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '18,9 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.12:
+        if (peso < 14.6) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.7) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 22.7) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 25) {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '19,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.13:
+        if (peso < 14.6) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 15.9) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 20.7) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 22.7) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 25) {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '19,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.14:
+        if (peso < 15.4) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 16.8) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 21.9) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 26.6) {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '20 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.15:
+        if (peso < 15.7) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 17.1) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 22.4) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 24.6) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 27.2) {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '20,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.16:
+        if (peso < 16) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 17.4) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 22.8) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 25.1) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 27.8) {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '20,8 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+
+      case 1.17:
+        if (peso < 16.2) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 17.7) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 23.3) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 25.6) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 28.3) {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '21,2 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.18:
+        if (peso < 16.5) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.0) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 23.7) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 26.1) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 28.9) {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '21,6 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.19:
+        if (peso < 16.8) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 26.6) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 29.5) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+      case 1.19:
+        if (peso < 16.8) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 24.1) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 26.6) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 29.5) {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '22 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+        case 1.20:
+        if (peso < 17.1) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Desnutrição Severa', brush: 'red' };
+        } else if (peso < 18.6) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Desnutrição', brush: 'red' };
+        } else if (peso < 24.6) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Normalidade', brush: 'green' };
+        } else if (peso < 27.2) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Risco de Sobrepeso', brush: 'yellow' };
+        } else if (peso < 30.1) {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Sobrepeso', brush: 'red' };
+        } else {
+          return this.obj = { ref: '22,4 kg', text: 'Peso para Estatura: Obesidade', brush: 'red' };
+        }
+
+    }
+  }
 
 }

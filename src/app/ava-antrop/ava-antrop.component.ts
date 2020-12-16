@@ -23,7 +23,8 @@ export class AvaAntropComponent implements OnInit {
 
   // criança menor 5 anos
   public estaturaIdadeCrianc: IObj;
-  public pesoIdadeCrianc: IObj; 
+  public pesoIdadeCrianc: IObj;
+  public pesoEstaturaCrianc: IObj;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,7 +50,7 @@ export class AvaAntropComponent implements OnInit {
       idade: [0, Validators.required],
       sexo: [null],
       altura: [0.00, Validators.required],
-      peso: [0 , Validators.required],
+      peso: [0, Validators.required],
       tipo: [null],
       diagnostico: [null],
       tricepsCrianca: [null],
@@ -66,16 +67,19 @@ export class AvaAntropComponent implements OnInit {
     this.form.valueChanges.subscribe(() => {
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
-         this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
-         this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',','.')))
+          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',', '.')));
+          this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenino(Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.altura.value.toString().replace(',', '.')));
         } else {
-          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
-          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',','.')))
+          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',', '.')));
+          this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenina(Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+
         }
       }
     })
   }
 
-  
+
 
 }

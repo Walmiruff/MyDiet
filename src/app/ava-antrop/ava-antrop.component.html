@@ -149,7 +149,7 @@
                                     <div class="col-sm-2 col-xs-6">
                                         <span id="peso-crianca">12 kg</span>
                                     </div>
-                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span [ngClass]="pesoIdadeCrianc.brush">{{ pesoIdadeCrianc.text }}</span> <span class="label label-danger ml-2">Peso para Estatura: Obesidade</span></div>
+                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span [ngClass]="pesoIdadeCrianc.brush">{{ pesoIdadeCrianc.text }}</span> <span [ngClass]="pesoIdadeCrianc.brush">{{ pesoEstaturaCrianc.text }}</span></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Peso para Idade (Referência)</div>
@@ -160,7 +160,7 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Peso para Estatura (Referência)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="peso-crianca-ref-estatura">2,50 kg</span>
+                                        <span id="peso-crianca-ref-estatura">{{ pesoIdadeCrianc.ref }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
