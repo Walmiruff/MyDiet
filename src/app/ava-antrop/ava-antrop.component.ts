@@ -23,6 +23,7 @@ export class AvaAntropComponent implements OnInit {
 
   // criança menor 5 anos
   public estaturaIdadeCrianc: IObj;
+  public pesoIdadeCrianc: IObj; 
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,10 +46,10 @@ export class AvaAntropComponent implements OnInit {
       id: [null],
       desc: [null],
       dataAtend: [null],
-      idade: [null, Validators.required],
+      idade: [0, Validators.required],
       sexo: [null],
-      altura: [null, Validators.required],
-      peso: [null, Validators.required],
+      altura: [0.00, Validators.required],
+      peso: [0 , Validators.required],
       tipo: [null],
       diagnostico: [null],
       tricepsCrianca: [null],
@@ -66,6 +67,7 @@ export class AvaAntropComponent implements OnInit {
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
+         this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',','.')))
         } else {
           this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
         }

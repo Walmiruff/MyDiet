@@ -51,7 +51,8 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     gPtn: -1,
     gLip: -1,
   }
-
+  public mask: Array<string | RegExp>;
+  
   constructor(
     private formBuilder: FormBuilder,
     private alimentosService: AlimentosService,
@@ -62,6 +63,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     private gastosEnergStore: GastosEnergStore,
     private planAlimStore: PlanAlimStore,
   ) {
+    this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.buildForms();
   }
 

@@ -481,97 +481,97 @@ export class CalcCriancaService {
           return this.obj = { ref: '1,04 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
-        case 51:
-          if (altura < 0.925) {
-            return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.969) {
-            return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 52:
-          if (altura < 0.925) {
-            return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.969) {
-            return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 53:
-          if (altura < 0.93) {
-            return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.974) {
-            return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 54:
-          if (altura < 0.934) {
-            return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.978) {
-            return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-  
-        case 55:
-          if (altura < 0.939) {
-            return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.983) {
-            return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 56:
-          if (altura < 0.943) {
-            return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.988) {
-            return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-  
-        case 57:
-          if (altura < 0.947) {
-            return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.993) {
-            return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 58:
-          if (altura < 0.952) {
-            return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.997) {
-            return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 59:
-          if (altura < 0.956) {
-            return this.obj = { ref: '1,09 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 1.0) {
-            return this.obj = { ref: '1,09 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,09 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 60:
-          if (altura < 0.961) {
-            return this.obj = { ref: '1,10 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 1.0) {
-            return this.obj = { ref: '1,10 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,10 m', text: 'Estatura Adequada', brush: 'green' };
-          }
+      case 51:
+        if (altura < 0.925) {
+          return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.969) {
+          return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 52:
+        if (altura < 0.925) {
+          return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.969) {
+          return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 53:
+        if (altura < 0.93) {
+          return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.974) {
+          return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 54:
+        if (altura < 0.934) {
+          return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.978) {
+          return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+
+      case 55:
+        if (altura < 0.939) {
+          return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.983) {
+          return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 56:
+        if (altura < 0.943) {
+          return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.988) {
+          return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+
+      case 57:
+        if (altura < 0.947) {
+          return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.993) {
+          return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 58:
+        if (altura < 0.952) {
+          return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.997) {
+          return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 59:
+        if (altura < 0.956) {
+          return this.obj = { ref: '1,09 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 1.0) {
+          return this.obj = { ref: '1,09 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,09 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 60:
+        if (altura < 0.961) {
+          return this.obj = { ref: '1,10 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 1.0) {
+          return this.obj = { ref: '1,10 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,10 m', text: 'Estatura Adequada', brush: 'green' };
+        }
     }
   }
 
@@ -1046,98 +1046,127 @@ export class CalcCriancaService {
           return this.obj = { ref: '1,03 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
-        case 51:
-          if (altura < 0.912) {
-            return this.obj = { ref: '1,04 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.956) {
-            return this.obj = { ref: '1,04 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,04 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 52:
-          if (altura < 0.917) {
-            return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.961) {
-            return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 53:
-          if (altura < 0.921) {
-            return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.966) {
-            return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 54:
-          if (altura < 0.926) {
-            return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.971) {
-            return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-  
-        case 55:
-          if (altura < 0.93) {
-            return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.976) {
-            return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 56:
-          if (altura < 0.934) {
-            return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.981) {
-            return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-  
-        case 57:
-          if (altura < 0.939) {
-            return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.985) {
-            return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 58:
-          if (altura < 0.943) {
-            return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.99) {
-            return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 59:
-          if (altura < 0.947) {
-            return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.995) {
-            return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
-          }
-  
-        case 60:
-          if (altura < 0.952) {
-            return this.obj = { ref: '1,09 m', text: 'Muito baixa estatura para idade', brush: 'red' };
-          } else if (altura < 0.999) {
-            return this.obj = { ref: '1,09 m', text: 'Baixa Estatura', brush: 'red' };
-          } else {
-            return this.obj = { ref: '1,09 m', text: 'Estatura Adequada', brush: 'green' };
-          }
+      case 51:
+        if (altura < 0.912) {
+          return this.obj = { ref: '1,04 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.956) {
+          return this.obj = { ref: '1,04 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,04 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 52:
+        if (altura < 0.917) {
+          return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.961) {
+          return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 53:
+        if (altura < 0.921) {
+          return this.obj = { ref: '1,05 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.966) {
+          return this.obj = { ref: '1,05 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,05 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 54:
+        if (altura < 0.926) {
+          return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.971) {
+          return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+
+      case 55:
+        if (altura < 0.93) {
+          return this.obj = { ref: '1,06 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.976) {
+          return this.obj = { ref: '1,06 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,06 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 56:
+        if (altura < 0.934) {
+          return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.981) {
+          return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+
+      case 57:
+        if (altura < 0.939) {
+          return this.obj = { ref: '1,07 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.985) {
+          return this.obj = { ref: '1,07 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,07 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 58:
+        if (altura < 0.943) {
+          return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.99) {
+          return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 59:
+        if (altura < 0.947) {
+          return this.obj = { ref: '1,08 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.995) {
+          return this.obj = { ref: '1,08 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,08 m', text: 'Estatura Adequada', brush: 'green' };
+        }
+
+      case 60:
+        if (altura < 0.952) {
+          return this.obj = { ref: '1,09 m', text: 'Muito baixa estatura para idade', brush: 'red' };
+        } else if (altura < 0.999) {
+          return this.obj = { ref: '1,09 m', text: 'Baixa Estatura', brush: 'red' };
+        } else {
+          return this.obj = { ref: '1,09 m', text: 'Estatura Adequada', brush: 'green' };
+        }
     }
   }
+
+  public pesoIdadeMenino(idade: number, peso: number): IObj {
+    switch (idade) {
+      case 0:
+        if (peso < 2.1) {
+          return this.obj = { ref: '3,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 2.5) {
+          return this.obj = { ref: '3,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 2.9) {
+          return this.obj = { ref: '3,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '3,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+        case 1:
+        if (peso < 2.9) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 3.4) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 5.1) {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '4,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+      
+      
+      }
+    }
+
 
 }

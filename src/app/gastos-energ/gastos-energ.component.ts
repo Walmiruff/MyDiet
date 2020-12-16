@@ -422,21 +422,21 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
 
 
   public TMB_HBfem(): number {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
     const idade = this.formularioPrincipal.get('idade').value;
     return this.TMB = 655.1 + (9.563 * peso) + (1.85 * altura * 100) - (4.676 * idade);
   }
 
   public TMB_HBmasc(): number {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
     const idade = this.formularioPrincipal.get('idade').value;
     return this.TMB = 66.47 + (13.75 * peso) + (5 * altura * 100) - (6.755 * idade);
   }
 
   public TMB_Faomasc(): number {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     const idade = this.formularioPrincipal.get('idade').value;
     switch (idade) {
       case idade < 3:
@@ -455,7 +455,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   public TMB_Faofem(): number {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     const idade = this.formularioPrincipal.get('idade').value;
     switch (idade) {
       case idade < 3:
@@ -474,7 +474,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   public DRIeer(af: number) {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     const idade = this.formularioPrincipal.get('idade').value;
     const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
     const sexo = this.formularioPrincipal.get('sexo').value;
@@ -513,7 +513,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   public DRItee(af: number) {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     const idade = this.formularioPrincipal.get('idade').value;
     const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
     const sexo = this.formularioPrincipal.get('sexo').value;
@@ -551,7 +551,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   public regraBolso(): void {
-    const peso = this.formularioPrincipal.get('peso').value;
+    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
     if (peso !== null && peso !== '0') {
       this.regraBolsoObj.perdaPeso = `${peso * 20} Kcal - ${peso * 25} Kcal`;
       this.regraBolsoObj.manutPeso = `${peso * 25} Kcal - ${peso * 30} Kcal`;
@@ -563,7 +563,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     const patiente = {
       idade: this.formularioPrincipal.get('idade').value,
       altura: this.formularioPrincipal.get('altura').value,
-      peso: this.formularioPrincipal.get('peso').value,
+      peso: this.formularioPrincipal.get('peso').value.toString().replace(',', '.'),
       sexo: this.formularioPrincipal.get('sexo').value,
     };
     this.patienteStore.set(patiente);
