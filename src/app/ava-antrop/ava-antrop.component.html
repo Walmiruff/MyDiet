@@ -147,9 +147,9 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Peso Atual</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="peso-crianca">12 kg</span>
+                                        <span id="peso-crianca">{{ form.controls.peso.value  }} kg</span>
                                     </div>
-                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span [ngClass]="pesoIdadeCrianc.brush">{{ pesoIdadeCrianc.text }}</span> <span [ngClass]="pesoIdadeCrianc.brush">{{ pesoEstaturaCrianc.text }}</span></div>
+                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span [ngClass]="pesoIdadeCrianc.brush">{{ pesoIdadeCrianc.text }}</span> <span class="ml-2" [ngClass]="pesoEstaturaCrianc?.brush">{{ pesoEstaturaCrianc?.text }}</span></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Peso para Idade (Referência)</div>
@@ -160,13 +160,13 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Peso para Estatura (Referência)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="peso-crianca-ref-estatura">{{ pesoIdadeCrianc.ref }}</span>
+                                        <span id="peso-crianca-ref-estatura">{{ pesoEstaturaCrianc?.ref }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Estatura Atual</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="estatura-crianca">0,45 m</span>
+                                        <span id="estatura-crianca">{{ form.controls.altura.value}} m</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
                                         <span id="estatura-crianca-classif"  [ngClass]="estaturaIdadeCrianc.brush">{{ estaturaIdadeCrianc.text }}</span>
@@ -181,16 +181,16 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">IMC (Atual)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="imc-crianca">59,26</span>
+                                        <span id="imc-crianca">{{ imcCrianc.imc | replace: ''}}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="imc-crianca-classif" class="label label-danger">Obesidade</span>
+                                        <span id="imc-crianca-classif" [ngClass]="imcCrianc.brush">{{ imcCrianc.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">IMC (Referência)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="imc-crianca-ref">15,30</span>
+                                        <span id="imc-crianca-ref">{{ imcCrianc.ref }}</span>
                                     </div>
                                 </div>
                             </div>

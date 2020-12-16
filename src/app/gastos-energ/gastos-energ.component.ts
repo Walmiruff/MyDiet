@@ -563,7 +563,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     const patiente = {
       idade: this.formularioPrincipal.get('idade').value,
       altura: this.formularioPrincipal.get('altura').value,
-      peso: this.formularioPrincipal.get('peso').value.toString().replace(',', '.'),
+      peso: this.formularioPrincipal.get('peso').value,
       sexo: this.formularioPrincipal.get('sexo').value,
     };
     this.patienteStore.set(patiente);
