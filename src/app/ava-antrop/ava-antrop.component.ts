@@ -66,6 +66,8 @@ export class AvaAntropComponent implements OnInit {
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
+        } else {
+          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
         }
       }
     })
