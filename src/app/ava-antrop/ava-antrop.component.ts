@@ -70,6 +70,7 @@ export class AvaAntropComponent implements OnInit {
          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',','.')))
         } else {
           this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
+          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',','.')))
         }
       }
     })

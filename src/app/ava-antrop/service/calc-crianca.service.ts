@@ -1153,7 +1153,7 @@ export class CalcCriancaService {
           return this.obj = { ref: '3,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
         }
 
-        case 1:
+      case 1:
         if (peso < 2.9) {
           return this.obj = { ref: '4,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
         } else if (peso < 3.4) {
@@ -1163,10 +1163,1332 @@ export class CalcCriancaService {
         } else {
           return this.obj = { ref: '4,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
         }
-      
-      
-      }
+
+      case 2:
+        if (peso < 3.8) {
+          return this.obj = { ref: '5,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 4.3) {
+          return this.obj = { ref: '5,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 6.3) {
+          return this.obj = { ref: '5,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '5,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 3:
+        if (peso < 4.4) {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 5) {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 7.2) {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 4:
+        if (peso < 4.9) {
+          return this.obj = { ref: '7,0 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 5.6) {
+          return this.obj = { ref: '7,0 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 7.8) {
+          return this.obj = { ref: '7,0 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '7,0 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 5:
+        if (peso < 5.3) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '7,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 6:
+        if (peso < 5.7) {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.4) {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 8.8) {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 7:
+        if (peso < 5.9) {
+          return this.obj = { ref: '8,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.7) {
+          return this.obj = { ref: '8,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '8,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 8:
+        if (peso < 6.2) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.9) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9.6) {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 9:
+        if (peso < 6.4) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.1) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9.9) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 10:
+        if (peso < 6.6) {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.2) {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 11:
+        if (peso < 6.8) {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.6) {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 12:
+        if (peso < 6.9) {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.7) {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 13:
+        if (peso < 7.1) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.9) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11) {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 14:
+        if (peso < 7.2) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.1) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 15:
+        if (peso < 7.4) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.3) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 16:
+        if (peso < 7.5) {
+          return this.obj = { ref: '10,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '10,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.7) {
+          return this.obj = { ref: '10,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 17:
+        if (peso < 7.7) {
+          return this.obj = { ref: '10,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '10,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12) {
+          return this.obj = { ref: '10,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 18:
+        if (peso < 7.8) {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.8) {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 19:
+        if (peso < 8) {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 20:
+        if (peso < 8.1) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.1) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.7) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 21:
+        if (peso < 8.2) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.9) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 22:
+        if (peso < 8.4) {
+          return this.obj = { ref: '11,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '11,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.2) {
+          return this.obj = { ref: '11,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 23:
+        if (peso < 8.5) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.5) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.4) {
+          return this.obj = { ref: '12 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 24:
+        if (peso < 8.6) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.7) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 25:
+        if (peso < 8.8) {
+          return this.obj = { ref: '12,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.8) {
+          return this.obj = { ref: '12,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.9) {
+          return this.obj = { ref: '12,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 26:
+        if (peso < 8.9) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 27:
+        if (peso < 9) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.1) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.3) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 28:
+        if (peso < 9.1) {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.2) {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.5) {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 29:
+        if (peso < 9.2) {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.4) {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.8) {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 30:
+        if (peso < 9.4) {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15) {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 31:
+        if (peso < 9.5) {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.7) {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.2) {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 32:
+        if (peso < 9.6) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.4) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 33:
+        if (peso < 9.7) {
+          return this.obj = { ref: '13,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '13,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.6) {
+          return this.obj = { ref: '13,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 34:
+        if (peso < 9.8) {
+          return this.obj = { ref: '14,0 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11) {
+          return this.obj = { ref: '14,0 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.8) {
+          return this.obj = { ref: '14,0 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,0 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 35:
+        if (peso < 9.9) {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.2) {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16) {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 36:
+        if (peso < 10) {
+          return this.obj = { ref: '14,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '14,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.2) {
+          return this.obj = { ref: '14,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 37:
+        if (peso < 10.1) {
+          return this.obj = { ref: '14,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.4) {
+          return this.obj = { ref: '14,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.4) {
+          return this.obj = { ref: '14,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 38:
+        if (peso < 10.2) {
+          return this.obj = { ref: '14,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '14,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.6) {
+          return this.obj = { ref: '14,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 39:
+        if (peso < 10.3) {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.6) {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.8) {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 40:
+        if (peso < 10.4) {
+          return this.obj = { ref: '15 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '15 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17) {
+          return this.obj = { ref: '15 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 41:
+        if (peso < 10.5) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.9) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.2) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 42:
+        if (peso < 10.6) {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12) {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.4) {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 43:
+        if (peso < 10.7) {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.1) {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 44:
+        if (peso < 10.8) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.8) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 45:
+        if (peso < 10.9) {
+          return this.obj = { ref: '15,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.4) {
+          return this.obj = { ref: '15,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18) {
+          return this.obj = { ref: '15,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 46:
+        if (peso < 11) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.2) {
+          return this.obj = { ref: '16 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 47:
+        if (peso < 11.1) {
+          return this.obj = { ref: '16,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.6) {
+          return this.obj = { ref: '16,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.4) {
+          return this.obj = { ref: '16,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 48:
+        if (peso < 11.2) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.7) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.6) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 49:
+        if (peso < 11.3) {
+          return this.obj = { ref: '16,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '16,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.8) {
+          return this.obj = { ref: '16,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 50:
+        if (peso < 11.4) {
+          return this.obj = { ref: '16,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.9) {
+          return this.obj = { ref: '16,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19) {
+          return this.obj = { ref: '16,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 51:
+        if (peso < 11.5) {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.1) {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.2) {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 52:
+        if (peso < 11.6) {
+          return this.obj = { ref: '17 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.2) {
+          return this.obj = { ref: '17 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.4) {
+          return this.obj = { ref: '17 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 53:
+        if (peso < 11.7) {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.6) {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 54:
+        if (peso < 11.8) {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.4) {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.8) {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 55:
+        if (peso < 11.9) {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.5) {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20) {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 56:
+        if (peso < 12) {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.2) {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 57:
+        if (peso < 12.1) {
+          return this.obj = { ref: '17,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.7) {
+          return this.obj = { ref: '17,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.4) {
+          return this.obj = { ref: '17,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 58:
+        if (peso < 12.2) {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.8) {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.6) {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 59:
+        if (peso < 12.3) {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 14) {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.8) {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 60:
+        if (peso < 12.4) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 14.1) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 21) {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '18,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
     }
+  }
+
+    public pesoIdadeMenina(idade: number, peso: number): IObj {
+    switch (idade) {
+      case 0:
+        if (peso < 2) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 2.4) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 3.7) {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '3,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 1:
+        if (peso < 2.7) {
+          return this.obj = { ref: '4,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 3.2) {
+          return this.obj = { ref: '4,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 4.8) {
+          return this.obj = { ref: '4,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '4,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 2:
+        if (peso < 3.4) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 3.9) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 5.8) {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '5,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 3:
+        if (peso < 4) {
+          return this.obj = { ref: '5,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 4.5) {
+          return this.obj = { ref: '5,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 6.6) {
+          return this.obj = { ref: '5,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '5,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 4:
+        if (peso < 4.4) {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 5) {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 7.3) {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '6,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 5:
+        if (peso < 4.8) {
+          return this.obj = { ref: '6,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 5.4) {
+          return this.obj = { ref: '6,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 7.8) {
+          return this.obj = { ref: '6,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '6,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 6:
+        if (peso < 5.1) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 5.7) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 8.2) {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '7,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 7:
+        if (peso < 5.3) {
+          return this.obj = { ref: '7,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6) {
+          return this.obj = { ref: '7,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '7,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '7,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 8:
+        if (peso < 5.6) {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.3) {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9) {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '7,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 9:
+        if (peso < 5.8) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.5) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9.3) {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 10:
+        if (peso < 5.9) {
+          return this.obj = { ref: '8,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.7) {
+          return this.obj = { ref: '8,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9.6) {
+          return this.obj = { ref: '8,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 11:
+        if (peso < 6.1) {
+          return this.obj = { ref: '8,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 6.9) {
+          return this.obj = { ref: '8,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 9.9) {
+          return this.obj = { ref: '8,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 12:
+        if (peso < 6.3) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.1) {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '8,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 13:
+        if (peso < 6.4) {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.2) {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.4) {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 14:
+        if (peso < 6.6) {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.4) {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.6) {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 15:
+        if (peso < 6.7) {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.6) {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 16:
+        if (peso < 6.9) {
+          return this.obj = { ref: '9,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.7) {
+          return this.obj = { ref: '9,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.1) {
+          return this.obj = { ref: '9,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '9,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 17:
+        if (peso < 7) {
+          return this.obj = { ref: '10 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 7.9) {
+          return this.obj = { ref: '10 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.4) {
+          return this.obj = { ref: '10 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 18:
+        if (peso < 7.2) {
+          return this.obj = { ref: '10,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.1) {
+          return this.obj = { ref: '10,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.6) {
+          return this.obj = { ref: '10,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 19:
+        if (peso < 7.3) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.2) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 20:
+        if (peso < 7.5) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.4) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.1) {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 21:
+        if (peso < 7.6) {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.6) {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.3) {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '10,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 22:
+        if (peso < 7.8) {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.7) {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.5) {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 23:
+        if (peso < 7.9) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 8.9) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 24:
+        if (peso < 8.1) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13) {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 25:
+        if (peso < 8.2) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.2) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 26:
+        if (peso < 8.4) {
+          return this.obj = { ref: '11,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.4) {
+          return this.obj = { ref: '11,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.5) {
+          return this.obj = { ref: '11,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '11,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 27:
+        if (peso < 8.5) {
+          return this.obj = { ref: '12,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.5) {
+          return this.obj = { ref: '12,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 13.7) {
+          return this.obj = { ref: '12,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 28:
+        if (peso < 8.6) {
+          return this.obj = { ref: '12,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.7) {
+          return this.obj = { ref: '12,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14) {
+          return this.obj = { ref: '12,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 29:
+        if (peso < 8.8) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 9.8) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.2) {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 30:
+        if (peso < 8.9) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.4) {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 31:
+        if (peso < 9) {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.1) {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.7) {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '12,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 32:
+        if (peso < 9.1) {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.3) {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 14.9) {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 33:
+        if (peso < 9.3) {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.4) {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.1) {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 34:
+        if (peso < 9.4) {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.5) {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.4) {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 35:
+        if (peso < 9.5) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.7) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.6) {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 36:
+        if (peso < 9.6) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.8) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 15.8) {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '13,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 37:
+        if (peso < 9.7) {
+          return this.obj = { ref: '14 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 10.9) {
+          return this.obj = { ref: '14 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16) {
+          return this.obj = { ref: '14 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 38:
+        if (peso < 9.8) {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.1) {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.3) {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 39:
+        if (peso < 9.9) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.2) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.5) {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 40:
+        if (peso < 10.1) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.3) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.7) {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 41:
+        if (peso < 10.2) {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.5) {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 16.9) {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '14,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 42:
+        if (peso < 10.3) {
+          return this.obj = { ref: '15,0 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.6) {
+          return this.obj = { ref: '15,0 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.2) {
+          return this.obj = { ref: '15,0 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,0 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 43:
+        if (peso < 10.4) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.7) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.4) {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 44:
+        if (peso < 10.5) {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 11.8) {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.6) {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 45:
+        if (peso < 10.6) {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12) {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 17.8) {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 46:
+        if (peso < 10.7) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.1) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.1) {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 47:
+        if (peso < 10.8) {
+          return this.obj = { ref: '15,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.2) {
+          return this.obj = { ref: '15,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.3) {
+          return this.obj = { ref: '15,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '15,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 48:
+        if (peso < 10.9) {
+          return this.obj = { ref: '16,1 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.3) {
+          return this.obj = { ref: '16,1 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.5) {
+          return this.obj = { ref: '16,1 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,1 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 49:
+        if (peso < 11) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.4) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 18.8) {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 50:
+        if (peso < 11.1) {
+          return this.obj = { ref: '16,4 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.6) {
+          return this.obj = { ref: '16,4 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19) {
+          return this.obj = { ref: '16,4 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,4 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 51:
+        if (peso < 11.2) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.7) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.2) {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,6 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 52:
+        if (peso < 11.3) {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.8) {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.4) {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '16,8 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 53:
+        if (peso < 11.4) {
+          return this.obj = { ref: '17,0 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 12.9) {
+          return this.obj = { ref: '17,0 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.7) {
+          return this.obj = { ref: '17,0 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,0 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 54:
+        if (peso < 11.5) {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13) {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 19.9) {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 55:
+        if (peso < 11.6) {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.2) {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.1) {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,3 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 56:
+        if (peso < 11.7) {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.3) {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.3) {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,5 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 57:
+        if (peso < 11.8) {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.4) {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.6) {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,7 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 58:
+        if (peso < 11.9) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.5) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 20.8) {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '17,9 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 59:
+        if (peso < 12) {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.6) {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 21) {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '18 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+
+      case 60:
+        if (peso < 12.1) {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Muito Baixo', brush: 'red' };
+        } else if (peso < 13.7) {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Baixo', brush: 'red' };
+        } else if (peso < 21.2) {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Adequado', brush: 'green' };
+        } else {
+          return this.obj = { ref: '18,2 kg', text: 'Peso para Idade: Elevado', brush: 'red' };
+        }
+    }
+  }
 
 
 }
