@@ -4,7 +4,8 @@ import { filter, tap, take, switchMap } from 'rxjs/operators';
 
 import { constDiagnosticos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
-import { CalcService } from './service/calc.service';
+import { CalcCriancaService } from './service/calc-crianca.service';
+import { IObj } from '../shared/models/obj.model';
 
 @Component({
   selector: 'app-ava-antrop',
@@ -21,12 +22,12 @@ export class AvaAntropComponent implements OnInit {
   public diagnosticos = constDiagnosticos[0];
 
   // criança menor 5 anos
-  public estaturaIdadeReferenciaCriancaMenor: string;
+  public estaturaIdadeCrianc: IObj;
 
   constructor(
     private formBuilder: FormBuilder,
     private patienteStore: PatientStore,
-    private calcService: CalcService
+    private calcCriancaService: CalcCriancaService
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.maskNumber = [/\d+/, /\d+/, /\d+/];
@@ -59,9 +60,12 @@ export class AvaAntropComponent implements OnInit {
     this.form.controls.tipo.valueChanges.subscribe(valor => {
       this.diagnosticos = constDiagnosticos[valor];
       this.form.controls.diagnostico.patchValue(null);
-      if (valor == 0) {
+    });
+
+    this.form.valueChanges.subscribe(() => {
+      if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
-          this.calcService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value));
+         this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',','.')));
         }
       }
     })

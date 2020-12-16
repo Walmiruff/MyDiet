@@ -169,13 +169,13 @@
                                         <span id="estatura-crianca">0,45 m</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="estatura-crianca-classif" class="label label-danger">Baixa estatura para a idade</span>
+                                        <span id="estatura-crianca-classif"  [ngClass]="estaturaIdadeCrianc.brush">{{ estaturaIdadeCrianc.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Estatura para Idade (Referência)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="estatura-crianca-ref">{{ estaturaIdadeReferenciaCriancaMenor }}</span>
+                                        <span id="estatura-crianca-ref">{{ estaturaIdadeCrianc.ref }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
