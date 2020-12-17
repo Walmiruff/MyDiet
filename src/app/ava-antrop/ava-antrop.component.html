@@ -138,10 +138,10 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Percentual de Gordura</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="gordura-crianca">&gt; 35,5%</span>
+                                        <span id="gordura-crianca">{{ gordCrianc.ref }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="gordura-crianca-classif" class="label label-danger">Muito Alta</span>
+                                        <span id="gordura-crianca-classif" [ngClass]="gordCrianc.brush">{{ gordCrianc.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">

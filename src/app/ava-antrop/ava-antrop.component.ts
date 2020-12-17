@@ -26,6 +26,7 @@ export class AvaAntropComponent implements OnInit {
   public pesoIdadeCrianc: IObj;
   public pesoEstaturaCrianc: IObj;
   public imcCrianc: IObj;
+  public gordCrianc: IObj;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -78,8 +79,43 @@ export class AvaAntropComponent implements OnInit {
           this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenina(Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.altura.value.toString().replace(',', '.')));
           this.imcCrianc = this.calcCriancaService.imcMenina(Number(this.form.controls.altura.value.toString().replace(',', '.')), Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.idade.value));
         }
+        this.calgordCrianc();
       }
     })
+  }
+
+  public calgordCrianc(): void {
+    if (this.form.controls.tricepsCrianca.value !== null && this.form.controls.subescapularCrianca.value !== null) {
+      let BF;
+      let sum = this.form.controls.tricepsCrianca.value + this.form.controls.subescapularCrianca.value;
+      if (sum < 35) {
+        BF = 1.33 * (sum) - 0.013 * (sum * sum) - 2.5
+      } else {
+        BF = 0.546 * (sum) + 9.7
+      }
+
+      if (this.form.controls.tricepsCrianca.value === 'M') {
+        if (BF < 10 ) {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Baixo', brush:'red' };
+        } else if (BF < 20) {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Normal', brush:'green' };
+        } else if (BF < 25) {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Moderadamente Alto', brush:'yellow' };
+        } else {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Alto', brush:'red' };
+        }
+      } else {
+        if (BF < 15 ) {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Baixo', brush:'red' };
+        } else if (BF < 25) {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Normal', brush:'green' };
+        } else if (BF < 30) {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Moderadamente Alto', brush:'yellow' };
+        } else {
+          this.gordCrianc = { ref: `${BF}%`, text: 'Alto', brush:'red' };
+        }
+      }
+    }
   }
 
 
