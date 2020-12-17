@@ -130,7 +130,7 @@
                             <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between">
                                     <label class="strong-class">Resultado</label>
-                                    <p>Referência: <a>OMS (2006)</a></p>
+                                    <p class="reference">Referência: <a href="https://www.who.int/tools/child-growth-standards" target="_blank">OMS (2006)</a></p>
                                 </div>
                             </div>
                             <hr>
@@ -138,10 +138,10 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Percentual de Gordura</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="gordura-crianca">{{ gordCrianc.ref }}</span>
+                                        <span id="gordura-crianca">{{ gordCrianc?.ref | replace : '%' }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="gordura-crianca-classif" [ngClass]="gordCrianc.brush">{{ gordCrianc.text }}</span>
+                                        <span id="gordura-crianca-classif" [ngClass]="gordCrianc?.brush">{{ gordCrianc?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -181,16 +181,16 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">IMC (Atual)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="imc-crianca">{{ imcCrianc.imc | replace: ''}}</span>
+                                        <span id="imc-crianca">{{ imcCrianc?.imc | replace: ''}}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="imc-crianca-classif" [ngClass]="imcCrianc.brush">{{ imcCrianc.text }}</span>
+                                        <span id="imc-crianca-classif" [ngClass]="imcCrianc?.brush">{{ imcCrianc?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">IMC (Referência)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="imc-crianca-ref">{{ imcCrianc.ref }}</span>
+                                        <span id="imc-crianca-ref">{{ imcCrianc?.ref }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                             <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between">
                                     <label class="strong-class">Resultado</label>
-                                    <p>Referência: <a>OMS (2007)</a></p>
+                                    <p class="reference">Referência: <a href="https://www.who.int/tools/child-growth-standards" target="_blank">OMS (2007)</a></p>
                                 </div>
                             </div>
                             <hr>
@@ -207,16 +207,16 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Estatura Atual</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="estatura-adolescente">1,80 m</span>
+                                        <span id="estatura-adolescente">{{ form.controls.altura.value}} m</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="estatura-adolescente-classif" class="label label-danger">110,46 % - Muito Alta Estatura para a Idade</span>
+                                        <span id="estatura-adolescente-classif" class="estaturaIdadeAdol?.brush">{{ estaturaIdadeAdol?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Estatura para Idade (Referência)</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="estatura-adolescente-ref">1,63 m</span>
+                                        <span id="estatura-adolescente-ref">{{ estaturaIdadeAdol?.ref }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">

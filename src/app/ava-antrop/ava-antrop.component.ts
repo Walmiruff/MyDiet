@@ -5,6 +5,7 @@ import { filter, tap, take, switchMap } from 'rxjs/operators';
 import { constDiagnosticos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
 import { CalcCriancaService } from './service/calc-crianca.service';
+import { CalcAdolService } from './service/calc-adol.service';
 import { IObj } from '../shared/models/obj.model';
 
 @Component({
@@ -28,10 +29,14 @@ export class AvaAntropComponent implements OnInit {
   public imcCrianc: IObj;
   public gordCrianc: IObj;
 
+  // adolescente
+  public estaturaIdadeAdol: IObj;
+
   constructor(
     private formBuilder: FormBuilder,
     private patienteStore: PatientStore,
-    private calcCriancaService: CalcCriancaService
+    private calcCriancaService: CalcCriancaService,
+    private calcAdolService: CalcAdolService,
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.maskNumber = [/\d+/, /\d+/, /\d+/];
@@ -80,6 +85,14 @@ export class AvaAntropComponent implements OnInit {
           this.imcCrianc = this.calcCriancaService.imcMenina(Number(this.form.controls.altura.value.toString().replace(',', '.')), Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.idade.value));
         }
         this.calgordCrianc();
+      } else if (this.form.controls.tipo.value == 1) {
+        if (this.form.controls.sexo.value == 'M') { 
+          this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+        } else {
+          this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+        }
+      } else if (this.form.controls.tipo.value == 2) {
+
       }
     })
   }
@@ -96,23 +109,23 @@ export class AvaAntropComponent implements OnInit {
 
       if (this.form.controls.tricepsCrianca.value === 'M') {
         if (BF < 10 ) {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Baixo', brush:'red' };
+          this.gordCrianc = { ref: BF, text: 'Baixo', brush:'red' };
         } else if (BF < 20) {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Normal', brush:'green' };
+          this.gordCrianc = { ref: BF, text: 'Normal', brush:'green' };
         } else if (BF < 25) {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Moderadamente Alto', brush:'yellow' };
+          this.gordCrianc = { ref: BF, text: 'Moderadamente Alto', brush:'yellow' };
         } else {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Alto', brush:'red' };
+          this.gordCrianc = { ref: BF, text: 'Alto', brush:'red' };
         }
       } else {
         if (BF < 15 ) {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Baixo', brush:'red' };
+          this.gordCrianc = { ref: BF, text: 'Baixo', brush:'red' };
         } else if (BF < 25) {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Normal', brush:'green' };
+          this.gordCrianc = { ref: BF, text: 'Normal', brush:'green' };
         } else if (BF < 30) {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Moderadamente Alto', brush:'yellow' };
+          this.gordCrianc = { ref: BF, text: 'Moderadamente Alto', brush:'yellow' };
         } else {
-          this.gordCrianc = { ref: `${BF}%`, text: 'Alto', brush:'red' };
+          this.gordCrianc = { ref: BF, text: 'Alto', brush:'red' };
         }
       }
     }
