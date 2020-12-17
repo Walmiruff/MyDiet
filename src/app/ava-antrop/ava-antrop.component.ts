@@ -76,7 +76,7 @@ export class AvaAntropComponent implements OnInit {
           this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
           this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',', '.')));
           this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenina(Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.altura.value.toString().replace(',', '.')));
-
+          this.imcCrianc = this.calcCriancaService.imcMenina(Number(this.form.controls.altura.value.toString().replace(',', '.')), Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.idade.value));
         }
       }
     })
