@@ -108,8 +108,9 @@
                 </div>
 
                 <div class="col-md-7">
-                    <div [ngSwitch]="form.controls.tipo.value">
-                        <div *ngSwitchCase="0">
+                    <div
+                        [hidden]="form.controls.tipo.value !== '0' && form.controls.tipo.value !== '1' && form.controls.tipo.value !== '2'">
+                        <div [hidden]="form.controls.tipo.value === '1' || form.controls.tipo.value === '2'">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label class="strong-class">Pregas Cutâneas</label>
@@ -207,7 +208,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div *ngSwitchCase="1">
+                        <div [hidden]="form.controls.tipo.value === '0' || form.controls.tipo.value === '2'">
                             <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between">
                                     <label class="strong-class">Resultado</label>
@@ -254,8 +255,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div *ngSwitchCase="2" [formGroup]="form">
-                            <div class="row">
+                        <div [hidden]="form.controls.tipo.value === '0' || form.controls.tipo.value === '1'">
+                            <div class="row" [formGroup]="form">
                                 <div class="col-sm-12 d-flex justify-content-between">
                                     <label class="strong-class">Circunferências</label>
                                 </div>
@@ -413,8 +414,20 @@
                             </div>
                             <hr>
                             <div class="row mb-4">
-                                <div class="col-sm-12">
-                                    <label class="strong-class">Protocolo</label>
+                                <div class="col-sm-12 mb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <label class="strong-class-2 mr-3">Protocolo</label>
+                                        <span class="reference">
+                                          <p *ngIf="form.controls.protocolo.value === '0'">3 Pregas: Jackson & Pollock(1978 - Homens 18 a 61 anos)</p>
+                                          <p *ngIf="form.controls.protocolo.value === '1'">3 Pregas: Jackson & Pollock(1980 - Mulheres 18 a 55 anos)</p>
+                                           <p *ngIf="form.controls.protocolo.value === '2'">3 Pregas: Guedes(1985 - Homens de 17 a 27 anos)</p>
+                                           <p *ngIf="form.controls.protocolo.value === '3'">3 Pregas: Guedes(1985 - Mulheres de 17 a 29 anos)</p>
+                                           <p *ngIf="form.controls.protocolo.value === '4'">4 Pregas: Durnin & Womersley(1974 - Homens de 17 a 72 anos e Mulheres de 16 a 68 anos.</p>
+                                           <p *ngIf="form.controls.protocolo.value === '5'">4 pregas: Protocolo de Faulkner(1968)</p>
+                                           <p *ngIf="form.controls.protocolo.value === '6'">7 Pregas: Protocolo de Jackson, Pollock & Ward(1978 - Homens de 18 a 61 anos/
+                                            1980 - Mulheres de 18 a 55 anos)</p>
+                                        </span>
+                                    </div>
                                     <select class="form-control" formControlName="protocolo" id="protocolo">
                                         <option value="0" selected="">3 Pregas: Protocolo de Jackson &amp; Pollock -
                                             Homem</option>
@@ -424,19 +437,30 @@
                                         <option value="4">4 Pregas: Protocolo de Durnin &amp; Womersley</option>
                                         <option value="5">4 Pregas: Protocolo de Faulkner</option>
                                         <option value="6">7 Pregas: Protocolo de Jackson, Pollock &amp; Ward</option>
-                                        <option value="7">Bioimpedância</option>
+                                        <!-- <option value="7">Bioimpedância</option> -->
                                     </select>
                                 </div>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <label for="biceps" class="strong-class-2">Bíceps</label>
+                                    <ng-container *ngIf="form.controls.protocolo.value === '4'; else elseTemplateBi">
+                                        <label class="strong-class-3">Bíceps*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateBi>
+                                        <label class="strong-class-2">Bíceps</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="biceps"
                                         id="biceps" placeholder="centímetros">
                                 </div>
                                 <div class="col-6">
-                                    <label for="abdominal" class="strong-class-2">Abdominal</label>
+                                    <ng-container
+                                        *ngIf="form.controls.protocolo.value === '6' || form.controls.protocolo.value === '5' || form.controls.protocolo.value === '2' || form.controls.protocolo.value === '0'; else elseTemplateAb">
+                                        <label class="strong-class-3">Abdominal*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateAb>
+                                        <label class="strong-class-2">Abdominal</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="abdominal"
                                         id="abdominal" placeholder="centímetros">
                                 </div>
@@ -444,12 +468,24 @@
 
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <label for="triceps" class="strong-class-2">Tríceps</label>
+                                    <ng-container
+                                        *ngIf="form.controls.protocolo.value === '6' || form.controls.protocolo.value === '5' || form.controls.protocolo.value === '4' || form.controls.protocolo.value === '2' || form.controls.protocolo.value === '1'; else elseTemplateTr">
+                                        <label for="triceps" class="strong-class-3">Tríceps*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateTr>
+                                        <label class="strong-class-2">Tríceps</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="triceps"
                                         id="triceps" placeholder="centímetros">
                                 </div>
                                 <div class="col-6">
-                                    <label for="suprailiaca" class="strong-class-2">Suprailíaca</label>
+                                    <ng-container
+                                        *ngIf="form.controls.protocolo.value === '6' || form.controls.protocolo.value === '5' || form.controls.protocolo.value === '4' || form.controls.protocolo.value === '3' || form.controls.protocolo.value === '2' || form.controls.protocolo.value === '1'; else elseTemplateSup">
+                                        <label class="strong-class-3">Suprailíaca*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateSup>
+                                        <label class="strong-class-2">Suprailíaca</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="suprailiaca"
                                         id="suprailiaca" placeholder="centímetros">
                                 </div>
@@ -457,12 +493,23 @@
 
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <label for="axilarMedia" class="strong-class-2">Axilar Média</label>
+                                    <ng-container *ngIf="form.controls.protocolo.value === '6'; else elseTemplateAM">
+                                        <label class="strong-class-3">Axilar Média*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateAM>
+                                        <label class="strong-class-2">Axilar Média</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="axilarMedia"
                                         id="axilarMedia" placeholder="centímetros">
                                 </div>
                                 <div class="col-6">
-                                    <label for="subescapular" class="strong-class-2">Subescapular</label>
+                                    <ng-container
+                                        *ngIf="form.controls.protocolo.value === '6' || form.controls.protocolo.value === '5' || form.controls.protocolo.value === '4' || form.controls.protocolo.value === '3'; else elseTemplateSub">
+                                        <label class="strong-class-3">Subescapular*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateSub>
+                                        <label class="strong-class-2">Subescapular</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="subescapular"
                                         id="subescapular" placeholder="centímetros">
                                 </div>
@@ -470,12 +517,24 @@
 
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <label for="torax" class="strong-class-2">Tórax</label>
+                                    <ng-container
+                                        *ngIf="form.controls.protocolo.value === '6' || form.controls.protocolo.value === '0'; else elseTemplateTo">
+                                        <label class="strong-class-3">Tórax*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateTo>
+                                        <label class="strong-class-2">Tórax</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="torax"
                                         id="torax" placeholder="centímetros">
                                 </div>
                                 <div class="col-6">
-                                    <label for="coxa" class="strong-class-2">Coxa</label>
+                                    <ng-container
+                                        *ngIf="form.controls.protocolo.value === '6' || form.controls.protocolo.value === '3' || form.controls.protocolo.value === '1' || form.controls.protocolo.value === '0'; else elseTemplateCo">
+                                        <label class="strong-class-3">Coxa*</label>
+                                    </ng-container>
+                                    <ng-template #elseTemplateCo>
+                                        <label class="strong-class-2">Coxa</label>
+                                    </ng-template>
                                     <input type="number" step="0.01" class="form-control" formControlName="coxa"
                                         id="coxa" placeholder="centímetros">
                                 </div>
@@ -488,84 +547,105 @@
                             </div>
                             <hr>
 
-                            <div class="panel-body">
+                            <div class="panel-body letter">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">IMC Atual</div>
-                                            <div id="imc-adulto" class="col-sm-2 col-xs-2">27,78</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">IMC Atual</div>
+                                            <div id="imc-adulto" class="col-sm-3 col-xs-3">
+                                                <p>27,78</p>
+                                            </div>
                                             <div class="col-sm-4 col-xs-4">
-                                                <span id="imc-adulto-classif" class="label label-warning">Sobrepeso</span>
+                                                <span id="imc-adulto-classif"
+                                                    class="label label-warning">Sobrepeso</span>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">
                                                 % Massa Gorda
-                                                <a href="#" style="margin-left: 10px;" data-toggle="modal" data-target="#modal-tabela-percentual-gordura">
-                                                    <span class="fa fa-question-circle" title=""></span>
-                                                </a>
                                             </div>
-                                            <div id="massa-gorda-adulto-percent" class="col-sm-2 col-xs-2">48,84 %</div>
+                                            <div id="massa-gorda-adulto-percent" class="col-sm-3 col-xs-3">
+                                                <p>48,84 %</p>
+                                            </div>
                                             <div class="col-sm-4 col-xs-4">
-                                                <span id="massa-gorda-adulto-percent-classif" class="label label-danger">Alto</span>
+                                                <span id="massa-gorda-adulto-percent-classif"
+                                                    class="label label-danger">Alto</span>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Densidade Corporal</div>
-                                            <div id="densidade-corporal-adulto" class="col-sm-6 col-xs-6">0,99</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Densidade Corporal</div>
+                                            <div id="densidade-corporal-adulto" class="col-sm-7 col-xs-7">
+                                                <p>0,99</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Massa Gorda</div>
-                                            <div id="massa-gorda-adulto" class="col-sm-6 col-xs-6">43,96 kg</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Massa Gorda</div>
+                                            <div id="massa-gorda-adulto" class="col-sm-7 col-xs-7">
+                                                <p>43,96 kg</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Peso Residual</div>
-                                            <div id="peso-residual-adulto" class="col-sm-6 col-xs-6">18,81 kg</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Peso Residual</div>
+                                            <div id="peso-residual-adulto" class="col-sm-7 col-xs-7">
+                                                <p>18,81 kg</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Circunferência da Cintura</div>
-                                            <div id="cintura-result" class="col-sm-2 col-xs-2">5545,00</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Circunferência da Cintura</div>
+                                            <div id="cintura-result" class="col-sm-3 col-xs-3">
+                                                <p>5545,00</p>
+                                            </div>
                                             <div class="col-sm-4 col-xs-4">
-                                                <span id="cintura-result-label" class="label label-danger">Risco Metabólico</span>
+                                                <span id="cintura-result-label" class="label label-danger">Risco
+                                                    Metabólico</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Peso Ideal</div>
-                                            <div id="peso-ideal-adulto" class="col-sm-6 col-xs-6">59,94 kg - 80,97 kg</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Peso Ideal</div>
+                                            <div id="peso-ideal-adulto" class="col-sm-7 col-xs-7">
+                                                <p>59,94 kg - 80,97 kg</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">% Massa Magra</div>
-                                            <div id="massa-magra-adulto-percent" class="col-sm-6 col-xs-6">51,16 %</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">% Massa Magra</div>
+                                            <div id="massa-magra-adulto-percent" class="col-sm-7 col-xs-7">
+                                                <p>51,16 %</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Massa Magra</div>
-                                            <div id="massa-magra-adulto" class="col-sm-6 col-xs-6">46,04 kg</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Massa Magra</div>
+                                            <div id="massa-magra-adulto" class="col-sm-7 col-xs-7">
+                                                <p>46,04 kg</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Peso Ósseo</div>
-                                            <div id="peso-osseo-adulto" class="col-sm-6 col-xs-6">29020,91 kg</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Peso Ósseo</div>
+                                            <div id="peso-osseo-adulto" class="col-sm-7 col-xs-7">
+                                                <p>29020,91 kg</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Peso Muscular</div>
-                                            <div id="peso-muscular-adulto" class="col-sm-6 col-xs-6">-</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Peso Muscular</div>
+                                            <div id="peso-muscular-adulto" class="col-sm-7 col-xs-7">
+                                                <p>-</p>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="text-right col-sm-6 col-xs-6">Relação Cintura Quadril</div>
-                                            <div id="relacao-cintura-quadril" class="col-sm-2 col-xs-2">1,02</div>
+                                        <div class="row">
+                                            <div class="text-right col-sm-5 col-xs-5">Relação Cintura Quadril</div>
+                                            <div id="relacao-cintura-quadril" class="col-sm-3 col-xs-3">
+                                                <p>1,02</p>
+                                            </div>
                                             <div class="col-sm-4 col-xs-4">
-                                                <span id="cintura-quadril-label" class="label label-danger">Risco Cardiovascular</span>
+                                                <span id="cintura-quadril-label" class="label label-danger">Risco
+                                                    Cardiovascular</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-
-                        </div>
-
-                        <div *ngSwitchDefault>
 
                         </div>
                     </div>
