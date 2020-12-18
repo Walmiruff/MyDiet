@@ -210,7 +210,7 @@
                                         <span id="estatura-adolescente">{{ form.controls.altura.value === null ? '-' : form.controls.altura.value.length > 2 ? form.controls.altura.value + ' m' : '-' }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="estatura-adolescente-classif" class="estaturaIdadeAdol?.brush">{{ estaturaIdadeAdol?.text }}</span>
+                                        <span id="estatura-adolescente-classif" [ngClass]="estaturaIdadeAdol?.brush">{{ estaturaIdadeAdol?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">

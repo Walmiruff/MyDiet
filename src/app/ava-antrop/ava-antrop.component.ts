@@ -56,8 +56,8 @@ export class AvaAntropComponent implements OnInit {
       dataAtend: [null],
       idade: [null, Validators.required],
       sexo: [null],
-      altura: [ null, Validators.required],
-      peso: [ null , Validators.required],
+      altura: [null, Validators.required],
+      peso: [null, Validators.required],
       tipo: [null],
       diagnostico: [null],
       tricepsCrianca: [null],
@@ -72,7 +72,7 @@ export class AvaAntropComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe(() => {
-      const altura = this.form.get('altura').value !== null ?  this.form.get('altura').value.toString().replace(',', '.') : '1';
+      const altura = this.form.get('altura').value !== null ? this.form.get('altura').value.toString().replace(',', '.') : '1';
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
           this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(altura));
@@ -87,7 +87,7 @@ export class AvaAntropComponent implements OnInit {
         }
         this.calgordCrianc();
       } else if (this.form.controls.tipo.value == 1) {
-        if (this.form.controls.sexo.value == 'M') { 
+        if (this.form.controls.sexo.value == 'M') {
           this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(altura));
           this.imcAdol = this.calcAdolService.imcMenino(Number(altura), this.form.controls.peso.value, Number(this.form.controls.idade.value));
         } else {
@@ -111,24 +111,24 @@ export class AvaAntropComponent implements OnInit {
       }
 
       if (this.form.controls.tricepsCrianca.value === 'M') {
-        if (BF < 10 ) {
-          this.gordCrianc = { ref: BF, text: 'Baixo', brush:'red' };
+        if (BF < 10) {
+          this.gordCrianc = { ref: BF, text: 'Baixo', brush: 'red' };
         } else if (BF < 20) {
-          this.gordCrianc = { ref: BF, text: 'Normal', brush:'green' };
+          this.gordCrianc = { ref: BF, text: 'Normal', brush: 'green' };
         } else if (BF < 25) {
-          this.gordCrianc = { ref: BF, text: 'Moderadamente Alto', brush:'yellow' };
+          this.gordCrianc = { ref: BF, text: 'Moderadamente Alto', brush: 'yellow' };
         } else {
-          this.gordCrianc = { ref: BF, text: 'Alto', brush:'red' };
+          this.gordCrianc = { ref: BF, text: 'Alto', brush: 'red' };
         }
       } else {
-        if (BF < 15 ) {
-          this.gordCrianc = { ref: BF, text: 'Baixo', brush:'red' };
+        if (BF < 15) {
+          this.gordCrianc = { ref: BF, text: 'Baixo', brush: 'red' };
         } else if (BF < 25) {
-          this.gordCrianc = { ref: BF, text: 'Normal', brush:'green' };
+          this.gordCrianc = { ref: BF, text: 'Normal', brush: 'green' };
         } else if (BF < 30) {
-          this.gordCrianc = { ref: BF, text: 'Moderadamente Alto', brush:'yellow' };
+          this.gordCrianc = { ref: BF, text: 'Moderadamente Alto', brush: 'yellow' };
         } else {
-          this.gordCrianc = { ref: BF, text: 'Alto', brush:'red' };
+          this.gordCrianc = { ref: BF, text: 'Alto', brush: 'red' };
         }
       }
     }

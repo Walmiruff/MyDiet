@@ -18,7 +18,7 @@ export class CalcAdolService {
         } else if (altura < 1.01) {
           return this.obj = { ref: '1,10 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,10 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,10 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 6:
@@ -27,7 +27,7 @@ export class CalcAdolService {
         } else if (altura < 1.06) {
           return this.obj = { ref: '1,16 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,16 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,16 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 7:
@@ -36,7 +36,7 @@ export class CalcAdolService {
         } else if (altura < 1.11) {
           return this.obj = { ref: '1,21 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,21 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,21 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 8:
@@ -45,7 +45,7 @@ export class CalcAdolService {
         } else if (altura < 1.16) {
           return this.obj = { ref: '1,27 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,27 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,27 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 9:
@@ -54,7 +54,7 @@ export class CalcAdolService {
         } else if (altura < 1.2) {
           return this.obj = { ref: '1,32 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,32 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,32 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 10:
@@ -63,7 +63,7 @@ export class CalcAdolService {
         } else if (altura < 1.25) {
           return this.obj = { ref: '1,37 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,37 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,37 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 11:
@@ -72,7 +72,7 @@ export class CalcAdolService {
         } else if (altura < 1.29) {
           return this.obj = { ref: '1,43 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,43 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,43 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 12:
@@ -81,7 +81,7 @@ export class CalcAdolService {
         } else if (altura < 1.34) {
           return this.obj = { ref: '1,49 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,49 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,49 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 13:
@@ -90,7 +90,7 @@ export class CalcAdolService {
         } else if (altura < 1.41) {
           return this.obj = { ref: '1,56 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,56 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,56 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 14:
@@ -99,7 +99,7 @@ export class CalcAdolService {
         } else if (altura < 1.47) {
           return this.obj = { ref: '1,63 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 15:
@@ -108,7 +108,7 @@ export class CalcAdolService {
         } else if (altura < 1.53) {
           return this.obj = { ref: '1,69 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,69 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,69 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
 
@@ -118,7 +118,7 @@ export class CalcAdolService {
         } else if (altura < 1.57) {
           return this.obj = { ref: '1,72 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,72 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,72 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 17:
@@ -127,7 +127,7 @@ export class CalcAdolService {
         } else if (altura < 1.59) {
           return this.obj = { ref: '1,75 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,75 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,75 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 18:
@@ -136,7 +136,7 @@ export class CalcAdolService {
         } else if (altura < 1.61) {
           return this.obj = { ref: '1,76 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,76 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,76 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 19:
@@ -145,7 +145,7 @@ export class CalcAdolService {
         } else if (altura < 1.61) {
           return this.obj = { ref: '1,76 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,76 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,76 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
 
@@ -160,7 +160,7 @@ export class CalcAdolService {
         } else if (altura < 1.0) {
           return this.obj = { ref: '1,09 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,09 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,09 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 6:
@@ -169,7 +169,7 @@ export class CalcAdolService {
         } else if (altura < 1.04) {
           return this.obj = { ref: '1,15 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,15 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,15 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 7:
@@ -178,7 +178,7 @@ export class CalcAdolService {
         } else if (altura < 1.09) {
           return this.obj = { ref: '1,20 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,20 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,20 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 8:
@@ -187,7 +187,7 @@ export class CalcAdolService {
         } else if (altura < 1.15) {
           return this.obj = { ref: '1,26 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,26 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,26 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 9:
@@ -196,7 +196,7 @@ export class CalcAdolService {
         } else if (altura < 1.2) {
           return this.obj = { ref: '1,32 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,32 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,32 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 10:
@@ -205,7 +205,7 @@ export class CalcAdolService {
         } else if (altura < 1.25) {
           return this.obj = { ref: '1,38 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,38 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,38 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 11:
@@ -214,7 +214,7 @@ export class CalcAdolService {
         } else if (altura < 1.31) {
           return this.obj = { ref: '1,45 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,45 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,45 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 12:
@@ -223,7 +223,7 @@ export class CalcAdolService {
         } else if (altura < 1.37) {
           return this.obj = { ref: '1,51 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,51 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,51 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 13:
@@ -232,7 +232,7 @@ export class CalcAdolService {
         } else if (altura < 1.42) {
           return this.obj = { ref: '1,56 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,56 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,56 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 14:
@@ -241,7 +241,7 @@ export class CalcAdolService {
         } else if (altura < 1.45) {
           return this.obj = { ref: '1,59 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,59 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,59 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 15:
@@ -250,7 +250,7 @@ export class CalcAdolService {
         } else if (altura < 1.47) {
           return this.obj = { ref: '1,61 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,61 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,61 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
 
@@ -260,7 +260,7 @@ export class CalcAdolService {
         } else if (altura < 1.48) {
           return this.obj = { ref: '1,62 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,62 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,62 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 17:
@@ -269,7 +269,7 @@ export class CalcAdolService {
         } else if (altura < 1.49) {
           return this.obj = { ref: '1,63 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 18:
@@ -278,7 +278,7 @@ export class CalcAdolService {
         } else if (altura < 1.49) {
           return this.obj = { ref: '1,63 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
       case 19:
@@ -287,7 +287,7 @@ export class CalcAdolService {
         } else if (altura < 1.50) {
           return this.obj = { ref: '1,63 m', text: 'Baixa Estatura', brush: 'red' };
         } else {
-          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'red' };
+          return this.obj = { ref: '1,63 m', text: 'Estatura Adequada', brush: 'green' };
         }
 
 
