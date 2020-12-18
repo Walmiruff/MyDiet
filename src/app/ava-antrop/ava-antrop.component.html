@@ -412,7 +412,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
+                            <div class="row mb-4">
                                 <div class="col-sm-12">
                                     <label class="strong-class">Protocolo</label>
                                     <select class="form-control" formControlName="protocolo" id="protocolo">
@@ -428,6 +428,140 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="biceps" class="strong-class-2">Bíceps</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="biceps"
+                                        id="biceps" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="abdominal" class="strong-class-2">Abdominal</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="abdominal"
+                                        id="abdominal" placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="triceps" class="strong-class-2">Tríceps</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="triceps"
+                                        id="triceps" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="suprailiaca" class="strong-class-2">Suprailíaca</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="suprailiaca"
+                                        id="suprailiaca" placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="axilarMedia" class="strong-class-2">Axilar Média</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="axilarMedia"
+                                        id="axilarMedia" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="subescapular" class="strong-class-2">Subescapular</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="subescapular"
+                                        id="subescapular" placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="torax" class="strong-class-2">Tórax</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="torax"
+                                        id="torax" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="coxa" class="strong-class-2">Coxa</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="coxa"
+                                        id="coxa" placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <label class="strong-class">Resultado</label>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">IMC Atual</div>
+                                            <div id="imc-adulto" class="col-sm-2 col-xs-2">27,78</div>
+                                            <div class="col-sm-4 col-xs-4">
+                                                <span id="imc-adulto-classif" class="label label-warning">Sobrepeso</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">
+                                                % Massa Gorda
+                                                <a href="#" style="margin-left: 10px;" data-toggle="modal" data-target="#modal-tabela-percentual-gordura">
+                                                    <span class="fa fa-question-circle" title=""></span>
+                                                </a>
+                                            </div>
+                                            <div id="massa-gorda-adulto-percent" class="col-sm-2 col-xs-2">48,84 %</div>
+                                            <div class="col-sm-4 col-xs-4">
+                                                <span id="massa-gorda-adulto-percent-classif" class="label label-danger">Alto</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Densidade Corporal</div>
+                                            <div id="densidade-corporal-adulto" class="col-sm-6 col-xs-6">0,99</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Massa Gorda</div>
+                                            <div id="massa-gorda-adulto" class="col-sm-6 col-xs-6">43,96 kg</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Peso Residual</div>
+                                            <div id="peso-residual-adulto" class="col-sm-6 col-xs-6">18,81 kg</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Circunferência da Cintura</div>
+                                            <div id="cintura-result" class="col-sm-2 col-xs-2">5545,00</div>
+                                            <div class="col-sm-4 col-xs-4">
+                                                <span id="cintura-result-label" class="label label-danger">Risco Metabólico</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Peso Ideal</div>
+                                            <div id="peso-ideal-adulto" class="col-sm-6 col-xs-6">59,94 kg - 80,97 kg</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">% Massa Magra</div>
+                                            <div id="massa-magra-adulto-percent" class="col-sm-6 col-xs-6">51,16 %</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Massa Magra</div>
+                                            <div id="massa-magra-adulto" class="col-sm-6 col-xs-6">46,04 kg</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Peso Ósseo</div>
+                                            <div id="peso-osseo-adulto" class="col-sm-6 col-xs-6">29020,91 kg</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Peso Muscular</div>
+                                            <div id="peso-muscular-adulto" class="col-sm-6 col-xs-6">-</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="text-right col-sm-6 col-xs-6">Relação Cintura Quadril</div>
+                                            <div id="relacao-cintura-quadril" class="col-sm-2 col-xs-2">1,02</div>
+                                            <div class="col-sm-4 col-xs-4">
+                                                <span id="cintura-quadril-label" class="label label-danger">Risco Cardiovascular</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
 

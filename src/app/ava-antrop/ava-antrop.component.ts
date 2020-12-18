@@ -82,7 +82,14 @@ export class AvaAntropComponent implements OnInit {
       bracoContrEsquerdo: [null],
       punho: [null],
       femur: [null],
-      protocolo: [null]
+      protocolo: [null],
+      biceps: [null],
+      abdominal: [null],
+      triceps: [null],
+      suprailiaca: [null],
+      subescapular: [null],
+      torax: [null],
+      coxa: [null]
     });
   }
 
