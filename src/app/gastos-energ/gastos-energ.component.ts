@@ -194,6 +194,16 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
           this.GET = this.TMB_HBmasc() * 2.1;
         };
       };
+
+      //Muito Intensa
+      if (value === '4') {
+        if (this.formularioPrincipal.get('sexo').value === 'F') {
+          this.GET = this.TMB_HBfem() * 1.98;
+        };
+        if (this.formularioPrincipal.get('sexo').value === 'M') {
+          this.GET = this.TMB_HBmasc() * 2.4;
+        };
+      };
     }
 
     // Fao OMS (2001)
@@ -376,14 +386,14 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
 
   public TMB_HBfem(): number {
     const peso = this.formularioPrincipal.controls.peso.value;
-    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,00';
     const idade = Number(this.formularioPrincipal.get('idade').value);
     return this.TMB = 655.1 + (9.563 * peso) + (1.85 * altura * 100) - (4.676 * idade);
   }
 
   public TMB_HBmasc(): number {
     const peso = this.formularioPrincipal.controls.peso.value;
-    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,00';
     const idade = Number(this.formularioPrincipal.get('idade').value);
     return this.TMB = 66.47 + (13.75 * peso) + (5 * altura * 100) - (6.755 * idade);
   }
@@ -427,7 +437,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   public DRIeer(af: number) {
     const peso = this.formularioPrincipal.controls.peso.value;
     const idade = Number(this.formularioPrincipal.get('idade').value);
-    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,00';
     const sexo = this.formularioPrincipal.get('sexo').value;
     if (idade < 1) {
       this.GET = (89 * peso - 100) + 56;
@@ -459,7 +469,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   public DRItee(af: number) {
     const peso = this.formularioPrincipal.controls.peso.value;
     const idade = Number(this.formularioPrincipal.get('idade').value);
-    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,00';
     const sexo = this.formularioPrincipal.get('sexo').value;
 
     if (idade < 1) {

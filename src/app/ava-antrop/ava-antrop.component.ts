@@ -72,7 +72,7 @@ export class AvaAntropComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe(() => {
-      const altura = this.form.get('altura').value !== null ?  this.form.get('altura').value.toString().replace(',', '.') : '0,01';
+      const altura = this.form.get('altura').value !== null ?  this.form.get('altura').value.toString().replace(',', '.') : '1';
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
           this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(altura));

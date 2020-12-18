@@ -527,7 +527,6 @@ export class CalcAdolService {
       }
     }
   }
-
   
   public imcMenina(altura: number, peso: number, idade: number): IObj {
     if (altura !== 0) {
