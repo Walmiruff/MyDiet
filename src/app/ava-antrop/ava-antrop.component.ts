@@ -31,6 +31,7 @@ export class AvaAntropComponent implements OnInit {
 
   // adolescente
   public estaturaIdadeAdol: IObj;
+  public imcAdol: IObj;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,7 +40,6 @@ export class AvaAntropComponent implements OnInit {
     private calcAdolService: CalcAdolService,
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
-    this.maskNumber = [/\d+/, /\d+/, /\d+/];
     this.maskNumber2 = [/\d+/, /\d+/];
     this.maskNumber3 = [/\d+/, /\d+/, /\d+/, /\d+/, /\d+/];
     this.buildForm();
@@ -54,10 +54,10 @@ export class AvaAntropComponent implements OnInit {
       id: [null],
       desc: [null],
       dataAtend: [null],
-      idade: [0, Validators.required],
+      idade: [null, Validators.required],
       sexo: [null],
-      altura: [0.00, Validators.required],
-      peso: [0, Validators.required],
+      altura: [ null, Validators.required],
+      peso: [ null , Validators.required],
       tipo: [null],
       diagnostico: [null],
       tricepsCrianca: [null],
@@ -72,24 +72,27 @@ export class AvaAntropComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe(() => {
+      const altura = this.form.get('altura').value !== null ?  this.form.get('altura').value.toString().replace(',', '.') : '0,01';
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
-          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
-          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',', '.')));
-          this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenino(Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.altura.value.toString().replace(',', '.')));
-          this.imcCrianc = this.calcCriancaService.imcMenino(Number(this.form.controls.altura.value.toString().replace(',', '.')), Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.idade.value));
+          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(altura));
+          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenino(Number(this.form.controls.idade.value), this.form.controls.peso.value);
+          this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenino(this.form.controls.peso.value, Number(altura));
+          this.imcCrianc = this.calcCriancaService.imcMenino(Number(altura), this.form.controls.peso.value, Number(this.form.controls.idade.value));
         } else {
-          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
-          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.peso.value.toString().replace(',', '.')));
-          this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenina(Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.altura.value.toString().replace(',', '.')));
-          this.imcCrianc = this.calcCriancaService.imcMenina(Number(this.form.controls.altura.value.toString().replace(',', '.')), Number(this.form.controls.peso.value.toString().replace(',', '.')), Number(this.form.controls.idade.value));
+          this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(altura));
+          this.pesoIdadeCrianc = this.calcCriancaService.pesoIdadeMenina(Number(this.form.controls.idade.value), this.form.controls.peso.value);
+          this.pesoEstaturaCrianc = this.calcCriancaService.pesoEstaturaMenina(this.form.controls.peso.value, Number(altura));
+          this.imcCrianc = this.calcCriancaService.imcMenina(Number(altura), this.form.controls.peso.value, Number(this.form.controls.idade.value));
         }
         this.calgordCrianc();
       } else if (this.form.controls.tipo.value == 1) {
         if (this.form.controls.sexo.value == 'M') { 
-          this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+          this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(altura));
+          this.imcAdol = this.calcAdolService.imcMenino(Number(altura), this.form.controls.peso.value, Number(this.form.controls.idade.value));
         } else {
-          this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(this.form.controls.altura.value.toString().replace(',', '.')));
+          this.estaturaIdadeAdol = this.calcAdolService.estaturaIdadeMenina(Number(this.form.controls.idade.value), Number(altura));
+          this.imcAdol = this.calcAdolService.imcMenina(Number(altura), this.form.controls.peso.value, Number(this.form.controls.idade.value));
         }
       } else if (this.form.controls.tipo.value == 2) {
 

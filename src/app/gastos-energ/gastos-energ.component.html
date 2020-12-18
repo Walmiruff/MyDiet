@@ -38,8 +38,8 @@
                         </div>
                         <div class="col-sm-6">
                             <label for="peso" class="strong-class">Peso*</label>
-                            <input type="text" class="form-control" formControlName="peso" id="peso"
-                                placeholder="quilos" [textMask]="{mask: mask, placeholderChar:' '}">
+                            <input type="number" class="form-control" formControlName="peso" id="peso"
+                                placeholder="quilos" step="0.01">
                         </div>
                     </div>
 
@@ -106,8 +106,8 @@
                     <div class="row mb-3" *ngIf="this.formularioPrincipal.controls.protocolo.value === '3'">
                         <div class="col-sm-4">
                             <label for="massaMagra" class="strong-class">Massa Magra*</label>
-                            <input type="text" class="form-control" formControlName="massaMagra" id="massaMagra"
-                                placeholder="quilos" [textMask]="{mask: maskNumber, placeholderChar:' '}">
+                            <input type="number" class="form-control" formControlName="massaMagra" id="massaMagra"
+                                placeholder="quilos" step="0.01">
                         </div>
                     </div>
 

@@ -135,7 +135,7 @@
                                 <div class="row">
                                     <label>Peso <i class="fa mr-2 fas fa-info-circle"
                                             title="Peso para ser utilizado no cálculo de Proteína por Kg de Peso, pode ser o peso atual inserido na Avaliação Antropométrica ou desejado conforme a estratégia do tratamento."></i></label>
-                                    <input type="text" [textMask]="{mask: mask, placeholderChar:' '}"  class="form-control" formControlName="peso"
+                                    <input type="number" step="0.01"  class="form-control" formControlName="peso"
                                         id="peso" placeholder="quilos">
                                 </div>
                             </div>

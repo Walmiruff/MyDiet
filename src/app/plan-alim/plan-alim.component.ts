@@ -52,7 +52,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     gLip: -1,
   }
   public mask: Array<string | RegExp>;
-  
+  public maskNumber: Array<string | RegExp>;
   constructor(
     private formBuilder: FormBuilder,
     private alimentosService: AlimentosService,
@@ -64,6 +64,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     private planAlimStore: PlanAlimStore,
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
+    this.maskNumber = [/\d+/, /\d+/, /\d+/, ',', /\d+/, /\d+/];
     this.buildForms();
   }
 

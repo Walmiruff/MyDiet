@@ -39,7 +39,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     private gastoEnergStore: GastosEnergStore
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
-    this.maskNumber = [/\d+/, /\d+/, /\d+/];
+    this.maskNumber = [/\d+/, /\d+/, /\d+/, ',', /\d+/, /\d+/];
     this.maskNumber2 = [/\d+/, /\d+/];
     this.maskNumber3 = [/\d+/, /\d+/, /\d+/, /\d+/, /\d+/];
     this.buildForm();
@@ -71,7 +71,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-   this.setStore()
+    this.setStore()
   }
 
   public buildForm(): void {
@@ -199,39 +199,30 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     // Fao OMS (2001)
     if (this.formularioPrincipal.get('protocolo').value === '1') {
       const value = this.formularioPrincipal.get('nivelAtiv').value;
-      const idade = this.formularioPrincipal.get('idade').value;
+      const idade = Number(this.formularioPrincipal.get('idade').value);
       // Leve
       if (value === '0') {
         if (this.formularioPrincipal.get('sexo').value === 'M') {
-          switch (idade) {
-            case idade < 10:
-              this.GET = this.TMB_Faomasc();
-              break;
-            case idade < 18:
-              this.GET = this.TMB_Faomasc() * 1.6;
-              break;
-            case idade < 10:
-              this.GET = this.TMB_Faomasc() * 1.55;
-              break;
-            default:
-              this.GET = this.TMB_Faomasc() * 1.4;
-              break;
+          if (idade < 10) {
+            this.GET = this.TMB_Faomasc();
+          } else if (idade < 18) {
+            this.GET = this.TMB_Faomasc() * 1.6;
+          } else if (idade < 65) {
+            this.GET = this.TMB_Faomasc() * 1.55;
+          } else {
+            this.GET = this.TMB_Faomasc() * 1.4;
           }
         }
+
         if (this.formularioPrincipal.get('sexo').value === 'F') {
-          switch (idade) {
-            case idade < 10:
-              this.GET = this.TMB_Faomasc();
-              break;
-            case idade < 18:
-              this.GET = this.TMB_Faomasc() * 1.5;
-              break;
-            case idade < 10:
-              this.GET = this.TMB_Faomasc() * 1.56;
-              break;
-            default:
-              this.GET = this.TMB_Faomasc() * 1.4;
-              break;
+          if (idade < 10) {
+            this.GET = this.TMB_Faofem();
+          } else if (idade < 18) {
+            this.GET = this.TMB_Faofem() * 1.6;
+          } else if (idade < 65) {
+            this.GET = this.TMB_Faofem() * 1.55;
+          } else {
+            this.GET = this.TMB_Faofem() * 1.4;
           }
         }
       };
@@ -239,35 +230,25 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
       // Moderada
       if (value === '1') {
         if (this.formularioPrincipal.get('sexo').value === 'M') {
-          switch (idade) {
-            case idade < 10:
-              this.GET = this.TMB_Faomasc();
-              break;
-            case idade < 18:
-              this.GET = this.TMB_Faomasc() * 2.5;
-              break;
-            case idade < 10:
-              this.GET = this.TMB_Faomasc() * 1.78;
-              break;
-            default:
-              this.GET = this.TMB_Faomasc() * 1.6;
-              break;
+          if (idade < 10) {
+            this.GET = this.TMB_Faomasc();
+          } else if (idade < 18) {
+            this.GET = this.TMB_Faomasc() * 2.5;
+          } else if (idade < 65) {
+            this.GET = this.TMB_Faomasc() * 1.78;
+          } else {
+            this.GET = this.TMB_Faomasc() * 1.6;
           }
         }
         if (this.formularioPrincipal.get('sexo').value === 'F') {
-          switch (idade) {
-            case idade < 10:
-              this.GET = this.TMB_Faomasc();
-              break;
-            case idade < 18:
-              this.GET = this.TMB_Faomasc() * 2.2;
-              break;
-            case idade < 10:
-              this.GET = this.TMB_Faomasc() * 1.65;
-              break;
-            default:
-              this.GET = this.TMB_Faomasc() * 1.6;
-              break;
+          if (idade < 10) {
+            this.GET = this.TMB_Faofem();
+          } else if (idade < 18) {
+            this.GET = this.TMB_Faofem() * 2.2;
+          } else if (idade < 65) {
+            this.GET = this.TMB_Faofem() * 1.65;
+          } else {
+            this.GET = this.TMB_Faofem() * 1.6;
           }
         }
       };
@@ -275,35 +256,25 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
       // Pesada
       if (value === '2') {
         if (this.formularioPrincipal.get('sexo').value === 'M') {
-          switch (idade) {
-            case idade < 10:
-              this.GET = this.TMB_Faomasc();
-              break;
-            case idade < 18:
-              this.GET = this.TMB_Faomasc() * 6;
-              break;
-            case idade < 10:
-              this.GET = this.TMB_Faomasc() * 2.1;
-              break;
-            default:
-              this.GET = this.TMB_Faomasc() * 1.9;
-              break;
+          if (idade < 10) {
+            this.GET = this.TMB_Faomasc();
+          } else if (idade < 18) {
+            this.GET = this.TMB_Faomasc() * 6;
+          } else if (idade < 65) {
+            this.GET = this.TMB_Faomasc() * 2.1;
+          } else {
+            this.GET = this.TMB_Faomasc() * 1.9;
           }
         }
         if (this.formularioPrincipal.get('sexo').value === 'F') {
-          switch (idade) {
-            case idade < 10:
-              this.GET = this.TMB_Faomasc();
-              break;
-            case idade < 18:
-              this.GET = this.TMB_Faomasc() * 6;
-              break;
-            case idade < 10:
-              this.GET = this.TMB_Faomasc() * 1.82;
-              break;
-            default:
-              this.GET = this.TMB_Faomasc() * 1.8;
-              break;
+          if (idade < 10) {
+            this.GET = this.TMB_Faofem();
+          } else if (idade < 18) {
+            this.GET = this.TMB_Faofem() * 6;
+          } else if (idade < 65) {
+            this.GET = this.TMB_Faofem() * 1.82;
+          } else {
+            this.GET = this.TMB_Faofem() * 1.8;
           }
         }
       };
@@ -314,7 +285,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     if (this.formularioPrincipal.get('protocolo').value === '2') {
       this.TMB = 0;
       if (this.classificacaoDRI !== null) {
-        const idade = this.formularioPrincipal.get('idade').value;
+        const idade = Number(this.formularioPrincipal.get('idade').value);
         const sexo = this.formularioPrincipal.get('sexo').value;
         /* Eutrofico */
         if (this.classificacaoDRI === '0') {
@@ -324,35 +295,26 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
           };
           // Pouco Ativo
           if (this.nivelAtivDRI === '1') {
-            switch (idade) {
-              case idade < '19':
-                sexo === 'M' ? this.DRIeer(1.13) : this.DRIeer(1.16);
-                break;
-              default:
-                sexo === 'F' ? this.DRIeer(1.11) : this.DRIeer(1.12);
-                break;
+            if (idade < 19) {
+              sexo === 'M' ? this.DRIeer(1.13) : this.DRIeer(1.16);
+            } else {
+              sexo === 'F' ? this.DRIeer(1.11) : this.DRIeer(1.12);
             }
           };
           //Ativo
           if (this.nivelAtivDRI === '2') {
-            switch (idade) {
-              case idade < '19':
-                sexo === 'M' ? this.DRIeer(1.26) : this.DRIeer(1.31);
-                break;
-              default:
-                sexo === 'F' ? this.DRIeer(1.25) : this.DRIeer(1.27);
-                break;
+            if (idade < 19) {
+              sexo === 'M' ? this.DRIeer(1.26) : this.DRIeer(1.31);
+            } else {
+              sexo === 'F' ? this.DRIeer(1.25) : this.DRIeer(1.27);
             }
           };
           // Muito Ativo
           if (this.nivelAtivDRI === '3') {
-            switch (idade) {
-              case idade < '19':
-                sexo === 'M' ? this.DRIeer(1.42) : this.DRIeer(1.56);
-                break;
-              default:
-                sexo === 'F' ? this.DRIeer(1.48) : this.DRIeer(1.45);
-                break;
+            if (idade < 19) {
+              sexo === 'M' ? this.DRIeer(1.42) : this.DRIeer(1.56);
+            } else {
+              sexo === 'F' ? this.DRIeer(1.48) : this.DRIeer(1.45);
             }
           };
         }
@@ -365,35 +327,26 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
           };
           // Pouco Ativo
           if (this.nivelAtivDRI === '1') {
-            switch (idade) {
-              case idade < '19':
-                sexo === 'M' ? this.DRItee(1.12) : this.DRItee(1.18);
-                break;
-              default:
-                sexo === 'F' ? this.DRItee(1.12) : this.DRItee(1.16);
-                break;
+            if (idade < 19) {
+              sexo === 'M' ? this.DRItee(1.12) : this.DRItee(1.18);
+            } else {
+              sexo === 'F' ? this.DRItee(1.12) : this.DRItee(1.16);
             }
           };
           //Ativo
           if (this.nivelAtivDRI === '2') {
-            switch (idade) {
-              case idade < '19':
-                sexo === 'M' ? this.DRItee(1.24) : this.DRItee(1.35);
-                break;
-              default:
-                sexo === 'F' ? this.DRItee(1.29) : this.DRItee(1.27);
-                break;
+            if (idade < 19) {
+              sexo === 'M' ? this.DRItee(1.24) : this.DRItee(1.35);
+            } else {
+              sexo === 'F' ? this.DRItee(1.29) : this.DRItee(1.27);
             }
           };
           // Muito Ativo
           if (this.nivelAtivDRI === '3') {
-            switch (idade) {
-              case idade < '19':
-                sexo === 'M' ? this.DRItee(1.45) : this.DRItee(1.6);
-                break;
-              default:
-                sexo === 'F' ? this.DRItee(1.59) : this.DRItee(1.44);
-                break;
+            if (idade < 19) {
+              sexo === 'M' ? this.DRItee(1.45) : this.DRItee(1.6);
+            } else {
+              sexo === 'F' ? this.DRItee(1.59) : this.DRItee(1.44);
             }
           };
         }
@@ -422,125 +375,111 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
 
 
   public TMB_HBfem(): number {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
-    const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
-    const idade = this.formularioPrincipal.get('idade').value;
+    const peso = this.formularioPrincipal.controls.peso.value;
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
+    const idade = Number(this.formularioPrincipal.get('idade').value);
     return this.TMB = 655.1 + (9.563 * peso) + (1.85 * altura * 100) - (4.676 * idade);
   }
 
   public TMB_HBmasc(): number {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
-    const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
-    const idade = this.formularioPrincipal.get('idade').value;
+    const peso = this.formularioPrincipal.controls.peso.value;
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
+    const idade = Number(this.formularioPrincipal.get('idade').value);
     return this.TMB = 66.47 + (13.75 * peso) + (5 * altura * 100) - (6.755 * idade);
   }
 
   public TMB_Faomasc(): number {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
-    const idade = this.formularioPrincipal.get('idade').value;
-    switch (idade) {
-      case idade < 3:
-        return this.TMB = (60.9 * peso - 54);
-      case idade < 10:
-        return this.TMB = (22.7 * peso + 495);
-      case idade < 18:
-        return this.TMB = (22.7 * peso + 495);
-      case idade < 30:
-        return this.TMB = (22.7 * peso + 495);
-      case idade < 60:
-        return this.TMB = (11.6 * peso + 879);
-      default:
-        return this.TMB = (11.6 * peso + 879);
+    const peso = this.formularioPrincipal.controls.peso.value;
+    const idade = Number(this.formularioPrincipal.get('idade').value);
+    if (idade < 3) {
+      return this.TMB = (60.9 * peso - 54);
+    } else if (idade < 10) {
+      return this.TMB = (22.7 * peso + 495);
+    } else if (idade < 18) {
+      return this.TMB = (22.7 * peso + 495);
+    } else if (idade < 30) {
+      return this.TMB = (22.7 * peso + 495);
+    } else if (idade < 60) {
+      return this.TMB = (11.6 * peso + 879);
+    } else {
+      return this.TMB = (11.6 * peso + 879);
     }
   }
 
   public TMB_Faofem(): number {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
-    const idade = this.formularioPrincipal.get('idade').value;
-    switch (idade) {
-      case idade < 3:
-        return this.TMB = (61.0 * peso - 51);
-      case idade < 10:
-        return this.TMB = (22.5 * peso + 499);
-      case idade < 18:
-        return this.TMB = (12.2 * peso + 746);
-      case idade < 30:
-        return this.TMB = (14.7 * peso + 496);
-      case idade < 60:
-        return this.TMB = (8.7 * peso + 829);
-      default:
-        return this.TMB = (8.7 * peso + 829);
+    const peso = this.formularioPrincipal.controls.peso.value;
+    const idade = Number(this.formularioPrincipal.get('idade').value);
+    if (idade < 3) {
+      return this.TMB = (61.0 * peso - 51);
+    } else if (idade < 10) {
+      return this.TMB = (22.5 * peso + 499);
+    } else if (idade < 18) {
+      return this.TMB = (12.2 * peso + 746);
+    } else if (idade < 30) {
+      return this.TMB = (14.7 * peso + 496);
+    } else if (idade < 60) {
+      return this.TMB = (8.7 * peso + 829);
+    } else {
+      return this.TMB = (8.7 * peso + 829);
     }
   }
 
   public DRIeer(af: number) {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
-    const idade = this.formularioPrincipal.get('idade').value;
-    const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
+    const peso = this.formularioPrincipal.controls.peso.value;
+    const idade = Number(this.formularioPrincipal.get('idade').value);
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
     const sexo = this.formularioPrincipal.get('sexo').value;
-    switch (idade) {
-      case idade < '1':
-        this.GET = (89 * peso - 100) + 56;
-        break;
-      case idade < '2':
-        this.GET = (89 * peso - 100) + 22;
-        break;
-      case idade < '3':
-        this.GET = (89 * peso - 100) + 20;
-        break;
-      case idade < '9':
-        if (sexo === 'M') {
-          this.GET = 88.5 - (61.9 * idade) + af * (26.7 * peso) + ((903 * altura) + 20);
-        } else {
-          this.GET = 135.3 - (30.8 * idade) + af * (10 * peso) + ((934 * altura) + 20);
-        }
-        break;
-      case idade < '19':
-        if (sexo === 'M') {
-          this.GET = 88.5 - (61.9 * idade) + af * (26.7 * peso) + ((903 * altura) + 25);
-        } else {
-          this.GET = 135.3 - (30.8 * idade) + af * (10 * peso) + ((934 * altura) + 25);
-        }
-        break;
-      default:
-        if (sexo === 'M') {
-          this.GET = 662 - (9.53 * idade) + af * (15.91 * peso) + ((539.6 * altura));
-        } else {
-          this.GET = 354 - (6.91 * idade) + af * (9.36 * peso) + ((726 * altura));
-        }
-        break;
+    if (idade < 1) {
+      this.GET = (89 * peso - 100) + 56;
+    } else if (idade < 2) {
+      this.GET = (89 * peso - 100) + 22;
+    } else if (idade < 3) {
+      this.GET = (89 * peso - 100) + 20;
+    } else if (idade < 9) {
+      if (sexo === 'M') {
+        this.GET = 88.5 - (61.9 * idade) + af * (26.7 * peso) + ((903 * altura) + 20);
+      } else {
+        this.GET = 135.3 - (30.8 * idade) + af * (10 * peso) + ((934 * altura) + 20);
+      }
+    } else if (idade < 19) {
+      if (sexo === 'M') {
+        this.GET = 88.5 - (61.9 * idade) + af * (26.7 * peso) + ((903 * altura) + 25);
+      } else {
+        this.GET = 135.3 - (30.8 * idade) + af * (10 * peso) + ((934 * altura) + 25);
+      }
+    } else {
+      if (sexo === 'M') {
+        this.GET = 662 - (9.53 * idade) + af * (15.91 * peso) + ((539.6 * altura));
+      } else {
+        this.GET = 354 - (6.91 * idade) + af * (9.36 * peso) + ((726 * altura));
+      }
     }
   }
 
   public DRItee(af: number) {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
-    const idade = this.formularioPrincipal.get('idade').value;
-    const altura = this.formularioPrincipal.get('altura').value.toString().replace(',', '.');
+    const peso = this.formularioPrincipal.controls.peso.value;
+    const idade = Number(this.formularioPrincipal.get('idade').value);
+    const altura = this.formularioPrincipal.get('altura').value !== null ? this.formularioPrincipal.get('altura').value.toString().replace(',', '.') : '0,01';
     const sexo = this.formularioPrincipal.get('sexo').value;
-    switch (idade) {
-      case idade < '1':
-        this.GET = (89 * peso - 100) + 56;
-        break;
-      case idade < '2':
-        this.GET = (89 * peso - 100) + 22;
-        break;
-      case idade < '3':
-        this.GET = (89 * peso - 100) + 20;
-        break;
-      case idade < '19':
-        if (sexo === 'M') {
-          this.GET = 114 - (50.9 * idade) + af * (19.5 * peso) + ((1161.4 * altura));
-        } else {
-          this.GET = 389 - (41.2 * idade) + af * (15 * peso) + ((701.6 * altura));
-        }
-        break;
-      default:
-        if (sexo === 'M') {
-          this.GET = 1086 - (10.1 * idade) + af * (13.7 * peso) + ((416 * altura));
-        } else {
-          this.GET = 448 - (7.95 * idade) + af * (11.4 * peso) + ((619 * altura));
-        }
-        break;
+
+    if (idade < 1) {
+      this.GET = (89 * peso - 100) + 56;
+    } else if (idade < 2) {
+      this.GET = (89 * peso - 100) + 22;
+    } else if (idade < 3) {
+      this.GET = (89 * peso - 100) + 20;
+    } else if (idade < 19) {
+      if (sexo === 'M') {
+        this.GET = 114 - (50.9 * idade) + af * (19.5 * peso) + ((1161.4 * altura));
+      } else {
+        this.GET = 389 - (41.2 * idade) + af * (15 * peso) + ((701.6 * altura));
+      }
+    } else {
+      if (sexo === 'M') {
+        this.GET = 1086 - (10.1 * idade) + af * (13.7 * peso) + ((416 * altura));
+      } else {
+        this.GET = 448 - (7.95 * idade) + af * (11.4 * peso) + ((619 * altura));
+      }
     }
   }
 
@@ -551,7 +490,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   }
 
   public regraBolso(): void {
-    const peso = this.formularioPrincipal.get('peso').value.toString().replace(',', '.');
+    const peso = this.formularioPrincipal.controls.peso.value;
     if (peso !== null && peso !== '0') {
       this.regraBolsoObj.perdaPeso = `${peso * 20} Kcal - ${peso * 25} Kcal`;
       this.regraBolsoObj.manutPeso = `${peso * 25} Kcal - ${peso * 30} Kcal`;
