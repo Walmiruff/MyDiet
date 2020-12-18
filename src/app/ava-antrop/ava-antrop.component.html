@@ -18,7 +18,8 @@
                                 id="desc" cols="30" rows="10" maxlength="200"></textarea>
                             <small>
                                 Caracteres restantes
-                                <span>{{ form.get('desc').value === null ? 200 : 200 - form.get('desc').value.length }}</span>
+                                <span>{{ form.get('desc').value === null ? 200 : 200 - form.get('desc').value.length
+                                    }}</span>
                             </small>
                         </div>
                     </div>
@@ -82,7 +83,8 @@
                             <label for="idade" class="strong-class"> Idade*
                                 {{ form.controls.tipo.value == 0 ? '(meses)' : '(anos)' }}</label>
                             <input type="text" class="form-control" formControlName="idade" id="idade"
-                                [placeholder]="form.controls.tipo.value == 0 ? 'meses' : 'anos'" [textMask]="{mask: maskNumber2, placeholderChar:' '}">
+                                [placeholder]="form.controls.tipo.value == 0 ? 'meses' : 'anos'"
+                                [textMask]="{mask: maskNumber2, placeholderChar:' '}">
                         </div>
                         <div class="col-sm-6">
                             <label for="idade" class="strong-class">Sexo*</label>
@@ -114,14 +116,14 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="row my-5">
+                            <div class="row mt-3 mb-5">
                                 <div class="col-sm-6">
-                                    <label for="tricepsCrianca" class="strong-class">Tríceps</label>
+                                    <label for="tricepsCrianca" class="strong-class-2">Tríceps</label>
                                     <input type="number" step="0.01" class="form-control"
                                         formControlName="tricepsCrianca" id="tricepsCrianca" placeholder="milímetros">
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="subescapularCrianca" class="strong-class">Subescapular</label>
+                                    <label for="subescapularCrianca" class="strong-class-2">Subescapular</label>
                                     <input type="number" step="0.01" class="form-control"
                                         formControlName="subescapularCrianca" id="subescapularCrianca"
                                         placeholder="milímetros">
@@ -130,7 +132,9 @@
                             <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between">
                                     <label class="strong-class">Resultado</label>
-                                    <p class="reference">Referência: <a href="https://www.who.int/tools/child-growth-standards" target="_blank">OMS (2006)</a></p>
+                                    <p class="reference">Referência: <a
+                                            href="https://www.who.int/tools/child-growth-standards" target="_blank">OMS
+                                            (2006)</a></p>
                                 </div>
                             </div>
                             <hr>
@@ -141,7 +145,8 @@
                                         <span id="gordura-crianca">{{ gordCrianc?.ref | replace : '%' }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="gordura-crianca-classif" [ngClass]="gordCrianc?.brush">{{ gordCrianc?.text }}</span>
+                                        <span id="gordura-crianca-classif" [ngClass]="gordCrianc?.brush">{{
+                                            gordCrianc?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -149,7 +154,10 @@
                                     <div class="col-sm-2 col-xs-6">
                                         <span id="peso-crianca">{{ form.controls.peso.value | replace: 'kg' }}</span>
                                     </div>
-                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span [ngClass]="pesoIdadeCrianc?.brush">{{ pesoIdadeCrianc?.text }}</span> <span class="ml-2" [ngClass]="pesoEstaturaCrianc?.brush">{{ pesoEstaturaCrianc?.text }}</span></div>
+                                    <div id="peso-crianca-classif" class="col-sm-6 col-xs-12 text-center-xs"><span
+                                            [ngClass]="pesoIdadeCrianc?.brush">{{ pesoIdadeCrianc?.text }}</span> <span
+                                            class="ml-2" [ngClass]="pesoEstaturaCrianc?.brush">{{
+                                            pesoEstaturaCrianc?.text }}</span></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Peso para Idade (Referência)</div>
@@ -166,10 +174,13 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Estatura Atual</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="estatura-crianca">{{ form.controls.altura.value === null ? '-' : form.controls.altura.value.length > 2 ? form.controls.altura.value + ' m' : '-' }}</span>
+                                        <span id="estatura-crianca">{{ form.controls.altura.value === null ? '-' :
+                                            form.controls.altura.value.length > 2 ? form.controls.altura.value + ' m' :
+                                            '-' }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="estatura-crianca-classif"  [ngClass]="estaturaIdadeCrianc?.brush">{{ estaturaIdadeCrianc?.text }}</span>
+                                        <span id="estatura-crianca-classif" [ngClass]="estaturaIdadeCrianc?.brush">{{
+                                            estaturaIdadeCrianc?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -184,7 +195,8 @@
                                         <span id="imc-crianca">{{ imcCrianc?.imc | replace: ''}}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="imc-crianca-classif" [ngClass]="imcCrianc?.brush">{{ imcCrianc?.text }}</span>
+                                        <span id="imc-crianca-classif" [ngClass]="imcCrianc?.brush">{{ imcCrianc?.text
+                                            }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -199,7 +211,9 @@
                             <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between">
                                     <label class="strong-class">Resultado</label>
-                                    <p class="reference">Referência: <a href="https://www.who.int/tools/child-growth-standards" target="_blank">OMS (2007)</a></p>
+                                    <p class="reference">Referência: <a
+                                            href="https://www.who.int/tools/child-growth-standards" target="_blank">OMS
+                                            (2007)</a></p>
                                 </div>
                             </div>
                             <hr>
@@ -207,10 +221,13 @@
                                 <div class="row form-group">
                                     <div class="text-right col-sm-4 col-xs-6">Estatura Atual</div>
                                     <div class="col-sm-2 col-xs-6">
-                                        <span id="estatura-adolescente">{{ form.controls.altura.value === null ? '-' : form.controls.altura.value.length > 2 ? form.controls.altura.value + ' m' : '-' }}</span>
+                                        <span id="estatura-adolescente">{{ form.controls.altura.value === null ? '-' :
+                                            form.controls.altura.value.length > 2 ? form.controls.altura.value + ' m' :
+                                            '-' }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="estatura-adolescente-classif" [ngClass]="estaturaIdadeAdol?.brush">{{ estaturaIdadeAdol?.text }}</span>
+                                        <span id="estatura-adolescente-classif" [ngClass]="estaturaIdadeAdol?.brush">{{
+                                            estaturaIdadeAdol?.text }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -225,7 +242,8 @@
                                         <span id="imc-adolescente">{{ imcAdol?.imc | replace: '' }}</span>
                                     </div>
                                     <div class="col-sm-6 col-xs-12 text-center-xs">
-                                        <span id="imc-adolescente-classif" [ngClass]="imcAdol?.brush">{{ imcAdol?.text  }}</span>
+                                        <span id="imc-adolescente-classif" [ngClass]="imcAdol?.brush">{{ imcAdol?.text
+                                            }}</span>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -236,9 +254,183 @@
                                 </div>
                             </div>
                         </div>
-                        <div *ngSwitchCase="2">
-                            2
+                        <div *ngSwitchCase="2" [formGroup]="form">
+                            <div class="row">
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <label class="strong-class">Circunferências</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="ombro" class="strong-class-2">Ombro</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="ombro"
+                                        id="ombro" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="coxaDireita" class="strong-class-2">Coxa Direita</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="coxaDireita"
+                                        id="coxaDireita" placeholder="centímetros">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="peitoral" class="strong-class-2">Peitoral</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="peitoral"
+                                        id="peitoral" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="coxaEsquerda" class="strong-class-2">Coxa Esquerda</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="coxaEsquerda"
+                                        id="coxaEsquerda" placeholder="centímetros">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="cintura" class="strong-class-2">Cintura<i
+                                            class="fa mr-2 fas fa-info-circle strong-class-2"
+                                            title="Preencha para avaliação de risco cardiovascular"></i></label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="cintura"
+                                        id="cintura" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="coxaProxDireita" class="strong-class-2">Coxa Proximal Direita</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="coxaProxDireita" id="coxaProxDireita"
+                                        placeholder="centímetros">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="abdomen" class="strong-class-2">Abdomen</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="abdomen"
+                                        id="abdomen" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="coxaProxEsquerda" class="strong-class-2">Coxa Proximal Esquerda</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="coxaProxEsquerda" id="coxaProxEsquerda"
+                                        placeholder="centímetros">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="quadril" class="strong-class-2">Quadril<i
+                                            class="fa mr-2 fas fa-info-circle strong-class-2"
+                                            title="Preencha para avaliação de risco cardiovascular"></i></label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="quadril"
+                                        id="quadril" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="bracoRelaxDireito" class="strong-class-2">Braço Relaxado Direito</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="bracoRelaxDireito" id="bracoRelaxDireito"
+                                        placeholder="centímetros">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="panturrDireita" class="strong-class-2">Panturrilha Direita</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="panturrDireita" id="panturrDireita" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="bracoRelaxEsquerdo" class="strong-class-2">Braço Relaxado
+                                        Esquerdo</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="bracoRelaxEsquerdo" id="bracoRelaxEsquerdo"
+                                        placeholder="centímetros">
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="panturrEsquerda" class="strong-class-2">Panturrilha Esquerda</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="panturrEsquerda" id="panturrEsquerda"
+                                        placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="bracoContrDireito" class="strong-class-2">Braço Contraído
+                                        Direito</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="bracoContrDireito" id="bracoContrDireito"
+                                        placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="pescoco" class="strong-class-2">Pescoço</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="pescoco"
+                                        id="pescoco" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="bracoContrEsquerdo" class="strong-class-2">Braço Contraído
+                                        Esquerdo</label>
+                                    <input type="number" step="0.01" class="form-control"
+                                        formControlName="bracoContrEsquerdo" id="bracoContrEsquerdo"
+                                        placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="punho" class="strong-class-2">Punho</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="punho"
+                                        id="punho" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="antebraco" class="strong-class-2">Antebraço</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="antebraco"
+                                        id="antebraco" placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <label class="strong-class">Diâmetros Ósseos</label>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <label for="punho" class="strong-class-2">Punho</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="punho"
+                                        id="punho" placeholder="centímetros">
+                                </div>
+                                <div class="col-6">
+                                    <label for="femur" class="strong-class-2">Fêmur</label>
+                                    <input type="number" step="0.01" class="form-control" formControlName="femur"
+                                        id="femur" placeholder="centímetros">
+                                </div>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <label class="strong-class">Percentual de Gordura (Pregas Cutâneas)</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label class="strong-class">Protocolo</label>
+                                    <select class="form-control" formControlName="protocolo" id="protocolo">
+                                        <option value="0" selected="">3 Pregas: Protocolo de Jackson &amp; Pollock -
+                                            Homem</option>
+                                        <option value="1">3 Pregas: Protocolo de Jackson &amp; Pollock - Mulher</option>
+                                        <option value="2">3 Pregas: Protocolo de Guedes - Homem</option>
+                                        <option value="3">3 Pregas: Protocolo de Guedes - Mulher</option>
+                                        <option value="4">4 Pregas: Protocolo de Durnin &amp; Womersley</option>
+                                        <option value="5">4 Pregas: Protocolo de Faulkner</option>
+                                        <option value="6">7 Pregas: Protocolo de Jackson, Pollock &amp; Ward</option>
+                                        <option value="7">Bioimpedância</option>
+                                    </select>
+                                </div>
+                            </div>
+
                         </div>
+
                         <div *ngSwitchDefault>
 
                         </div>

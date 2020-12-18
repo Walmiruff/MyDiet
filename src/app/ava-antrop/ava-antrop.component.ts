@@ -60,8 +60,29 @@ export class AvaAntropComponent implements OnInit {
       peso: [null, Validators.required],
       tipo: [null],
       diagnostico: [null],
+      // criança menor 5 anos
       tricepsCrianca: [null],
-      subescapularCrianca: [null]
+      subescapularCrianca: [null],
+      // adulto
+      ombro: [null],
+      coxaDireita: [null],
+      peitoral: [null],
+      coxaEsquerda: [null],
+      cintura: [null],
+      coxaProxDireita: [null],
+      abdomen: [null],
+      coxaProxEsquerda: [null],
+      quadril: [null],
+      bracoRelaxDireito: [null],
+      panturrDireita: [null],
+      bracoRelaxEsquerdo: [null],
+      panturrEsquerda: [null],
+      bracoContrDireito: [null],
+      pescoco: [null],
+      bracoContrEsquerdo: [null],
+      punho: [null],
+      femur: [null],
+      protocolo: [null]
     });
   }
 
@@ -72,7 +93,7 @@ export class AvaAntropComponent implements OnInit {
     });
 
     this.form.valueChanges.subscribe(() => {
-      const altura = this.form.get('altura').value !== null ? this.form.get('altura').value.toString().replace(',', '.') : '1';
+      const altura = this.form.get('altura').value !== null ? this.form.get('altura').value.toString().replace(',', '.') : null;
       if (this.form.controls.tipo.value == 0) {
         if (this.form.controls.sexo.value == 'M') {
           this.estaturaIdadeCrianc = this.calcCriancaService.estaturaIdadeMenino(Number(this.form.controls.idade.value), Number(altura));
