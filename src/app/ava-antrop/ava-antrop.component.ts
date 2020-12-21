@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { filter, tap, take, switchMap } from 'rxjs/operators';
 
 import { constDiagnosticos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
+import { AvaAntropStore } from '../shared/store/ava-antrop.store';
 import { CalcCriancaService } from './service/calc-crianca.service';
 import { CalcAdolService } from './service/calc-adol.service';
 import { CalcAdultoService } from './service/calc-adulto.service';
@@ -14,7 +15,7 @@ import { IObj } from '../shared/models/obj.model';
   templateUrl: './ava-antrop.component.html',
   styleUrls: ['./ava-antrop.component.scss']
 })
-export class AvaAntropComponent implements OnInit {
+export class AvaAntropComponent implements OnInit, OnDestroy {
 
   public form: FormGroup;
   public mask: Array<string | RegExp>;
@@ -53,6 +54,7 @@ export class AvaAntropComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private patienteStore: PatientStore,
+    private avaAntropStore: AvaAntropStore,
     private calcCriancaService: CalcCriancaService,
     private calcAdolService: CalcAdolService,
     private calcAdultoService: CalcAdultoService,
@@ -65,6 +67,26 @@ export class AvaAntropComponent implements OnInit {
 
   ngOnInit(): void {
     this.triggersControls();
+    this.avaAntropStore.avaAntrop$
+      .pipe(
+        take(1),
+        filter((resp) => resp !== null),
+        tap( r => this.form.patchValue(r)),
+        switchMap(() => {
+          return this.patienteStore.patiente$
+            .pipe(
+              filter((resp) => resp !== null),
+              tap((resp) => {
+                this.form.patchValue({
+                  idade: resp.idade,
+                  altura: resp.altura,
+                  peso: resp.peso,
+                  sexo: resp.sexo,
+                });
+              })
+            );
+        }),
+      ).subscribe();
   }
 
   public buildForm(): void {
@@ -263,7 +285,7 @@ export class AvaAntropComponent implements OnInit {
     let dobras = this.form.controls.triceps.value + this.form.controls.axilarMedia.value + this.form.controls.torax.value + this.form.controls.abdominal.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value + this.form.controls.coxa.value;
     if (this.form.controls.sexo.value == 'M') {
       this.densidadeCorporal = 1.112 - 0.0004399 * dobras + 0.00000055 * (dobras * dobras) - 0.00028826 * Number(this.form.controls.idade.value);
-    } else  {
+    } else {
       this.densidadeCorporal = 1.097 - 0.00046971 * dobras + 0.00000056 * (dobras * dobras) - 0.00012828 * Number(this.form.controls.idade.value);
     }
     this.calc(this.densidadeCorporal);
@@ -301,5 +323,15 @@ export class AvaAntropComponent implements OnInit {
   }
 
 
+  public ngOnDestroy(): void {
+    const patiente = {
+      idade: this.form.get('idade').value,
+      altura: this.form.get('altura').value,
+      peso: this.form.get('peso').value,
+      sexo: this.form.get('sexo').value,
+    };
+    this.patienteStore.set(patiente);
+    this.avaAntropStore.set(this.form.value);
+  }
 
 }

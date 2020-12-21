@@ -14,7 +14,7 @@ export class GastosEnergStore {
 
     gastosEnerg$ = this.gastosEnergSource.asObservable().pipe(shareReplay(1));
 
-    set(patiente: IGastosEnerg) {
-        this.gastosEnergSource.next(patiente);
+    set(gastoEnerg: IGastosEnerg) {
+        this.gastosEnergSource.next(gastoEnerg);
     }
 }
