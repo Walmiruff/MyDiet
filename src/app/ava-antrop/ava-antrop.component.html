@@ -553,11 +553,11 @@
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">IMC Atual</div>
                                             <div id="imc-adulto" class="col-sm-3 col-xs-3">
-                                                <p>27,78</p>
+                                                <p>{{ imcAdulto?.imc }}</p>
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
                                                 <span id="imc-adulto-classif"
-                                                    class="label label-warning">Sobrepeso</span>
+                                                    [ngClass]="imcAdulto?.brush">{{ imcAdulto?.text }}</span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -569,7 +569,7 @@
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
                                                 <span id="massa-gorda-adulto-percent-classif"
-                                                    class="label label-danger">Alto</span>
+                                                    [ngClass]="percentGord.brush">{{ percentGord?.text }}</span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -596,8 +596,7 @@
                                                 <p>{{ form.controls.cintura.value | replace: 'cm' }}</p>
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
-                                                <span id="cintura-result-label" class="label label-danger">Risco
-                                                    Metabólico</span>
+                                                <span id="cintura-result-label" [ngClass]="cinturaResult?.brush">{{ cinturaResult?.text }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -638,8 +637,7 @@
                                                 <p>{{ form.controls.cintura.value / form.controls.quadril.value }}</p>
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
-                                                <span id="cintura-quadril-label" class="label label-danger">Risco
-                                                    Cardiovascular</span>
+                                                <span id="cintura-quadril-label" [ngClass]="RCQ?.brush">{{ RCQ?.text }}</span>
                                             </div>
                                         </div>
                                     </div>
