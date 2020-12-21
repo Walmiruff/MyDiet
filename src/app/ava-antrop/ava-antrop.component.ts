@@ -148,6 +148,18 @@ export class AvaAntropComponent implements OnInit {
         this.RCQ = this.calcAdultoService.relCintQuadril(this.form.controls.cintura.value, this.form.controls.quadril.value, this.form.controls.sexo.value, Number(this.form.controls.idade.value));
         if (this.form.controls.protocolo.value == 0) {
           this.protocoloJacksonHomem();
+        } else if (this.form.controls.protocolo.value == 1) {
+          this.protocoloJacksonMulher();
+        } else if (this.form.controls.protocolo.value == 2) {
+          this.protocoloGuedesHomem();
+        }  else if (this.form.controls.protocolo.value == 3) {
+          this.protocoloGuedesMulher();
+        } else if (this.form.controls.protocolo.value == 4) {
+          this.protocoloDurnin();
+        } else if (this.form.controls.protocolo.value == 5) {
+          this.protocoloFaulkner();
+        } else if (this.form.controls.protocolo.value == 6) {
+
         }
       }
     })
@@ -190,6 +202,59 @@ export class AvaAntropComponent implements OnInit {
   public protocoloJacksonHomem(): void {
     this.densidadeCorporal = (1.10938 - 0.0008267 * (this.form.controls.torax.value + this.form.controls.coxa.value + this.form.controls.abdominal.value) + 0.0000016 * ((this.form.controls.torax.value + this.form.controls.coxa.value + this.form.controls.abdominal.value) * (this.form.controls.torax.value + this.form.controls.coxa.value + this.form.controls.abdominal.value)) - 0.0002574 * Number(this.form.controls.idade.value))
     this.calc(this.densidadeCorporal);
+  }
+
+  public protocoloJacksonMulher(): void {
+    this.densidadeCorporal = (1.0994921 - 0.0009929 * (this.form.controls.triceps.value + this.form.controls.coxa.value + this.form.controls.suprailiaca.value) + 0.0000023 * ((this.form.controls.triceps.value + this.form.controls.coxa.value + this.form.controls.suprailiaca.value) * (this.form.controls.triceps.value + this.form.controls.coxa.value + this.form.controls.suprailiaca.value)) - 0.0001392 * Number(this.form.controls.idade.value));
+    this.calc(this.densidadeCorporal);
+  }
+
+  public protocoloGuedesHomem(): void {
+    this.densidadeCorporal = (1.1714 - 0.0671 * Math.log10(this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.abdominal.value));
+    this.calc(this.densidadeCorporal);
+  }
+
+  public protocoloGuedesMulher(): void {
+    this.densidadeCorporal = (1.1665 - 0.0706 * Math.log10(this.form.controls.coxa.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+    this.calc(this.densidadeCorporal);
+  }
+
+  public protocoloDurnin(): void {
+    let idade = Number(this.form.controls.idade.value);
+    if (this.form.controls.sexo.value == 'M') {
+      if (idade < 17) {
+        this.densidadeCorporal = null;
+      } else if (idade < 19) {  
+        this.densidadeCorporal = (1.162 - 0.063 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 29) {
+        this.densidadeCorporal = (1.1631 - 0.0632 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 39) {
+        this.densidadeCorporal = (1.1422 - 0.0544 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 49) {
+        this.densidadeCorporal = (1.162 - 0.07 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 72) {
+        this.densidadeCorporal = (1.1715 - 0.0779 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      }
+    } else {
+      if (idade < 17) {
+        this.densidadeCorporal = null;
+      } else if (idade < 19) {  
+        this.densidadeCorporal = (1.1715 - 0.0779 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 29) {
+        this.densidadeCorporal = (1.1599 - 0.0717 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 39) {
+        this.densidadeCorporal = (1.1423 - 0.0612 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 49) {
+        this.densidadeCorporal = (1.1333 - 0.0645 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      } else if (idade < 72) {
+        this.densidadeCorporal = (1.1339 - 0.0645 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
+      }
+    }
+    this.densidadeCorporal === null ? null : this.calc(this.densidadeCorporal);
+  }
+
+  public protocoloFaulkner(): void {
+
   }
 
   public calc(densidadeCorporal: number): void {
