@@ -50,8 +50,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     this.gastoEnergStore.gastosEnerg$
       .pipe(
         take(1),
-        filter((resp) => resp !== null),
-        tap(r => this.formularioPrincipal.patchValue(r)),
+        tap(r => r === null ? null : this.formularioPrincipal.patchValue(r)),
         switchMap(() => {
           return this.patienteStore.patiente$
             .pipe(

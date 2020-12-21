@@ -70,8 +70,7 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
     this.avaAntropStore.avaAntrop$
       .pipe(
         take(1),
-        filter((resp) => resp !== null),
-        tap( r => this.form.patchValue(r)),
+        tap( r => r === null ? null : this.form.patchValue(r)),
         switchMap(() => {
           return this.patienteStore.patiente$
             .pipe(

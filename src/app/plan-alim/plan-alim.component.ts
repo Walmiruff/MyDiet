@@ -13,6 +13,7 @@ import { AlimStore } from '../shared/store/alim.store';
 import { RefeicaoStore } from '../shared/store/refeicao.store';
 import { GastosEnergStore } from '../shared/store/gastos-energ.store';
 import { PlanAlimStore } from '../shared/store/plano-alim.store';
+import { PatientStore } from '../shared/store/patiente.store';
 import { DropdownService } from './service/dropdown.service';
 import { AlimentosService } from '../shared/services/alimentos.service';
 
@@ -62,6 +63,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     private refeicaoStore: RefeicaoStore,
     private gastosEnergStore: GastosEnergStore,
     private planAlimStore: PlanAlimStore,
+    private patientStore: PatientStore,
   ) {
     this.mask = [/\d+/, ',', /\d+/, /\d+/];
     this.maskNumber = [/\d+/, /\d+/, /\d+/, ',', /\d+/, /\d+/];
@@ -92,6 +94,12 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
         tap(resp => this.formPlanoAlim.controls.energia.patchValue(resp.gastoEnergFinal))
       )
       .subscribe();
+    
+      this.patientStore.patiente$
+      .pipe(
+        filter(resp => resp !== null),
+        tap(resp => this.formPlanoAlim.controls.peso.patchValue(resp.peso))
+      ).subscribe();
   }
 
   public modalHiddenRef(): void {

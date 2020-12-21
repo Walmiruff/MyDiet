@@ -160,7 +160,7 @@ export class CalcAdultoService {
   public cintura(cintura: number, sexo: string): IObj {
     if (sexo == 'F') {
       if (cintura < 80) {
-        return this.obj = { text: 'Sem Risco', brush: 'red' };
+        return this.obj = { text: 'Sem Risco', brush: 'green' };
       } else if (cintura < 87) {
         return this.obj = { text: 'Risco Metabólico', brush: 'yellow' };
       } else {
@@ -168,7 +168,7 @@ export class CalcAdultoService {
       }
     } else {
       if (cintura < 94) {
-        return this.obj = { text: 'Sem Risco', brush: 'red' };
+        return this.obj = { text: 'Sem Risco', brush: 'green' };
       } else if (cintura < 101) {
         return this.obj = { text: 'Risco Metabólico', brush: 'yellow' };
       } else {
@@ -189,9 +189,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.88) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.94) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         } else if (idade < 39) {
           if (RCQ < 0.84) {
@@ -199,9 +199,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.91) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.96) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } 
         } else if (idade < 49) {
           if (RCQ < 0.88) {
@@ -209,9 +209,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.95) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 1) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         } else if (idade < 59) {
           if (RCQ < 0.9) {
@@ -219,9 +219,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.96) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 1.02) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         } else if (idade < 69) {
           if (RCQ < 0.91) {
@@ -229,9 +229,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.98) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 1.03) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         }
       } else {
@@ -243,9 +243,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.77) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.82) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         } else if (idade < 39) {
           if (RCQ < 0.72) {
@@ -253,9 +253,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.78) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.84) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } 
         } else if (idade < 49) {
           if (RCQ < 0.73) {
@@ -263,9 +263,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.79) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.87) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         } else if (idade < 59) {
           if (RCQ < 0.74) {
@@ -273,9 +273,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.81) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.88) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         } else if (idade < 69) {
           if (RCQ < 0.76) {
@@ -283,9 +283,9 @@ export class CalcAdultoService {
           } else if (RCQ < 0.83) {
             return this.obj = { text:'Moderado', brush: 'yellow' };
           } else if (RCQ < 0.9) {
-            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           } else {
-            return this.obj = { text:'Muito Alto Risco Cardiovascular', brush: 'Red' };
+            return this.obj = { text:'Alto Risco Cardiovascular', brush: 'red' };
           }
         }
       }
