@@ -1,8 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { v4 as uuid } from 'uuid';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
+import { v4 as uuid } from 'uuid';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
@@ -24,6 +26,7 @@ import { AlimentosService } from '../shared/services/alimentos.service';
 })
 export class PlanAlimComponent implements OnInit, OnDestroy {
 
+  @ViewChild('contentRef') contentRef: ElementRef;
   public alimentos$: Observable<Array<IAlimento>>;
   public porcoes: any[] = [];
   public hiddenModalRef = false;
@@ -44,6 +47,9 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   public id: string;
   public isSegundaOpcao = false;
   public isDistMacroMicro = true;
+  public showMacroMicroPdf: boolean;
+
+
   public macroPlan = {
     kcalCho: -1,
     kcalPtn: -1,
@@ -79,7 +85,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     this.alimStore$ = this.alimStore.alims$.pipe(shareReplay(1));
     this.macro$ = this.refeicaoStore.macro$.pipe(shareReplay(1));
     this.distEnergRef$ = this.refeicaoStore.distEnergRef$.pipe(shareReplay(1));
-    this.vitMinerals$ = this.refeicaoStore.vitMinerals$.pipe(shareReplay(1));  
+    this.vitMinerals$ = this.refeicaoStore.vitMinerals$.pipe(shareReplay(1));
 
     this.separetePrimOrSecOption();
 
@@ -94,8 +100,8 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
         tap(resp => this.formPlanoAlim.controls.energia.patchValue(resp.gastoEnergFinal))
       )
       .subscribe();
-    
-      this.patientStore.patiente$
+
+    this.patientStore.patiente$
       .pipe(
         filter(resp => resp !== null),
         tap(resp => this.formPlanoAlim.controls.peso.patchValue(resp.peso))
@@ -427,4 +433,16 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.planAlimStore.set(this.formPlanoAlim.value);
   }
+
+  public downloadPdf(): void {
+    let doc = new jsPDF('p', 'mm', 'a4');
+   html2canvas(this.contentRef.nativeElement, {allowTaint: true, useCORS: true}).then(canvas => {
+      const contentDataURL = canvas.toDataURL('image/png');
+      doc.text('Refeições', 10, 20);
+      doc.addImage(contentDataURL, 'PNG', 10, 30, 208,  canvas.height * 208 / canvas.width);
+      doc.save('plano-alimentar.pdf');
+    })
+  }
+
+
 }
