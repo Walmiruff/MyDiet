@@ -36,7 +36,7 @@ export class AvaAntropComponent implements OnInit {
 
   // adulto
   public altura: number;
-  public densidadeCorporal: number;
+  public densidadeCorporal: number | string;
   public percentMassaGorda: number;
   public massaGorda: number;
   public massaMagra: number;
@@ -152,7 +152,7 @@ export class AvaAntropComponent implements OnInit {
           this.protocoloJacksonMulher();
         } else if (this.form.controls.protocolo.value == 2) {
           this.protocoloGuedesHomem();
-        }  else if (this.form.controls.protocolo.value == 3) {
+        } else if (this.form.controls.protocolo.value == 3) {
           this.protocoloGuedesMulher();
         } else if (this.form.controls.protocolo.value == 4) {
           this.protocoloDurnin();
@@ -223,8 +223,8 @@ export class AvaAntropComponent implements OnInit {
     let idade = Number(this.form.controls.idade.value);
     if (this.form.controls.sexo.value == 'M') {
       if (idade < 17) {
-        this.densidadeCorporal = null;
-      } else if (idade < 19) {  
+        this.densidadeCorporal = 0;
+      } else if (idade < 19) {
         this.densidadeCorporal = (1.162 - 0.063 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
       } else if (idade < 29) {
         this.densidadeCorporal = (1.1631 - 0.0632 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
@@ -237,8 +237,8 @@ export class AvaAntropComponent implements OnInit {
       }
     } else {
       if (idade < 17) {
-        this.densidadeCorporal = null;
-      } else if (idade < 19) {  
+        this.densidadeCorporal = 0;
+      } else if (idade < 19) {
         this.densidadeCorporal = (1.1715 - 0.0779 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
       } else if (idade < 29) {
         this.densidadeCorporal = (1.1599 - 0.0717 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
@@ -250,37 +250,51 @@ export class AvaAntropComponent implements OnInit {
         this.densidadeCorporal = (1.1339 - 0.0645 * Math.log10(this.form.controls.biceps.value + this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value));
       }
     }
-    this.densidadeCorporal === null ? null : this.calc(this.densidadeCorporal);
+    this.densidadeCorporal === 0 ? '-' : this.calc(this.densidadeCorporal);
   }
 
   public protocoloFaulkner(): void {
-
+    this.densidadeCorporal = '-';
+    let G = (this.form.controls.triceps.value + this.form.controls.suprailiaca.value + this.form.controls.abdominal.value + this.form.controls.subescapular.value) * 0.153 + 5.783;
+    this.calcG(G);
   }
 
-  public calc(densidadeCorporal: number): void {
-    if (densidadeCorporal !== 0) {
-      let G = ((4.95 / densidadeCorporal) - 4.5) * 100;
+  public protocoloJacksonWard(): void {
+    let dobras = this.form.controls.triceps.value + this.form.controls.axilarMedia.value + this.form.controls.torax.value + this.form.controls.abdominal.value + this.form.controls.suprailiaca.value + this.form.controls.subescapular.value + this.form.controls.coxa.value;
+    if (this.form.controls.sexo.value == 'M') {
+      this.densidadeCorporal = 1.112 - 0.0004399 * dobras + 0.00000055 * (dobras * dobras) - 0.00028826 * Number(this.form.controls.idade.value);
+    } else  {
+      this.densidadeCorporal = 1.097 - 0.00046971 * dobras + 0.00000056 * (dobras * dobras) - 0.00012828 * Number(this.form.controls.idade.value);
+    }
+  }
 
-      this.percentMassaGorda = (G * this.form.controls.peso.value) / this.form.controls.peso.value;
-      this.massaGorda = G * this.form.controls.peso.value / 100;
-
-      this.percentMassaMagra = ((this.form.controls.peso.value - this.massaGorda) * 100) / this.form.controls.peso.value;
-      this.massaMagra = this.form.controls.peso.value - this.massaGorda;
-
-      if (this.altura !== 0) {
-        if (this.form.controls.sexo.value == 'M') {
-          this.pesoResidual = (this.form.controls.peso.value * 24.1 / 100);
-          this.pesoIdeal = (72.7 * this.altura) - 58;
-        } else {
-          this.pesoResidual = (this.form.controls.peso.value * 20.9 / 100);
-          this.pesoIdeal = (62.7 * this.altura) - 44.7;
-        }
-      }
-
-      this.pesoOsseo = 3.02 * Math.pow((this.altura * this.altura) * (this.form.controls.punho.value / 100) * (this.form.controls.femur.value / 100) * 400, 0.712);
-
-      this.pesoMuscular = this.form.controls.peso.value - (this.massaGorda + this.pesoOsseo + this.pesoResidual);
+  public calc(densidadeCorporal: number | string): void {
+    if (densidadeCorporal !== 0 && densidadeCorporal !== '-') {
+      let G = ((4.95 / Number(densidadeCorporal)) - 4.5) * 100;
+      this.calcG(G);
     };
+  }
+
+  public calcG(G: number): void {
+    this.percentMassaGorda = (G * this.form.controls.peso.value) / this.form.controls.peso.value;
+    this.massaGorda = G * this.form.controls.peso.value / 100;
+
+    this.percentMassaMagra = ((this.form.controls.peso.value - this.massaGorda) * 100) / this.form.controls.peso.value;
+    this.massaMagra = this.form.controls.peso.value - this.massaGorda;
+
+    if (this.altura !== 0) {
+      if (this.form.controls.sexo.value == 'M') {
+        this.pesoResidual = (this.form.controls.peso.value * 24.1 / 100);
+        this.pesoIdeal = (72.7 * this.altura) - 58;
+      } else {
+        this.pesoResidual = (this.form.controls.peso.value * 20.9 / 100);
+        this.pesoIdeal = (62.7 * this.altura) - 44.7;
+      }
+    }
+
+    this.pesoOsseo = 3.02 * Math.pow((this.altura * this.altura) * (this.form.controls.punho.value / 100) * (this.form.controls.femur.value / 100) * 400, 0.712);
+
+    this.pesoMuscular = this.form.controls.peso.value - (this.massaGorda + this.pesoOsseo + this.pesoResidual);
 
     this.percentGord = this.calcAdultoService.percentGord(this.form.controls.sexo.value, Number(this.form.controls.idade.value), this.percentMassaGorda);
   }
