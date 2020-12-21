@@ -288,8 +288,8 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <label for="cintura" class="strong-class-2">Cintura<i
-                                            class="fa mr-2 fas fa-info-circle strong-class-2"
+                                    <label for="cintura" class="strong-class-2">Cintura <i
+                                            class="fa mr-2 fas fa-info-circle"
                                             title="Preencha para avaliação de risco cardiovascular"></i></label>
                                     <input type="number" step="0.01" class="form-control" formControlName="cintura"
                                         id="cintura" placeholder="centímetros">
@@ -316,8 +316,8 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <label for="quadril" class="strong-class-2">Quadril<i
-                                            class="fa mr-2 fas fa-info-circle strong-class-2"
+                                    <label for="quadril" class="strong-class-2">Quadril <i
+                                            class="fa mr-2 fas fa-info-circle"
                                             title="Preencha para avaliação de risco cardiovascular"></i></label>
                                     <input type="number" step="0.01" class="form-control" formControlName="quadril"
                                         id="quadril" placeholder="centímetros">
@@ -565,7 +565,7 @@
                                                 % Massa Gorda
                                             </div>
                                             <div id="massa-gorda-adulto-percent" class="col-sm-3 col-xs-3">
-                                                <p>48,84 %</p>
+                                                <p>{{ percentMassaGorda | replace: '%' }}</p>
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
                                                 <span id="massa-gorda-adulto-percent-classif"
@@ -575,25 +575,25 @@
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Densidade Corporal</div>
                                             <div id="densidade-corporal-adulto" class="col-sm-7 col-xs-7">
-                                                <p>0,99</p>
+                                                <p>{{ densidadeCorporal | replace:'' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Massa Gorda</div>
                                             <div id="massa-gorda-adulto" class="col-sm-7 col-xs-7">
-                                                <p>43,96 kg</p>
+                                                <p>{{ massaGorda | replace: 'kg' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Peso Residual</div>
                                             <div id="peso-residual-adulto" class="col-sm-7 col-xs-7">
-                                                <p>18,81 kg</p>
+                                                <p>{{ pesoResidual | replace: 'kg' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Circunferência da Cintura</div>
                                             <div id="cintura-result" class="col-sm-3 col-xs-3">
-                                                <p>5545,00</p>
+                                                <p>{{ form.controls.cintura.value | replace: 'cm' }}</p>
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
                                                 <span id="cintura-result-label" class="label label-danger">Risco
@@ -605,37 +605,37 @@
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Peso Ideal</div>
                                             <div id="peso-ideal-adulto" class="col-sm-7 col-xs-7">
-                                                <p>59,94 kg - 80,97 kg</p>
+                                                <p>{{ pesoIdeal | replace: 'kg' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">% Massa Magra</div>
                                             <div id="massa-magra-adulto-percent" class="col-sm-7 col-xs-7">
-                                                <p>51,16 %</p>
+                                                <p>{{ percentMassaMagra | replace: '%' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Massa Magra</div>
                                             <div id="massa-magra-adulto" class="col-sm-7 col-xs-7">
-                                                <p>46,04 kg</p>
+                                                <p>{{ massaMagra | replace: 'kg' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Peso Ósseo</div>
                                             <div id="peso-osseo-adulto" class="col-sm-7 col-xs-7">
-                                                <p>29020,91 kg</p>
+                                                <p>{{ pesoOsseo | replace: 'kg' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Peso Muscular</div>
                                             <div id="peso-muscular-adulto" class="col-sm-7 col-xs-7">
-                                                <p>-</p>
+                                                <p>{{ pesoMuscular | replace: 'kg' }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="text-right col-sm-5 col-xs-5">Relação Cintura Quadril</div>
                                             <div id="relacao-cintura-quadril" class="col-sm-3 col-xs-3">
-                                                <p>1,02</p>
+                                                <p>{{ form.controls.cintura.value / form.controls.quadril.value }}</p>
                                             </div>
                                             <div class="col-sm-4 col-xs-4">
                                                 <span id="cintura-quadril-label" class="label label-danger">Risco
