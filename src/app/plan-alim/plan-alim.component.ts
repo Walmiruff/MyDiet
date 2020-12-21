@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
@@ -26,7 +24,7 @@ import { AlimentosService } from '../shared/services/alimentos.service';
 })
 export class PlanAlimComponent implements OnInit, OnDestroy {
 
-  @ViewChild('contentRef') contentRef: ElementRef;
+  @ViewChild('contentRef', {static: false}) contentRef: ElementRef;
   public alimentos$: Observable<Array<IAlimento>>;
   public porcoes: any[] = [];
   public hiddenModalRef = false;
@@ -435,13 +433,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public downloadPdf(): void {
-    let doc = new jsPDF('p', 'mm', 'a4');
-   html2canvas(this.contentRef.nativeElement, {allowTaint: true, useCORS: true}).then(canvas => {
-      const contentDataURL = canvas.toDataURL('image/png');
-      doc.text('Refeições', 10, 20);
-      doc.addImage(contentDataURL, 'PNG', 10, 30, 208,  canvas.height * 208 / canvas.width);
-      doc.save('plano-alimentar.pdf');
-    })
+    
   }
 
 
