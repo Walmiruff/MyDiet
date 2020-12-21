@@ -159,7 +159,7 @@ export class AvaAntropComponent implements OnInit {
         } else if (this.form.controls.protocolo.value == 5) {
           this.protocoloFaulkner();
         } else if (this.form.controls.protocolo.value == 6) {
-
+          this.protocoloJacksonWard();
         }
       }
     })
@@ -266,6 +266,7 @@ export class AvaAntropComponent implements OnInit {
     } else  {
       this.densidadeCorporal = 1.097 - 0.00046971 * dobras + 0.00000056 * (dobras * dobras) - 0.00012828 * Number(this.form.controls.idade.value);
     }
+    this.calc(this.densidadeCorporal);
   }
 
   public calc(densidadeCorporal: number | string): void {
