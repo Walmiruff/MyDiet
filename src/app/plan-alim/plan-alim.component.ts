@@ -3,8 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
@@ -26,7 +24,6 @@ import { AlimentosService } from '../shared/services/alimentos.service';
 })
 export class PlanAlimComponent implements OnInit, OnDestroy {
 
-  // @ViewChild('contentRef', { static: false }) contentRef: ElementRef;
   public alimentos$: Observable<Array<IAlimento>>;
   public porcoes: any[] = [];
   public hiddenModalRef = false;
@@ -435,20 +432,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public downloadPdf(): void {
-    var data = document.getElementById('contentToConvert');
-    html2canvas(data, { useCORS: true }).then(canvas => {
-      // Few necessary setting options  
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
-
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
-      var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight).save('MYPdf.pdf');
-      // pdf.save('MYPdf.pdf'); // Generated PDF   
-    });
+   
   }
 
 
