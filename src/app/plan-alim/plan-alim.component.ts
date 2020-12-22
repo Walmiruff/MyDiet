@@ -4,6 +4,10 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
 
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 import { IAlimento } from '../shared/models/alimentos.model';
 import { IRefeicao } from '../shared/models/refeicao.model';
 import { IMacronutrientes } from '../shared/models/plano-alim.model';
@@ -432,7 +436,62 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public downloadPdf(): void {
-   
+    let dataAtend = this.formPlanoAlim.controls.dataAtend.value === null ? null : (this.formPlanoAlim.controls.dataAtend.value).toString().split('-');
+    let refs = [];
+    let alimentos = [];
+    this.refeicoes$.pipe(take(1)).subscribe(refeicoes => {
+      refs = refeicoes;
+      refs.map(ref => alimentos = ref['alimentos']);
+    });
+    let docDefinition = {
+      header: 'NutriHealth - Plano Alimentar',
+      content: [
+        {
+          columns: [
+            [
+              { text: `Dias da Semana: ${this.formPlanoAlim.controls.dom.value === true ? 'domingo,' : ''} ${this.formPlanoAlim.controls.seg.value === true ? 'segunda,' : ''} ${this.formPlanoAlim.controls.ter.value === true ? 'terça,' : ''} ${this.formPlanoAlim.controls.qua.value === true ? 'quarta,' : ''} ${this.formPlanoAlim.controls.qui.value === true ? 'quinta,' : ''} ${this.formPlanoAlim.controls.sex.value === true ? 'sexta,' : ''} ${this.formPlanoAlim.controls.sab.value === true ? 'sábado.' : ''}` }
+            ],
+            [
+              {
+                text: `Data: ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}`,
+                alignment: 'right'
+              },
+            ]
+          ]
+        },
+        {
+          text: 'Descrição',
+          style: 'sectionHeader'
+        },
+        {
+          text: this.formPlanoAlim.controls.descricao.value
+        },
+        {
+          text: 'Refeições',
+          style: 'sectionHeader'
+        },
+        {
+          table: {
+            headerRows: 1,
+            widths: ['*', 'auto', 'auto'],
+            body: [
+              // [{text:'Café da Manhã', colSpan: 3}],
+              ['Alimento', 'Quantidade', 'Medida Caseira'], ...alimentos.map(alim => ([alim.descricao, alim.quantidade, alim.porcao]))
+            ]
+          }
+        }
+      ],
+      styles: {
+        sectionHeader: {
+          bold: true,
+          fontSize: 14,
+          margin: [0, 15, 0, 15]
+        }
+      }
+    };
+
+    pdfMake.createPdf(docDefinition).download();
+
   }
 
 
