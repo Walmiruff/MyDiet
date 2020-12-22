@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
@@ -436,13 +436,33 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public downloadPdf(): void {
-    let dataAtend = this.formPlanoAlim.controls.dataAtend.value === null ? null : (this.formPlanoAlim.controls.dataAtend.value).toString().split('-');
-    let refs = [];
-    let alimentos = [];
-    this.refeicoes$.pipe(take(1)).subscribe(refeicoes => {
-      refs = refeicoes;
-      refs.map(ref => alimentos = ref['alimentos']);
-    });
+    let dataAtend = this.formPlanoAlim.controls.dataAtend.value === null ? '0000-00-00' : (this.formPlanoAlim.controls.dataAtend.value).toString().split('-');
+    let refeicoes = [];
+    this.refeicoes$.pipe(
+      tap((refs) => refs.map((ref) => {
+        refeicoes.push(
+          {
+            style: 'tableExample',
+            color: '#444',
+            table: {
+              widths: ['*', 'auto', 'auto'],
+              headerRows: 2,
+              body: [
+                [{ text: `${ref.descricao} - ${ref.horario}`, style: 'tableHeader', colSpan: 3, alignment: 'center' }, {}, {}],
+                [{ text: 'Alimento', style: 'tableHeader', alignment: 'center' }, { text: 'Quantidade', style: 'tableHeader', alignment: 'center' }, { text: 'Medida Caseira', style: 'tableHeader', alignment: 'center' }],
+                ...ref.alimentos.filter((alim) => alim.ordemListagem === 1).map(alim => ([alim.descricao, alim.quantidade, alim.porcao])),
+                ref.alimentos.filter((alim) => alim.ordemListagem === 2).length > 0 ? [{ text: 'Segunda Opção', style: 'tableHeader', colSpan: 3, alignment: 'left' }, {}, {}] : [{ text: '', colSpan:3 ,border: [false, false, false, false]}, {}, {}],
+                ...ref.alimentos.filter((alim) => alim.ordemListagem === 2).map(alim => ([alim.descricao, alim.quantidade, alim.porcao])),
+              ]
+            }
+          }
+        )
+      })),
+      take(1),
+    )
+      .subscribe();
+
+      
     let docDefinition = {
       header: 'NutriHealth - Plano Alimentar',
       content: [
@@ -470,23 +490,32 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
           text: 'Refeições',
           style: 'sectionHeader'
         },
-        {
-          table: {
-            headerRows: 1,
-            widths: ['*', 'auto', 'auto'],
-            body: [
-              // [{text:'Café da Manhã', colSpan: 3}],
-              ['Alimento', 'Quantidade', 'Medida Caseira'], ...alimentos.map(alim => ([alim.descricao, alim.quantidade, alim.porcao]))
-            ]
-          }
-        }
+        refeicoes
       ],
       styles: {
         sectionHeader: {
           bold: true,
           fontSize: 14,
           margin: [0, 15, 0, 15]
-        }
+        },
+        header: {
+          fontSize: 18,
+          bold: true,
+          margin: [0, 0, 0, 10]
+        },
+        subheader: {
+          fontSize: 16,
+          bold: true,
+          margin: [0, 10, 0, 5]
+        },
+        tableExample: {
+          margin: [0, 5, 0, 15]
+        },
+        tableHeader: {
+          bold: true,
+          fontSize: 13,
+          color: 'black'
+        },
       }
     };
 

@@ -2,6 +2,9 @@ import { Component , OnInit} from '@angular/core';
 import { AlimentosService } from './shared/services/alimentos.service';
 import IBGE from '../assets/resources/alimentos/IBGE.json';
 import TACO from '../assets/resources/alimentos/TACO.json';
+import Tucunduva from '../assets/resources/alimentos/Tucunduva.json';
+import Marcas from '../assets/resources/alimentos/Marcas.json';
+import Suplementos from '../assets/resources/alimentos/Suplementos.json';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +17,6 @@ export class AppComponent implements OnInit {
   constructor(private alimentosService: AlimentosService) { }
 
   ngOnInit(): void {
-    this.alimentosService.load(IBGE, TACO);
+    this.alimentosService.load(IBGE, TACO, Tucunduva, Marcas, Suplementos);
   }
 }
