@@ -1253,7 +1253,7 @@
                                         Alimento
                                     </strong>
                                 </label>
-                                <ng-select formControlName="alimento" id="alimento">
+                                <ng-select virtualScroll="true" formControlName="alimento" id="alimento">
                                     <ng-option *ngFor="let alim of alimentos" [value]="alim.id">{{ alim.descricao }}
                                     </ng-option>
                                 </ng-select>
