@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
 
@@ -79,8 +79,8 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.triggersControls();
-    this.alimentos$ = this.alimentosService.getAllAlimentos();
     this.tabelas = this.dropdownService.getTabelas();
+    this.alimentos$ = of([]);
 
     this.refeicoes$ = this.refeicaoStore.refs$;
     this.alimStore$ = this.alimStore.alims$.pipe(shareReplay(1));
@@ -115,7 +115,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
 
   public buildForms(): void {
     this.formModalAlim = this.formBuilder.group({
-      tabelas: ['TACO'],
+      tabelas: [null],
       alimento: [null],
       porcoes: [null],
       quantidade: [1],
@@ -168,8 +168,12 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public triggersControls(): void {
-    this.formModalAlim.controls.tabelas.valueChanges.subscribe(value => {
-      this.alimentos$ = null;
+    this.formModalAlim.controls.tabelas.valueChanges
+    .pipe(
+      filter(value => typeof value === 'string'),
+    )
+    .subscribe(value => {
+      this.alimentos$ = of(null);
       this.porcoes.splice(0);
       this.formModalAlim.controls.porcoes.patchValue(null);
       this.formModalAlim.controls.alimento.reset();
@@ -183,11 +187,10 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
           this.formModalAlim.controls.porcoes.patchValue(null);
           this.porcoes.splice(0);
         }),
-        filter(value => value !== 'null' && value !== null),
+        filter(value => typeof value === 'number'),
         switchMap(value => {
           return this.alimentos$
             .pipe(
-              filter((alimentos) => alimentos !== undefined && alimentos.length > 0),
               map((alimentos) => alimentos.filter((alimento) => alimento.id == (value))),
               map((alimentos) => {
                 this.alimSelected = alimentos[0];
@@ -204,9 +207,11 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public onConfirm(): void {
-    this.formPorcao.controls.id.patchValue(this.formModalAlim.controls.alimento.value);
-    this.portionStore.add(this.formPorcao.value);
-    this.getPortionCustom(this.formModalAlim.controls.alimento.value);
+    if (typeof this.formModalAlim.controls.alimento.value === 'number') {
+      this.formPorcao.controls.id.patchValue(this.formModalAlim.controls.alimento.value);
+      this.portionStore.add(this.formPorcao.value);
+      this.getPortionCustom(this.formModalAlim.controls.alimento.value);
+    }
   }
 
   public getPortionCustom(idAlim: number | string): void {
@@ -361,13 +366,13 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public clearModalAlim(): void {
-    this.formModalAlim.patchValue({
-      tabelas: 'TACO',
-      alimento: null,
-      porcoes: null,
-      quantidade: 1,
-      idAlimento: null
-    });
+      this.formModalAlim.patchValue({
+        tabelas: null,
+        alimento: null,
+        porcoes: null,
+        quantidade: 1,
+        idAlimento: null
+      });
   }
 
   public clearModalRef(): void {
@@ -451,7 +456,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
                 [{ text: `${ref.descricao} - ${ref.horario}`, style: 'tableHeader', colSpan: 3, alignment: 'center' }, {}, {}],
                 [{ text: 'Alimento', style: 'tableHeader', alignment: 'center' }, { text: 'Quantidade', style: 'tableHeader', alignment: 'center' }, { text: 'Medida Caseira', style: 'tableHeader', alignment: 'center' }],
                 ...ref.alimentos.filter((alim) => alim.ordemListagem === 1).map(alim => ([alim.descricao, alim.quantidade, alim.porcao])),
-                ref.alimentos.filter((alim) => alim.ordemListagem === 2).length > 0 ? [{ text: 'Segunda Opção', style: 'tableHeader', colSpan: 3, alignment: 'left' }, {}, {}] : [{ text: '', colSpan:3 ,border: [false, false, false, false]}, {}, {}],
+                ref.alimentos.filter((alim) => alim.ordemListagem === 2).length > 0 ? [{ text: 'Segunda Opção', style: 'tableHeader', colSpan: 3, alignment: 'left' }, {}, {}] : [{ text: '', colSpan: 3, border: [false, false, false, false] }, {}, {}],
                 ...ref.alimentos.filter((alim) => alim.ordemListagem === 2).map(alim => ([alim.descricao, alim.quantidade, alim.porcao])),
               ]
             }
@@ -462,7 +467,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     )
       .subscribe();
 
-      
+
     let docDefinition = {
       header: 'NutriHealth - Plano Alimentar',
       content: [

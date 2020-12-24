@@ -1247,21 +1247,22 @@
 
                     <div *ngIf="alimentos$ | async as alimentos">
                         <div class="row mt-3">
-                            <div class="col-6">
+                            <div class="col-9">
                                 <label>
                                     <strong>
                                         Alimento
                                     </strong>
                                 </label>
-                                <ng-select virtualScroll="true" formControlName="alimento" id="alimento">
+                                <ng-select [virtualScroll]="formModalAlim.controls.tabelas.value !== null ? true : false" formControlName="alimento" id="alimento">
                                     <ng-option *ngFor="let alim of alimentos" [value]="alim.id">{{ alim.descricao }}
                                     </ng-option>
                                 </ng-select>
                             </div>
-                            <div class="col-6 d-flex align-items-end">
+                            <div class="col-3 d-flex align-items-end">
                                 <!-- <button id="btn-novo-alim" class="btn btn-link" (click)="novaPorcao()"
                                     disabled>Cadastrar Novo
                                     Alimento</button> -->
+                      
                             </div>
                         </div>
 
@@ -1280,7 +1281,7 @@
                                 </select>
                             </div>
                             <div class="col-6 d-flex align-items-end">
-                                <button id="btn-nova-porcao" class="btn btn-link" (click)="porcaoModal.show()">Cadastrar
+                                <button id="btn-nova-porcao" class="btn btn-link" (click)="porcaoModal.show()" [disabled]="formModalAlim.controls.alimento.value === null">Cadastrar
                                     Nova
                                     Porção</button>
                             </div>

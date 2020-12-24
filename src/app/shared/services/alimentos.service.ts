@@ -55,6 +55,6 @@ export class AlimentosService {
 
   public getAllAlimentos(): Observable<Array<IAlimento>> {
     return forkJoin(this.getAlimentos('IBGE'), this.getAlimentos('TACO'), this.getAlimentos('Tucunduva'), this.getAlimentos('Marcas'), this.getAlimentos('Suplementos'))
-      .pipe(map(([a1, a2, a3, a4, a5]) => [...a1, ...a2, ...a3, ...a4, ...a5]));
+      .pipe(map(([a1, a2, a3, a4, a5]) => [...a1, ...a2, ...a3, ...a4, ...a5]), shareReplay(1),);
   }
 }
