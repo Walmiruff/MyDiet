@@ -479,7 +479,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
 
 
     let docDefinition = {
-      header: 'NutriHealth - Plano Alimentar',
+      header: 'MyDiet - Plano Alimentar',
       content: [
         {
           columns: [
