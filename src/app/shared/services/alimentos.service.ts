@@ -11,18 +11,19 @@ import { PortionStore } from '../store/porcoes.store';
 export class AlimentosService {
 
   private url: Observable<IAlimento[]>[];
-  private alimIBGE$: Observable<IAlimento[]>;
-  private alimTACO$: Observable<IAlimento[]>;
-  private alimTucunduva$: Observable<IAlimento[]>;
-  private alimMarcas$: Observable<IAlimento[]>;
-  private alimSuplementos$: Observable<IAlimento[]>;
 
   constructor(
     private portionStore: PortionStore,
   ) { }
 
   public load(IBGE: IAlimento[], TACO: IAlimento[], Tucunduva: IAlimento[], Marcas: IAlimento[], Suplementos: IAlimento[]): Observable<IAlimento[]>[] {
-    return this.url = [this.alimIBGE$ = of(IBGE), this.alimTACO$ = of(TACO), this.alimTucunduva$ = of(Tucunduva), this.alimMarcas$ = of(Marcas), this.alimSuplementos$ = of(Suplementos)];
+    return this.url = [
+      of(IBGE).pipe(map((resp) => resp['alimentos']), shareReplay(1)),
+      of(TACO).pipe(map((resp) => resp['alimentos']), shareReplay(1)),
+      of(Tucunduva).pipe(map((resp) => resp['alimentos']), shareReplay(1)),
+      of(Marcas).pipe(map((resp) => resp['alimentos']), shareReplay(1)),
+      of(Suplementos).pipe(map((resp) => resp['alimentos']), shareReplay(1))
+    ];
   }
 
   public getAlimentos(tabela: string | number): Observable<Array<IAlimento>> {
@@ -47,14 +48,11 @@ export class AlimentosService {
         n = 1;
         break;
     }
-    return (this.url[n]).pipe(
-      map((resp) => resp['alimentos']),
-      shareReplay(1),
-    );
+    return (this.url[n]);
   }
 
   public getAllAlimentos(): Observable<Array<IAlimento>> {
-    return forkJoin(this.getAlimentos('IBGE'), this.getAlimentos('TACO'), this.getAlimentos('Tucunduva'), this.getAlimentos('Marcas'), this.getAlimentos('Suplementos'))
-      .pipe(map(([a1, a2, a3, a4, a5]) => [...a1, ...a2, ...a3, ...a4, ...a5]), shareReplay(1),);
+    return forkJoin(this.url)
+      .pipe(map(([a1, a2, a3, a4, a5]) => [...a1, ...a2, ...a3, ...a4, ...a5]), map((arr => arr.sort())));
   }
 }

@@ -21,6 +21,7 @@ import { PatientStore } from '../shared/store/patiente.store';
 import { DropdownService } from './service/dropdown.service';
 import { AlimentosService } from '../shared/services/alimentos.service';
 
+
 @Component({
   selector: 'app-plan-alim',
   templateUrl: './plan-alim.component.html',
@@ -28,7 +29,7 @@ import { AlimentosService } from '../shared/services/alimentos.service';
 })
 export class PlanAlimComponent implements OnInit, OnDestroy {
 
-  public alimentos$: Observable<Array<IAlimento>>;
+  public alimentos$ = new BehaviorSubject<Array<IAlimento>>(null);
   public porcoes: any[] = [];
   public hiddenModalRef = false;
   public formModalAlim: FormGroup;
@@ -49,6 +50,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   public isSegundaOpcao = false;
   public isDistMacroMicro = true;
   public showMacroMicroPdf: boolean;
+  public alimLoadShow = false;
 
 
   public macroPlan = {
@@ -80,7 +82,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.triggersControls();
     this.tabelas = this.dropdownService.getTabelas();
-    this.alimentos$ = of([]);
+    this.alimentos$.next([]);
 
     this.refeicoes$ = this.refeicaoStore.refs$;
     this.alimStore$ = this.alimStore.alims$.pipe(shareReplay(1));
@@ -167,20 +169,25 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     });
   }
 
+
   public triggersControls(): void {
     this.formModalAlim.controls.tabelas.valueChanges
-    .pipe(
-      filter(value => typeof value === 'string'),
-    )
-    .subscribe(value => {
-      this.alimentos$ = of(null);
-      this.porcoes.splice(0);
-      this.formModalAlim.controls.porcoes.patchValue(null);
-      this.formModalAlim.controls.alimento.reset();
-      this.formModalAlim.controls.quantidade.patchValue(1);
-      value === 0 ? this.alimentos$ = this.alimentosService.getAllAlimentos() :
-        this.alimentos$ = this.alimentosService.getAlimentos(value.toString());
-    });
+      .pipe(
+        filter(value => typeof value === 'string'),
+        tap(() => {
+          this.alimLoadShow = true;
+          this.alimentos$.next([]);
+          this.porcoes.splice(0);
+          this.formModalAlim.controls.porcoes.patchValue(null);
+          this.formModalAlim.controls.alimento.reset();
+          this.formModalAlim.controls.quantidade.patchValue(1);
+        }),
+        delay(100),
+      )
+      .subscribe(value => {
+        value === 'Todas' ? this.alimentosService.getAllAlimentos().subscribe(alim => { this.alimentos$.next(alim); this.alimLoadShow = false; }) :
+          this.alimentosService.getAlimentos(value.toString()).subscribe(alim => { this.alimentos$.next(alim); this.alimLoadShow = false; });
+      });
     this.formModalAlim.controls.alimento.valueChanges
       .pipe(
         tap(() => {
@@ -190,13 +197,14 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
         filter(value => typeof value === 'number'),
         switchMap(value => {
           return this.alimentos$
+            .asObservable()
             .pipe(
               map((alimentos) => alimentos.filter((alimento) => alimento.id == (value))),
               map((alimentos) => {
                 this.alimSelected = alimentos[0];
-                alimentos[0].porcoes.map(element => {
+              alimentos[0] !== undefined ? alimentos[0].porcoes.map(element => {
                   this.porcoes.push(element);
-                });
+                }) : null;
               }),
               tap(() => this.getPortionCustom(this.formModalAlim.controls.alimento.value)),
             );
@@ -325,7 +333,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
     this.alimStore.alims$.pipe(
       take(1),
       map((alims) => alims.filter((alim) => alim.id === alimId)),
-      delay(2000)
+      delay(100)
     )
       .subscribe(alimSelected => {
         this.formModalAlim.patchValue({
@@ -366,13 +374,15 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public clearModalAlim(): void {
-      this.formModalAlim.patchValue({
-        tabelas: null,
-        alimento: null,
-        porcoes: null,
-        quantidade: 1,
-        idAlimento: null
-      });
+    this.formModalAlim.patchValue({
+      tabelas: null,
+      alimento: null,
+      porcoes: null,
+      quantidade: 1,
+      idAlimento: null
+    });
+    this.porcoes.splice(0);
+    this.alimentos$.next([]);
   }
 
   public clearModalRef(): void {

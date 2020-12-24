@@ -1231,10 +1231,10 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="row">
-                                        <div class="form-check-label" *ngFor="let item of tabelas">
+                                        <div  class="form-check-label" *ngFor="let item of tabelas">
                                             <label class="form-check-label mx-3">
                                                 <input type="radio" class="form-check-input" [value]="item.valor"
-                                                    formControlName="tabelas" />
+                                                    formControlName="tabelas"/>
                                                 {{ item.nome }}
                                             </label>
                                         </div>
@@ -1253,7 +1253,7 @@
                                         Alimento
                                     </strong>
                                 </label>
-                                <ng-select [virtualScroll]="formModalAlim.controls.tabelas.value !== null ? true : false" formControlName="alimento" id="alimento">
+                                <ng-select virtualScroll="true" formControlName="alimento" id="alimento">
                                     <ng-option *ngFor="let alim of alimentos" [value]="alim.id">{{ alim.descricao }}
                                     </ng-option>
                                 </ng-select>
@@ -1262,7 +1262,9 @@
                                 <!-- <button id="btn-novo-alim" class="btn btn-link" (click)="novaPorcao()"
                                     disabled>Cadastrar Novo
                                     Alimento</button> -->
-                      
+                                  <div [hidden]="!alimLoadShow" class="spinner-border spinner-border-sm text-primary" style="margin-bottom: 10px;"  role="status">
+                                    <span class="sr-only">Loading...</span>
+                                  </div>                              
                             </div>
                         </div>
 
@@ -1313,9 +1315,9 @@
                     type="button" class="btn btn-primary" (click)="saveAlim(); resetModalAlim()">Incluir e
                     Continuar</button>
                 <button [disabled]="formModalAlim.controls.porcoes.value === null" id="btn-add-alimento-fechar"
-                    type="button" class="btn btn-success" (click)="saveAlim(); smModal.hide(); modalHiddenRef()">Incluir
+                    type="button" class="btn btn-success" (click)="saveAlim(); smModal.hide(); modalHiddenRef(); clearModalAlim()">Incluir
                     e Fechar</button>
-                <button type="button" class="btn btn-default" (click)="smModal.hide(); modalHiddenRef()">Fechar</button>
+                <button type="button" class="btn btn-default" (click)="smModal.hide(); modalHiddenRef(); clearModalAlim()">Fechar</button>
             </div>
         </div>
     </div>

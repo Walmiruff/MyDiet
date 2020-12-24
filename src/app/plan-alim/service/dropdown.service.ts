@@ -11,7 +11,7 @@ export class DropdownService {
     return [
       {
         nome: 'Todas',
-        valor: 0
+        valor: 'Todas'
       },
       {
         nome: 'IBGE',
