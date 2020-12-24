@@ -11,7 +11,6 @@ import { GastosEnergComponent } from './gastos-energ/gastos-energ.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AvaAntropComponent } from './ava-antrop/ava-antrop.component';
 import { PlanAlimComponent } from './plan-alim/plan-alim.component';
-import { RoundPipe } from './shared/pipes/round.pipe';
 import { PrimOrSecOpPipe } from './shared/pipes/prim-or-sec-op.pipe';
 import { ReplacePipe } from './shared/pipes/replace.pipe';
 
@@ -22,7 +21,6 @@ import { ReplacePipe } from './shared/pipes/replace.pipe';
     NotFoundComponent,
     AvaAntropComponent,
     PlanAlimComponent,
-    RoundPipe,
     PrimOrSecOpPipe,
     ReplacePipe
   ],

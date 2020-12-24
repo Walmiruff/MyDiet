@@ -501,9 +501,9 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
   public regraBolso(): void {
     const peso = this.formularioPrincipal.controls.peso.value;
     if (peso !== null && peso !== '0') {
-      this.regraBolsoObj.perdaPeso = `${peso * 20} Kcal - ${peso * 25} Kcal`;
-      this.regraBolsoObj.manutPeso = `${peso * 25} Kcal - ${peso * 30} Kcal`;
-      this.regraBolsoObj.ganhoPeso = `${peso * 30} Kcal - ${peso * 35} Kcal`;
+      this.regraBolsoObj.perdaPeso = `${peso * 20} kcal - ${peso * 25} kcal`;
+      this.regraBolsoObj.manutPeso = `${peso * 25} kcal - ${peso * 30} kcal`;
+      this.regraBolsoObj.ganhoPeso = `${peso * 30} kcal - ${peso * 35} kcal`;
     }
   }
 

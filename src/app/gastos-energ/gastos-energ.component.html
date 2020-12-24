@@ -118,7 +118,7 @@
                                 <label>-</label>
                             </ng-container>
                             <ng-template #elseTemplateTMB>
-                                <label>{{ TMB | round }} Kcal</label>
+                                <label>{{ TMB | replace: 'kcal' }}</label>
                             </ng-template>
                         </div>
 
@@ -128,7 +128,7 @@
                                 <label>-</label>
                             </ng-container>
                             <ng-template #elseTemplateGET>
-                                <label>{{ GET | round }} Kcal</label>
+                                <label>{{ GET | replace: 'kcal' }}</label>
                             </ng-template>
                         </div>
 
@@ -171,7 +171,7 @@
                         <div class="col-sm-4" title="">
                             <label for="gastoEnergFinal" class="strong-class">Gasto Energético Final**</label>
                             <input type="number" class="form-control" formControlName="gastoEnergFinal"
-                                id="gastoEnergFinal" placeholder="Kcal" step="0.01">
+                                id="gastoEnergFinal" placeholder="kcal" step="0.01">
                         </div>
                     </div>
 
