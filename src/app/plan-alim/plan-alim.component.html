@@ -1,4 +1,4 @@
-<h4>Plano Alimentar</h4>
+<h2>Plano Alimentar</h2>
 
 <div class="card">
     <div class="card-body">
@@ -1231,10 +1231,10 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <div class="row">
-                                        <div  class="form-check-label" *ngFor="let item of tabelas">
+                                        <div class="form-check-label" *ngFor="let item of tabelas">
                                             <label class="form-check-label mx-3">
                                                 <input type="radio" class="form-check-input" [value]="item.valor"
-                                                    formControlName="tabelas"/>
+                                                    formControlName="tabelas" />
                                                 {{ item.nome }}
                                             </label>
                                         </div>
@@ -1262,9 +1262,10 @@
                                 <!-- <button id="btn-novo-alim" class="btn btn-link" (click)="novaPorcao()"
                                     disabled>Cadastrar Novo
                                     Alimento</button> -->
-                                  <div [hidden]="!alimLoadShow" class="spinner-border spinner-border-sm text-primary" style="margin-bottom: 10px;"  role="status">
+                                <div [hidden]="!alimLoadShow" class="spinner-border spinner-border-sm text-primary"
+                                    style="margin-bottom: 10px;" role="status">
                                     <span class="sr-only">Loading...</span>
-                                  </div>                              
+                                </div>
                             </div>
                         </div>
 
@@ -1283,7 +1284,8 @@
                                 </select>
                             </div>
                             <div class="col-6 d-flex align-items-end">
-                                <button id="btn-nova-porcao" class="btn btn-link" (click)="porcaoModal.show()" [disabled]="formModalAlim.controls.alimento.value === null">Cadastrar
+                                <button id="btn-nova-porcao" class="btn btn-link" (click)="porcaoModal.show()"
+                                    [disabled]="formModalAlim.controls.alimento.value === null">Cadastrar
                                     Nova
                                     Porção</button>
                             </div>
@@ -1315,9 +1317,11 @@
                     type="button" class="btn btn-primary" (click)="saveAlim(); resetModalAlim()">Incluir e
                     Continuar</button>
                 <button [disabled]="formModalAlim.controls.porcoes.value === null" id="btn-add-alimento-fechar"
-                    type="button" class="btn btn-success" (click)="saveAlim(); smModal.hide(); modalHiddenRef(); clearModalAlim()">Incluir
+                    type="button" class="btn btn-success"
+                    (click)="saveAlim(); smModal.hide(); modalHiddenRef(); clearModalAlim()">Incluir
                     e Fechar</button>
-                <button type="button" class="btn btn-default" (click)="smModal.hide(); modalHiddenRef(); clearModalAlim()">Fechar</button>
+                <button type="button" class="btn btn-default"
+                    (click)="smModal.hide(); modalHiddenRef(); clearModalAlim()">Fechar</button>
             </div>
         </div>
     </div>
@@ -1689,4 +1693,86 @@
             </div>
         </div>
     </div>
+</div>
+
+<br><br>
+
+<div class="container">
+    <h4>Avaliação Nutricional</h4>
+    <p>A avaliação do estado nutricional é fundamental para a identificação daqueles pacientes sob risco nutricional.
+        Inicialmente, deve-se buscar na história clínica as informações a cerca do diagnóstico e intercorrências
+        clínicas, que podem afetar o estado nutricional do paciente ou serem consequências dele. Em seguida, buscam-se
+        evidências objetivas deste estado nutricional (antropometria, avaliação clínica e dados bioquímicos), além das
+        intervenções terapêuticas com interações nutricionais e, finalmente, a descrição do padrão alimentar ou o tipo
+        de dieta que o paciente está ingerindo no momento da avaliação.
+        <br>
+        Outros aspectos relacionados que deverão ser verificados incluem:
+    </p>
+    <ul>
+        <li>Capacidade física para ingestão de alimentos;</li>
+        <li>História dietética anterior ou modificações realizadas;</li>
+        <li>Mudanças ponderais recentes;</li>
+        <li>Intolerâncias alimentares;</li>
+        <li>Possível interação droga-nutriente;</li>
+        <li>Presença de transtornos alimentares</li>
+        <li>Outras alterações, como dispepsia, constipação intestinal, etc.</li>
+    </ul>
+    <br>
+    <p>Sendo a avaliação do estado nutricional a base para se definir a melhor conduta dietética a ser adotada, os
+        componentes essenciais da avaliação podem ser agrupados em: história dietética, medidas antropométricas,
+        avaliação bioquímica e exame físico nutricional. Estes quatro componentes (Tabela 3), permitirão o
+        desenvolvimento de um plano terapêutico nutricional efetivo, apropriado e individualizado. Os dados que compõem
+        a avaliação deverão ser monitorados e reavaliados regularmente para permitir o acompanhamento detalhado e
+        particularizado das necessidades nutricionais dos pacientes.</p>
+    <h4>Desenvolvimento do Plano de Ação Nutricional</h4>
+    <p>Para o planejamento da intervenção nutricional é preciso definir os objetivos do tratamento. É comum encontrarmos
+        objetivos discrepantes entre o profissional e o paciente, o qual deseja recuperar, por exemplo, suas medidas
+        antropométricas de um passado remoto, considerando uma estética rigorosa, como seu modelo de bem estar. Este
+        fato pode ser definitivamente causa de baixa adesão. Em outras palavras, o paciente abandona o tratamento na
+        medida em que não consegue atingir seu próprio objetivo, em geral, extremamente ambicioso.<br><br>O objetivo
+        racional da intervenção dietética é reduzir a <strong>gordura corporal</strong> para uma condição que seja
+        acompanhada de melhora no estado de saúde ou consistente com a redução dos riscos de complicações.<br><br>As
+        metas individuais deverão ser baseadas em indicadores fisiologicamente importantes, como glicose plasmática,
+        lípides e <strong>pressão arterial</strong>. Tais parâmetros são mais indicados que tabelas arbitrárias de peso,
+        ou taxa/ porcentagem de perda ponderal.<br><br>O planejamento se baseia também no estabelecimento de hábitos e
+        práticas relacionados à <strong>escolha dos alimentos</strong>, comportamentos alimentares e adequação do gasto
+        energético (<strong>atividade física</strong>) que deverão ser incorporados à longo prazo, para manutenção da
+        <strong>perda de peso</strong>.<br><br>É preciso considerar nesta etapa a realidade do paciente, ou seja, sua
+        atividade ocupacional, suas rotinas, horários, disponibilidade financeira, hábitos regionais, entre outros,
+        visando, mais uma vez, a individualização da intervenção, sem a qual, dificilmente se alcança bom nível de
+        adesão ao tratamento.</p>
+    <h4>Implementação da Dietoterapia</h4>
+    <p>O <strong>tratamento da obesidade</strong> pode ter ainda resultados frustrantes por outras razões, entre elas,
+        pela utilização de estratégias equivocadas, pelo mau uso dos recursos terapêuticos disponíveis e pelo baixo
+        nível de acompanhamento, evolução e adaptação da dieta estabelecida.<br><br>Exemplo de estratégias de resultados
+        não comprovados são as dietas desequilibradas de <strong> baixas calorias</strong>, apresentando modificações
+        dos teores de macro-nutrientes muito marcantes, que também podem causar alterações do estado de
+        micro-nutrientes. Elas enfatizam um grupo de nutrientes em particular (<strong>carboidrato</strong>, proteína ou
+        gordura) e proíbe ou desencoraja a ingestão de outros. Estas dietas podem ser facilmente seguidas pelos
+        indivíduos, em função de sua natureza concentrada (focada), tornando-as bastante populares. A adesão, contudo, é
+        limitada pelo tempo em que se pode manter a curiosidade do paciente. A discrepância dos hábitos e costumes do
+        indivíduo e a terapia proposta, determinam seu abandono, independente dos resultados iniciais. Ademais, os
+        apelos ou seus argumentos técnicos muitas vezes não encontram respaldo nas definições e estratégias aceitas pela
+        comunidade científica mais conceituada.<br><br>Segundo o <strong>Consenso Latino Americano de Obesidade</strong>
+        , os avanços da medicina moderna devem ser baseados em pesquisas científicas, utilizando princípios bem
+        estabelecidos de experimentação. Esses princípios incluem ensaios clínicos controlados e realizados por
+        diferentes grupos de pesquisadores para determinar eficácia e segurança de novos procedimentos diagnósticos e
+        terapêuticos.<br><br>São características comuns de terapias alternativas não comprovadas cientificamente, mas
+        que adquirem popularidade:<br><br>• Tendem a ser desenvolvidas e promovidas à margem de recursos, aparelhagem e
+        associações científicas;<br>• Seus investigadores e proponentes geralmente não possuem credenciais clínicas e/ou
+        científicas fortes;<br>• A razão fundamental e a base lógica dessas terapias freqüentemente contêm aplicações
+        errôneas e/ou interpretações pessoais equivocadas de dados da literatura científica;<br>• Os investigadores e
+        proponentes freqüentemente provêm afirmações exageradas e irreais dessas modalidades;<br>• Essas terapias
+        freqüentemente têm o potencial de serem financeiramente proveitosas para aqueles que as desenvolveram,
+        promoveram ou apoiaram;<br>• Essas terapias são geralmente propagadas e comunicadas fora de canais de
+        comunicação científica e clínica e os detalhes das terapias são geralmente secretos;<br>• Seus proponentes com
+        frequência desencorajam e/ou recusam consulta e/ou revisão dos seus métodos por médicos ou cientistas de
+        reputação;<br>• Seus investigadores e organizadores por vezes afirmam que existe uma “conspiração” médica ou
+        científica contra eles.<br><br>Por outro lado, este mesmo Consenso define a dietoterapia, com suas estratégias.
+        Acredita-se que a racionalidade das propostas apresentadas, somada à individualização do tratamento, aumenta a
+        possibilidade de êxito (adesão/ resultados), a partir de sua implementação e acompanhamento sistemático.</p>
+        <h4>Dietoterapia</h4>
+        <p>Definição: consiste no manejo terapêutico  dos alimentos.<br>Objetivo: produzir balanço negativo de energia para reduzir o  peso e melhorar a composição corporal.<br><br>1) Plano de restrição calórica  moderada:<br><br>- Conteúdo Energético: Calcular o valor energético desejado  segundo a situação clínica. Aconselha-se reduzir progressivamente a ingestão  entre 500 kcal e 1000 kcal por dia com relação ao valor obtido, segundo a  anamnese alimentar (não inferior a 1200 kcal/dia).<br><br>Conteúdo ideal de  nutrientes:<br>- Carboidratos: 55% - 60% (com aproximadamente 20 % de absorção  simples)<br>- Proteínas: 15%-20% (não menos de 0.8 g/ Kg de peso desejável)<br>-  Gorduras: 20%-25%, com 7% de gorduras saturadas, 10% de gorduras poliinsaturadas  e 13% de gorduras monoinsaturadas<br>- Fibras: entre 20 e 30g por  dia<br>- Álcool: não é aconselhável sua recomendação<br>- Colesterol: não mais  que 300mg/dia<br>- Vitaminas e Minerais: são atingidos os requerimentos totais  nos planos de 1200 kcal ou maiores<br>- Cloreto de Na: adequada a situação  biológica individual<br>- Líquidos: 1500cc para cada 1000kcal<br>- Distribuição:  sugerem-se 6 refeições por dia<br><br>2) Outros Planos Alimentares:<br><br>a) de  baixo valor calórico:<br>Denomina-se assim o que provém entre 800-1200 kcal ou  entre 10 a 19 kcal por kg de peso desejável. Está indicado se após um período  razoável com um plano moderado não se conseguiu diminuir de peso.<br><br>b) de  muito baixo valor calórico:<br>Denomina-se assim o que provém menos de 800 kcal  diárias ou menos de 10 kcal por kg de peso desejável/dia. Está indicado para  obesidades graves e recorrentes, descompensação diabética e outros estados que  necessitam rápida perda de peso. Deve aplicar-se por períodos curtos (3-4  semanas).<br>Não se recomendam dietas de menos de 400 kcal/dia, nem o jejum  total (menos de 200 kcal/dia).<br><br>c) dietas não aconselhadas: as que não têm  fundamento cientifico nutricional, como as dietas da  moda.</p>
+        <h4>Educação nutricional</h4>
+        <p>A cultura de um povo pode  determinar a adoção de um padrão alimentar particular, incluindo suas crenças e  tabus . Uma vez instalado o padrão alimentar, talvez seja impossível  modificá-lo, individualmente, principalmente para pessoas adultas. A inclusão de  matéria relacionada à alimentação e nutrição nos currículos escolares pode  contribuir para estabelecimento de hábitos alimentares saudáveis, em um âmbito  social. <br><br>As dificuldades encontradas para o cumprimento da dieta vão sendo relatadas e a falta de resultados pode apontar para o fim do tratamento. Caso seja possível manter o contato com o paciente, novos estímulos poderão surgir, dando continuidade à intervenção. Entretanto, há que se considerar, não raras vezes o tratamento é abandonado, caracterizando mais uma experiência frustrante para o paciente e o profissional. <br><br>Algumas dificuldades práticas para elaboração ou cumprimento da dieta podem representar as causas para o fracasso da intervenção (Tabela 5), podendo ser relacionadas com o profissional, paciente e até com o alimento (informação) . Entender este contexto é o primeiro passo para tentar diminuir a baixa adesão ou para não colocá-la, em termos simplistas, como a falta de força de vontade do paciente.</p>
 </div>

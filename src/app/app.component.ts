@@ -19,4 +19,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.alimentosService.load(IBGE, TACO, Tucunduva, Marcas, Suplementos);
   }
+
+  public showDonate(): void {
+    var element = document.getElementById('donate');
+    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
+  }
 }

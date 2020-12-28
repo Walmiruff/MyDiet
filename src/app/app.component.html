@@ -4,11 +4,14 @@
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup" >
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="gastos-energ" [routerLinkActive]="['active']">Gastos Energéticos</a>
       <a class="nav-item nav-link" routerLink="ava-antrop" [routerLinkActive]="['active']">Avaliação Antropométrica</a>
       <a class="nav-item nav-link" routerLink="plan-alim" [routerLinkActive]="['active']">Plano Alimentar</a>
+    </div>
+    <div>
+      <i class="fas fa-2x fa-piggy-bank mr-2" style="color: #BA55D3; cursor: pointer;" title="Doe para o MyDiet" (click)="showDonate()"></i>
     </div>
   </div> 
 </nav>
@@ -16,3 +19,4 @@
 <div class="container my-4">
   <router-outlet></router-outlet>
 </div>
+<div style="margin: 0px;" id="donate"></div>
