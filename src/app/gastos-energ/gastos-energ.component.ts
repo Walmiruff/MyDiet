@@ -555,7 +555,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
       }
     ];
     let docDefinition = {
-      header: 'MyDiet - Gastos Energéticos',
+      header: 'MyDiet One - Gastos Energéticos',
       content: [
         {
           columns: [
