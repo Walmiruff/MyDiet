@@ -342,6 +342,23 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
   public downloadPdf(): void {
     let dataAtend = this.form.controls.dataAtend.value === null ? '0000-00-00' : (this.form.controls.dataAtend.value).toString().split('-');
     let resultado = [];
+    let protocolo = '';
+
+    if (this.form.controls.protocolo.value == 0) {
+      protocolo = '3 Pregas: Jackson & Pollock - Homem';
+    } else if (this.form.controls.protocolo.value == 1) {
+      protocolo = '3 Pregas: Jackson & Pollock - Mulher';
+    } else if (this.form.controls.protocolo.value == 2) {
+      protocolo = '3 Pregas: Guedes - Homem';
+    } else if (this.form.controls.protocolo.value == 3) {
+      protocolo = '3 Pregas: Guedes - Mulher';
+    } else if (this.form.controls.protocolo.value == 4) {
+      protocolo = '4 Pregas: Durnin & Womersley';
+    } else if (this.form.controls.protocolo.value == 5) {
+      protocolo = '4 pregas: Protocolo de Faulkner'
+    } else if (this.form.controls.protocolo.value == 6) {
+      protocolo = '7 Pregas: Protocolo de Jackson, Pollock & Ward'
+    };
 
     if (this.form.controls.tipo.value == 0) {
       resultado = [
@@ -360,10 +377,10 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
           style: 'sectionHeader'
         },
         {
-          text : `Porcentagem de Gordura: ${this.replacePipe.transform(this.gordCrianc.ref !== null ? Number(this.gordCrianc.ref) : 0, '%')} | ${this.gordCrianc.text}`
+          text: `Porcentagem de Gordura: ${this.replacePipe.transform(this.gordCrianc.ref !== null ? Number(this.gordCrianc.ref) : 0, '%')} | ${this.gordCrianc.text}`
         },
         {
-          text : `Peso Atual: ${this.replacePipe.transform(this.form.controls.peso.value, 'kg')} | ${this.pesoIdadeCrianc.text} | ${this.pesoEstaturaCrianc.text}`
+          text: `Peso Atual: ${this.replacePipe.transform(this.form.controls.peso.value, 'kg')} | ${this.pesoIdadeCrianc.text} | ${this.pesoEstaturaCrianc.text}`
         },
         {
           text: `Peso para Idade (Referência): ${this.pesoIdadeCrianc.ref}`
@@ -372,7 +389,7 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
           text: `Peso para Estatura (Referência):  ${this.pesoEstaturaCrianc.ref}`
         },
         {
-          text : `Estatura Atual: ${this.form.controls.altura.value === null ? '-' : this.form.controls.altura.value.length > 2 ? this.form.controls.altura.value + ' m' : '-'} | ${this.estaturaIdadeCrianc.text}`
+          text: `Estatura Atual: ${this.form.controls.altura.value === null ? '-' : this.form.controls.altura.value.length > 2 ? this.form.controls.altura.value + ' m' : '-'} | ${this.estaturaIdadeCrianc.text}`
         },
         {
           text: `Estatura para Idade (Referência): ${this.estaturaIdadeCrianc.ref}`
@@ -400,7 +417,241 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
         }
       ]
     } else if (this.form.controls.tipo.value == 2) {
-
+      resultado = [
+        {
+          columns: [
+            [
+              {
+                text: 'Circunferências',
+                style: 'sectionHeader'
+              },
+              {
+                columns: [
+                  [
+                    {
+                      text: 'Abdomen:', alignment: 'right'
+                    },
+                    {
+                      text: 'Antebraço:', alignment: 'right'
+                    },
+                    {
+                      text: 'Braço Contraído Direito:', alignment: 'right'
+                    },
+                    {
+                      text: 'Braço Contraído Esquerdo:', alignment: 'right'
+                    },
+                    {
+                      text: 'Braço Relaxado Direito:', alignment: 'right'
+                    },
+                    {
+                      text: 'Braço Relaxado Esquerdo:', alignment: 'right'
+                    },
+                    {
+                      text: 'Cintura:', alignment: 'right'
+                    },
+                    {
+                      text: 'Coxa Direita:', alignment: 'right'
+                    },
+                    {
+                      text: 'Coxa Esquerda:', alignment: 'right'
+                    },
+                    {
+                      text: 'Coxa Proximal Direita:', alignment: 'right'
+                    },
+                    {
+                      text: 'Coxa Proximal Esquerda:', alignment: 'right'
+                    },
+                    {
+                      text: 'Ombro:', alignment: 'right'
+                    },
+                    {
+                      text: 'Panturrilha Direita:', alignment: 'right'
+                    },
+                    {
+                      text: 'Panturrilha Esquerda:', alignment: 'right'
+                    },
+                    {
+                      text: 'Peitoral:', alignment: 'right'
+                    },
+                    {
+                      text: 'Pescoço:', alignment: 'right'
+                    },
+                    {
+                      text: 'Punho:', alignment: 'right'
+                    },
+                    {
+                      text: 'Quadril:', alignment: 'right'
+                    },
+                  ],
+                  [
+                    {
+                      text: this.form.controls.abdomen.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.antebraco.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.bracoContrDireito.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.bracoContrEsquerdo.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.bracoRelaxDireito.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.bracoRelaxEsquerdo.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.cintura.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.coxaDireita.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.coxaEsquerda.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.coxaProxDireita.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.coxaProxEsquerda.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.ombro.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.panturrDireita.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.panturrEsquerda.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.peitoral.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.pescoco.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.punho.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.quadril.value + ' cm'
+                    },
+                  ]
+                ]
+              }
+            ],
+            [
+              {
+                text: 'Diâmetros Ósseos',
+                style: 'sectionHeader'
+              },
+              {
+                columns: [
+                  [
+                    {
+                      text: 'Punho:', alignment: 'right'
+                    },
+                    {
+                      text: 'Fêmur:', alignment: 'right'
+                    },
+                  ],
+                  [
+                    {
+                      text: this.form.controls.punho.value + ' cm'
+                    },
+                    {
+                      text: this.form.controls.femur.value + ' cm'
+                    },
+                  ]
+                ]
+              },
+              {
+                text: 'Percentual de Gordura',
+                style: 'sectionHeader'
+              },
+              {
+                text: protocolo
+              },
+              {
+                columns: [
+                  [
+                    {
+                      text: 'Tórax:', alignment: 'right'
+                    },
+                    {
+                      text: 'Abdominal:', alignment: 'right'
+                    },
+                    {
+                      text: 'Coxa:', alignment: 'right'
+                    }
+                  ],
+                  [
+                    {
+                      text: this.form.controls.torax.value + ' mm'
+                    },
+                    {
+                      text: this.form.controls.abdominal.value + ' mm'
+                    },
+                    {
+                      text: this.form.controls.coxa.value + ' mm'
+                    }
+                  ]
+                ]
+              }
+            ]
+          ],
+        },
+        {
+          text: 'Resultado',
+          style: 'sectionHeader'
+        },
+        {
+          columns: [
+            [
+              {
+                text: `IMC Atual: ${this.replacePipe.transform(this.imcAdulto.imc !== null ? Number(this.imcAdulto.imc) : 0, '')} | ${this.imcAdulto.text}`
+              },
+              {
+                text: `% Massa Gorda: ${this.replacePipe.transform(this.percentMassaGorda !== null ? Number(this.percentMassaGorda) : 0, '%')} | ${this.percentGord.text}`
+              },
+              {
+                text: `Densidade Corporal: ${this.replacePipe.transform(this.densidadeCorporal !== null ? Number(this.densidadeCorporal) : 0, '')}`
+              },
+              {
+                text: `Massa Gorda: ${this.replacePipe.transform(this.massaGorda !== null ? Number(this.massaGorda) : 0, 'kg')}`
+              },
+              {
+                text: `Peso Residual: ${this.replacePipe.transform(this.pesoResidual !== null ? Number(this.pesoResidual) : 0, 'kg')}`
+              },
+              {
+                text: `Circunferência da Cintura: ${this.replacePipe.transform(this.form.controls.cintura.value !== null ? Number(this.form.controls.cintura.value) : 0, 'cm')} | ${this.cinturaResult.text}`
+              }
+            ],
+            [
+              {
+                text: `Peso Ideal: ${this.replacePipe.transform(this.pesoIdeal !== null ? Number(this.pesoIdeal) : 0, 'kg')}`
+              },
+              {
+                text: `% Massa Magra: ${this.replacePipe.transform(this.percentMassaMagra !== null ? Number(this.percentMassaMagra) : 0, '%')} | ${this.percentGord.text}`
+              },
+              {
+                text: `Massa Magra: ${this.replacePipe.transform(this.massaMagra !== null ? Number(this.massaMagra) : 0, 'kg')}`
+              },
+              {
+                text: `Peso Ósseo: ${this.replacePipe.transform(this.pesoOsseo !== null ? Number(this.pesoOsseo) : 0, 'kg')}`
+              },
+              {
+                text: `Peso Muscular: ${this.replacePipe.transform(this.pesoMuscular !== null ? Number(this.pesoMuscular) : 0, 'kg')}`
+              },
+              {
+                text: `Relação Cintura Quadril: ${this.form.controls.cintura.value / this.form.controls.quadril.value} | ${this.RCQ.text}`
+              },
+            ]
+          ]
+        }
+      ]
     } else {
 
     };
@@ -435,7 +686,7 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
           style: 'sectionHeader'
         },
         {
-          text:  this.diagnosticos[this.form.controls.diagnostico.value].label
+          text: this.form.controls.diagnostico.value !== null ? this.diagnosticos[this.form.controls.diagnostico.value].label : '-'
         },
       ],
       styles: {
