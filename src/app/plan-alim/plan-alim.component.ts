@@ -534,7 +534,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
       }
     };
 
-    pdfMake.createPdf(docDefinition).download();
+    pdfMake.createPdf(docDefinition).download(`plano-alimentar - ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}.pdf`);
 
   }
 

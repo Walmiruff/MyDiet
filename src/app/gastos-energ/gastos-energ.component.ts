@@ -7,6 +7,10 @@ import { protocolos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
 import { GastosEnergStore } from '../shared/store/gastos-energ.store';
 
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 @Component({
   selector: 'app-gastos-energ',
   templateUrl: './gastos-energ.component.html',
@@ -83,7 +87,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
       altura: [null, Validators.required],
       peso: [null, Validators.required],
       protocolo: ['0'],
-      nivelAtiv: [null],
+      nivelAtiv: ['5'],
       gastoEnergFinal: [null],
       classificacao: [null],
       massaMagra: [null],
@@ -97,7 +101,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     this.formularioPrincipal.get(['sexo']).valueChanges.subscribe(() => this.validarControles());
     this.formularioPrincipal.get(['protocolo']).valueChanges.subscribe(() => {
       this.formularioPrincipal.patchValue({
-        nivelAtiv: null,
+        nivelAtiv: '5',
         gastoEnergFinal: null,
         classificacao: null,
         massaMagra: null,
@@ -107,7 +111,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
       this.validarControles();
     });
     this.formularioPrincipal.get(['nivelAtiv']).valueChanges.subscribe((value) => {
-      this.nivelAtivDRI = value;
+      this.nivelAtivDRI = value.split('-')[0];
       this.calcProtocolos();
     });
 
@@ -153,7 +157,8 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
 
     // Harris Benedict
     if (this.formularioPrincipal.get('protocolo').value === '0') {
-      const value = this.formularioPrincipal.get('nivelAtiv').value;
+      const value = this.formularioPrincipal.get('nivelAtiv').value.split('-')[0];
+
       // Sedentário
       if (value === '0') {
         if (this.formularioPrincipal.get('sexo').value === 'F') {
@@ -207,7 +212,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
 
     // Fao OMS (2001)
     if (this.formularioPrincipal.get('protocolo').value === '1') {
-      const value = this.formularioPrincipal.get('nivelAtiv').value;
+      const value = this.formularioPrincipal.get('nivelAtiv').value.split('-')[0];
       const idade = Number(this.formularioPrincipal.get('idade').value);
       // Leve
       if (value === '0') {
@@ -365,7 +370,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     // Cunningham
     if (this.formularioPrincipal.get('protocolo').value === '3') {
       // Atleta
-      if (this.formularioPrincipal.get('nivelAtiv').value === '0') {
+      if (this.formularioPrincipal.get('nivelAtiv').value.split('-')[0] === '0') {
         this.Cunningham();
       }
     }
@@ -376,7 +381,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     }
 
     // Limpa TMB GET nivel ativ null
-    if (this.formularioPrincipal.get('nivelAtiv').value === '-1') {
+    if (this.formularioPrincipal.get('nivelAtiv').value.split('-')[0] === '5') {
       this.TMB = 0;
       this.GET = 0;
     }
@@ -516,6 +521,102 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
     };
     this.patienteStore.set(patiente);
     this.gastoEnergStore.set(this.formularioPrincipal.value);
+  }
+
+  public downloadPdf(): void { 
+    let dataAtend = this.formularioPrincipal.controls.dataAtend.value === null ? '0000-00-00' : (this.formularioPrincipal.controls.dataAtend.value).toString().split('-');
+    let resultado = [
+      {
+       text:  `Protocolo: ${this.formularioPrincipal.controls.protocolo.value == 0 ? 'Harris & Benedict (1919)': this.formularioPrincipal.controls.protocolo.value == 1 ? 'FAO/OMS (2001)' : this.formularioPrincipal.controls.protocolo.value == 2 ? 'DRI/IOM (2001)' : this.formularioPrincipal.controls.protocolo.value == 3 ? 'Cunningham (1991)' : this.formularioPrincipal.controls.protocolo.value == 4 ? 'Regra de Bolso' : '-' }`
+      },
+      {
+        text: this.formularioPrincipal.controls.protocolo.value != 4 ? `Nível de Atividade: ${this.formularioPrincipal.get('nivelAtiv').value.split('-')[1]}` : ''
+      },
+      {
+        text: this.formularioPrincipal.controls.protocolo.value == 2 ? `Classificação: ${this.formularioPrincipal.controls.classificacao.value == '0' ? 'Eutrófico' : 'Sobrepeso / Obeso'}` : ''
+      },
+      {
+        text: this.formularioPrincipal.controls.protocolo.value == 3 ? `Massa Magra: ${this.formularioPrincipal.controls.massaMagra.value}` : ''
+      },
+      {
+        text:  this.formularioPrincipal.controls.protocolo.value != 4 ? this.TMB < 0 ? '-' : this.TMB === null ? '-' : this.TMB === undefined ? '-' : `TMB: ${this.TMB.toFixed(2).replace('.', ',')} kcal` :  ''
+      },
+      {
+        text:  this.formularioPrincipal.controls.protocolo.value != 4 ? this.GET < 0 ? '-' : this.GET === null ? '-' : this.GET === undefined ? '-' : `GET: ${this.GET.toFixed(2).replace('.', ',')} kcal`:  ''
+      },
+      {
+        text:  this.formularioPrincipal.controls.protocolo.value == 4 ? `Perda de Peso: ${this.regraBolsoObj.perdaPeso}` : ''
+      },
+      {
+        text:  this.formularioPrincipal.controls.protocolo.value == 4 ? `Manutenção de Peso: ${this.regraBolsoObj.manutPeso}` : ''
+      },
+      {
+        text:  this.formularioPrincipal.controls.protocolo.value == 4 ? `Ganho de Peso: ${this.regraBolsoObj.ganhoPeso}` : ''
+      }
+    ];
+    let docDefinition = {
+      header: 'MyDiet - Gastos Energéticos',
+      content: [
+        {
+          columns: [
+            [
+              {text : `Altura: ${this.formularioPrincipal.controls.altura.value} m  |  Peso: ${this.formularioPrincipal.controls.peso.value} kg  |  Idade: ${this.formularioPrincipal.controls.peso.value} anos`}
+            ],
+            [
+              {
+                text: `Data: ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}`,
+                alignment: 'right'
+              }
+            ]
+           ]
+        },
+        {
+          text: 'Descrição',
+          style: 'sectionHeader'
+        },
+        {
+          text: this.formularioPrincipal.controls.desc.value
+        },
+        {
+          text: 'Resultados',
+          style: 'sectionHeader'
+        },
+        resultado,
+        {
+          text: 'Gasto Energético Final',
+          style: 'sectionHeader'
+        },
+        {
+          text: `${this.formularioPrincipal.controls.gastoEnergFinal.value} kcal`
+        }
+      ],
+      styles: {
+        sectionHeader: {
+          bold: true,
+          fontSize: 14,
+          margin: [0, 15, 0, 15]
+        },
+        header: {
+          fontSize: 18,
+          bold: true,
+          margin: [0, 0, 0, 10]
+        },
+        subheader: {
+          fontSize: 16,
+          bold: true,
+          margin: [0, 10, 0, 5]
+        },
+        tableExample: {
+          margin: [0, 5, 0, 15]
+        },
+        tableHeader: {
+          bold: true,
+          fontSize: 13,
+          color: 'black'
+        },
+      }
+    };
+    pdfMake.createPdf(docDefinition).download(`gastos-energeticos - ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}.pdf`);
   }
 
 }
