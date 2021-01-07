@@ -560,7 +560,8 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
         {
           columns: [
             [
-              {text : `Altura: ${this.formularioPrincipal.controls.altura.value} m  |  Peso: ${this.formularioPrincipal.controls.peso.value} kg  |  Idade: ${this.formularioPrincipal.controls.peso.value} anos`}
+              {text : `Altura: ${this.formularioPrincipal.controls.altura.value} m  |  Peso: ${this.formularioPrincipal.controls.peso.value} kg  |  Idade: ${this.formularioPrincipal.controls.idade.value} anos`},
+              {text: `Sexo: ${this.formularioPrincipal.controls.sexo.value === 'M' ? 'Masculino' : this.formularioPrincipal.controls.sexo.value === 'Feminino' ? 'F' : '-'}`}
             ],
             [
               {
@@ -578,7 +579,7 @@ export class GastosEnergComponent implements OnInit, OnDestroy {
           text: this.formularioPrincipal.controls.desc.value
         },
         {
-          text: 'Resultados',
+          text: 'Resultado',
           style: 'sectionHeader'
         },
         resultado,

@@ -10,6 +10,10 @@ import { CalcAdolService } from './service/calc-adol.service';
 import { CalcAdultoService } from './service/calc-adulto.service';
 import { IObj } from '../shared/models/obj.model';
 
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 @Component({
   selector: 'app-ava-antrop',
   templateUrl: './ava-antrop.component.html',
@@ -331,6 +335,87 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
     };
     this.patienteStore.set(patiente);
     this.avaAntropStore.set(this.form.value);
+  }
+
+  public downloadPdf(): void {
+    let dataAtend = this.form.controls.dataAtend.value === null ? '0000-00-00' : (this.form.controls.dataAtend.value).toString().split('-');
+    let resultado = [];
+
+    if (this.form.controls.tipo.value == 0) {
+
+    } else if (this.form.controls.tipo.value == 1) {
+
+    } else if (this.form.controls.tipo.value == 2) {
+
+    } else {
+  
+    };
+
+    let docDefinition = {
+      header: 'MyDiet One - Gastos Energéticos',
+      content: [
+        {
+          columns: [
+            [
+              {text : `Altura: ${this.form.controls.altura.value} m  |  Peso: ${this.form.controls.peso.value} kg  |  Idade: ${this.form.controls.idade.value} ${this.form.controls.tipo.value == 0 ? 'meses' : 'anos'}`},
+              {text: `Sexo: ${this.form.controls.sexo.value === 'M' ? 'Masculino' : this.form.controls.sexo.value === 'Feminino' ? 'F' : '-'}`}
+            ],
+            [
+              {
+                text: `Data: ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}`,
+                alignment: 'right'
+              }
+            ]
+           ]
+        },
+        {
+          text: 'Descrição',
+          style: 'sectionHeader'
+        },
+        {
+          text: this.form.controls.desc.value
+        },
+        {
+          text: 'Resultado',
+          style: 'sectionHeader'
+        },
+        resultado,
+        {
+          text: 'Diagnóstico',
+          style: 'sectionHeader'
+        },
+        {
+          text: this.form.controls.diagnostico.value
+        }
+      ],
+      styles: {
+        sectionHeader: {
+          bold: true,
+          fontSize: 14,
+          margin: [0, 15, 0, 15]
+        },
+        header: {
+          fontSize: 18,
+          bold: true,
+          margin: [0, 0, 0, 10]
+        },
+        subheader: {
+          fontSize: 16,
+          bold: true,
+          margin: [0, 10, 0, 5]
+        },
+        tableExample: {
+          margin: [0, 5, 0, 15]
+        },
+        tableHeader: {
+          bold: true,
+          fontSize: 13,
+          color: 'black'
+        },
+      }
+    };
+    pdfMake.createPdf(docDefinition).download(`ava-atropometrica - ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}.pdf`);
+  
   }
 
 }
