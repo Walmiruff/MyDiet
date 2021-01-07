@@ -5,6 +5,7 @@ import { filter, tap, take, switchMap } from 'rxjs/operators';
 import { constDiagnosticos } from './const';
 import { PatientStore } from '../shared/store/patiente.store';
 import { AvaAntropStore } from '../shared/store/ava-antrop.store';
+import { ReplacePipe } from '../shared/pipes/replace.pipe';
 import { CalcCriancaService } from './service/calc-crianca.service';
 import { CalcAdolService } from './service/calc-adol.service';
 import { CalcAdultoService } from './service/calc-adulto.service';
@@ -21,6 +22,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 export class AvaAntropComponent implements OnInit, OnDestroy {
 
+  private replacePipe: ReplacePipe = new ReplacePipe();
   public form: FormGroup;
   public mask: Array<string | RegExp>;
   public maskNumber: Array<string | RegExp>;
@@ -74,7 +76,7 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
     this.avaAntropStore.avaAntrop$
       .pipe(
         take(1),
-        tap( r => r === null ? null : this.form.patchValue(r)),
+        tap(r => r === null ? null : this.form.patchValue(r)),
         switchMap(() => {
           return this.patienteStore.patiente$
             .pipe(
@@ -342,23 +344,75 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
     let resultado = [];
 
     if (this.form.controls.tipo.value == 0) {
-
+      resultado = [
+        {
+          text: 'Pregas Cutâneas',
+          style: 'sectionHeader'
+        },
+        {
+          text: `Tríceps: ${this.replacePipe.transform(this.form.controls.tricepsCrianca.value, 'mm')}`
+        },
+        {
+          text: `Subescapular: ${this.replacePipe.transform(this.form.controls.subescapularCrianca.value, 'mm')}`
+        },
+        {
+          text: 'Resultado',
+          style: 'sectionHeader'
+        },
+        {
+          text : `Porcentagem de Gordura: ${this.replacePipe.transform(this.gordCrianc.ref !== null ? Number(this.gordCrianc.ref) : 0, '%')} | ${this.gordCrianc.text}`
+        },
+        {
+          text : `Peso Atual: ${this.replacePipe.transform(this.form.controls.peso.value, 'kg')} | ${this.pesoIdadeCrianc.text} | ${this.pesoEstaturaCrianc.text}`
+        },
+        {
+          text: `Peso para Idade (Referência): ${this.pesoIdadeCrianc.ref}`
+        },
+        {
+          text: `Peso para Estatura (Referência):  ${this.pesoEstaturaCrianc.ref}`
+        },
+        {
+          text : `Estatura Atual: ${this.form.controls.altura.value === null ? '-' : this.form.controls.altura.value.length > 2 ? this.form.controls.altura.value + ' m' : '-'} | ${this.estaturaIdadeCrianc.text}`
+        },
+        {
+          text: `Estatura para Idade (Referência): ${this.estaturaIdadeCrianc.ref}`
+        },
+        {
+          text: `IMC (Atual): ${this.replacePipe.transform(this.imcCrianc.imc !== null ? Number(this.imcCrianc.imc) : 0, '')} | ${this.imcCrianc.text}`
+        },
+        {
+          text: `IMC (Referência): ${this.imcCrianc.ref}`
+        }
+      ]
     } else if (this.form.controls.tipo.value == 1) {
-
+      resultado = [
+        {
+          text: `Estatura para Idade (Atual): ${this.form.controls.altura.value === null ? '-' : this.form.controls.altura.value.length > 2 ? this.form.controls.altura.value + ' m' : '-'} | ${this.estaturaIdadeAdol.text}`
+        },
+        {
+          text: `Estatura para Idade (Referência): ${this.estaturaIdadeAdol.ref}`
+        },
+        {
+          text: `IMC (Atual): ${this.replacePipe.transform(this.imcAdol.imc !== null ? Number(this.imcAdol.imc) : 0, '')} | ${this.imcAdol.text}`
+        },
+        {
+          text: `IMC (Referência): ${this.imcAdol.ref}`
+        }
+      ]
     } else if (this.form.controls.tipo.value == 2) {
 
     } else {
-  
+
     };
 
     let docDefinition = {
-      header: 'MyDiet One - Gastos Energéticos',
+      header: `MyDiet One - Avaliação Antropométrica ${this.form.controls.tipo.value == 0 ? 'Criança' : this.form.controls.tipo.value == 1 ? 'Criança ou Adolescente' : this.form.controls.tipo.value == 2 ? 'Adulto ou Idoso' : ''}`,
       content: [
         {
           columns: [
             [
-              {text : `Altura: ${this.form.controls.altura.value} m  |  Peso: ${this.form.controls.peso.value} kg  |  Idade: ${this.form.controls.idade.value} ${this.form.controls.tipo.value == 0 ? 'meses' : 'anos'}`},
-              {text: `Sexo: ${this.form.controls.sexo.value === 'M' ? 'Masculino' : this.form.controls.sexo.value === 'Feminino' ? 'F' : '-'}`}
+              { text: `Altura: ${this.form.controls.altura.value} m  |  Peso: ${this.form.controls.peso.value} kg  |  Idade: ${this.form.controls.idade.value} ${this.form.controls.tipo.value == 0 ? 'meses' : 'anos'}` },
+              { text: `Sexo: ${this.form.controls.sexo.value === 'M' ? 'Masculino' : this.form.controls.sexo.value === 'Feminino' ? 'F' : '-'}` }
             ],
             [
               {
@@ -366,7 +420,7 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
                 alignment: 'right'
               }
             ]
-           ]
+          ]
         },
         {
           text: 'Descrição',
@@ -375,18 +429,14 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
         {
           text: this.form.controls.desc.value
         },
-        {
-          text: 'Resultado',
-          style: 'sectionHeader'
-        },
         resultado,
         {
           text: 'Diagnóstico',
           style: 'sectionHeader'
         },
         {
-          text: this.form.controls.diagnostico.value
-        }
+          text:  this.diagnosticos[this.form.controls.diagnostico.value].label
+        },
       ],
       styles: {
         sectionHeader: {
@@ -415,7 +465,7 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
       }
     };
     pdfMake.createPdf(docDefinition).download(`ava-atropometrica - ${dataAtend[2]}/${dataAtend[1]}/${dataAtend[0]}.pdf`);
-  
+
   }
 
 }
