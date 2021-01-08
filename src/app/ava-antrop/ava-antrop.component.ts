@@ -429,58 +429,58 @@ export class AvaAntropComponent implements OnInit, OnDestroy {
                 columns: [
                   [
                     {
-                      text: 'Abdomen:', alignment: 'right'
+                      text: 'Abdomen:'
                     },
                     {
-                      text: 'Antebraço:', alignment: 'right'
+                      text: 'Antebraço:'
                     },
                     {
-                      text: 'Braço Contraído Direito:', alignment: 'right'
+                      text: 'Braço Contraído Direito:'
                     },
                     {
-                      text: 'Braço Contraído Esquerdo:', alignment: 'right'
+                      text: 'Braço Contraído Esquer:'
                     },
                     {
-                      text: 'Braço Relaxado Direito:', alignment: 'right'
+                      text: 'Braço Relaxado Direito:'
                     },
                     {
-                      text: 'Braço Relaxado Esquerdo:', alignment: 'right'
+                      text: 'Braço Relaxado Esquer:'
                     },
                     {
-                      text: 'Cintura:', alignment: 'right'
+                      text: 'Cintura:'
                     },
                     {
-                      text: 'Coxa Direita:', alignment: 'right'
+                      text: 'Coxa Direita:'
                     },
                     {
-                      text: 'Coxa Esquerda:', alignment: 'right'
+                      text: 'Coxa Esquerda:'
                     },
                     {
-                      text: 'Coxa Proximal Direita:', alignment: 'right'
+                      text: 'Coxa Proximal Direita:'
                     },
                     {
-                      text: 'Coxa Proximal Esquerda:', alignment: 'right'
+                      text: 'Coxa Proximal Esquerd:'
                     },
                     {
-                      text: 'Ombro:', alignment: 'right'
+                      text: 'Ombro:'
                     },
                     {
-                      text: 'Panturrilha Direita:', alignment: 'right'
+                      text: 'Panturrilha Direita:'
                     },
                     {
-                      text: 'Panturrilha Esquerda:', alignment: 'right'
+                      text: 'Panturrilha Esquerda:'
                     },
                     {
-                      text: 'Peitoral:', alignment: 'right'
+                      text: 'Peitoral:'
                     },
                     {
-                      text: 'Pescoço:', alignment: 'right'
+                      text: 'Pescoço:'
                     },
                     {
-                      text: 'Punho:', alignment: 'right'
+                      text: 'Punho:'
                     },
                     {
-                      text: 'Quadril:', alignment: 'right'
+                      text: 'Quadril:'
                     },
                   ],
                   [
