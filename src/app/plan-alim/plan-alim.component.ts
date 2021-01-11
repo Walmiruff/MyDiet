@@ -539,7 +539,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public findModel(i: number): void {
-  
+    // this.refeicoes$.subscribe(v => console.log(JSON.stringify(v)))
     let hasRef;
     this.refeicoes$.pipe(take(1)).subscribe( v => v === null ? hasRef = false : v === undefined ? hasRef = false : v.length > 0 ? hasRef = true : hasRef = false);
     

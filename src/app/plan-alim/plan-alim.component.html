@@ -93,22 +93,49 @@
                     </form>
                 </div>
                 <div class="col-md-7">
-                    <div class="d-flex justify-content-between">
-                        <label for="desc" class="strong-class">Refeições</label>
-                        <div class="row">
-                            <div class="input-group-prepend mr-3">
-                                <button class="btn btn-info dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Importar
-                                    Modelos</button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" (click)="findModel(0)">Alimentação Saudável 1</a>
-                                    <a class="dropdown-item" (click)="findModel(1)">Alimentação Saudável 2</a>
-                                    <a class="dropdown-item" (click)="findModel(2)">Alimentação Saudável 3</a>
+                    <div class="row">
+                        <div class="col-8">
+                            <label for="desc" class="strong-class">Refeições</label>
+                        </div>
+                        <div class="col-4">
+                        <div class="row d-flex justify-content-between">
+                  
+                                <div class="input-group-prepend mb-2 mr-1">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Importar</button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" (click)="findModel(0)">Alimentação Saudável 1</a>
+                                        <a class="dropdown-item" (click)="findModel(1)">Alimentação Saudável 2</a>
+                                        <a class="dropdown-item" (click)="findModel(2)">Alimentação Saudável 3</a>
+                                        <!-- <a class="dropdown-item" (click)="findModel(3)">Cardápio para o Inverno</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(4)">Colesterol Alto</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(5)">Detox 1</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(6)">Detox 2</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(7)">Detox Líquido de 1 dia</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(8)">Dieta Mediterrânea</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(9)">Intolerância a Lactose</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(10)">Modelo de dieta com restrição de Açúcar</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(11)">Modelo de dieta para Esportistas</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(12)">Modelo Low Carb</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(13)">Ovolactovegetariano</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(14)">Plano Alimentar 1300 Kcal</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(15)">Plano Alimentar 1400 Kcal</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(16)">Plano Alimentar 1800 Kcal</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(17)">Plano Alimentar 2000 Kcal</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(18)">Plano Alimentar 2200 Kcal</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(19)">Pressão Alta</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(20)">Sem Glúten</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(21)">Termogênico</a> -->
+                                        <!-- <a class="dropdown-item" (click)="findModel(22)">Vegano</a> -->
+                                    </div>
                                 </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-success  mr-2"
+                                
+                           
+                            <div>
+                                <button type="submit" class="btn btn-success"
                                 (click)="clearModalRef(); classicModal.show()">Adicionar</button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     <hr>
@@ -1129,8 +1156,7 @@
                                 <div class="d-flex justify-content-between">
                                     <h5>Alimentos Selecionados</h5>
                                     <button type="button" class="mr-1 mb-1 btn btn-outline-primary"
-                                        (click)="smModal.show(); modalHiddenRef(); clearModalAlim(); addOptionFalse()">+
-                                        Adicionar Alimento</button>
+                                        (click)="smModal.show(); modalHiddenRef(); clearModalAlim(); addOptionFalse()">Adicionar Alimento</button>
                                 </div>
                             </div>
                         </div>
@@ -1147,19 +1173,23 @@
                                                 {{alim.quantidade}} )</p>
                                         </div>
                                         <div class="col-3">
-                                            <div class="row">
-                                                <div class="row"
-                                                    (click)="updateAlim(alim.id); smModal.show(); modalHiddenRef(); addOptionFalse()">
-                                                    <em class="fa mr-2 fas fa-edit">
-                                                    </em>
-                                                    <p class="p-custom-color">Editar</p>
-                                                </div>
-                                                <div class="row ml-5" (click)="removeAlim(alim.idAlimento)">
-                                                    <em class="fa mr-2 fas fa-trash">
-                                                    </em>
-                                                    <p class="p-custom-color">Remover</p>
+                                            <div class="d-flex justify-content-around">
+                                               
+                                                    <div class="d-flex justify-content-start"
+                                                        (click)="updateAlim(alim.id); smModal.show(); modalHiddenRef(); addOptionFalse()">
+                                                        <em class="fa mr-2 fas fa-edit">
+                                                        </em>
+                                                        <p class="p-custom-color d-none d-lg-block">Editar</p>
+                                                    </div>
+                                              
 
-                                                </div>
+                                                    <div class="d-flex justify-content-end" (click)="removeAlim(alim.idAlimento)">
+                                                        <em class="fa mr-2 fas fa-trash">
+                                                        </em>
+                                                        <p class="p-custom-color d-none d-lg-block">Deletar</p>
+                                                    </div>
+                                            
+                                         
                                             </div>
                                         </div>
                                     </div>
@@ -1244,7 +1274,7 @@
                                     </strong>
                                 </div>
                                 <div class="col-sm-10">
-                                    <div class="row">
+                                    <div class="row" style="margin-left: 0px;">
                                         <div class="form-check-label" *ngFor="let item of tabelas">
                                             <label class="form-check-label mx-3">
                                                 <input type="radio" class="form-check-input" [value]="item.valor"
