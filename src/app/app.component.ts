@@ -5,6 +5,7 @@ import TACO from '../assets/resources/alimentos/TACO.json';
 import Tucunduva from '../assets/resources/alimentos/Tucunduva.json';
 import Marcas from '../assets/resources/alimentos/Marcas.json';
 import Suplementos from '../assets/resources/alimentos/Suplementos.json';
+import Modelos from '../assets/resources/modelos/modelos.json';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.alimentosService.load(IBGE, TACO, Tucunduva, Marcas, Suplementos);
+    this.alimentosService.loadModelos(Modelos);
   }
 
   public showDonate(): void {

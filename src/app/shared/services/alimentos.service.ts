@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin, of } from 'rxjs';
-import { map, shareReplay, tap } from 'rxjs/operators';
+import { Observable, forkJoin, of, BehaviorSubject } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 import { IAlimento } from '../models/alimentos.model';
 import { PortionStore } from '../store/porcoes.store';
+import { IRefeicao } from '../models/refeicao.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { PortionStore } from '../store/porcoes.store';
 export class AlimentosService {
 
   private url: Observable<IAlimento[]>[];
-
+  public modelos$ = new BehaviorSubject<Array<IRefeicao[]>>(null);
   constructor(
     private portionStore: PortionStore,
   ) { }
@@ -24,6 +25,10 @@ export class AlimentosService {
       of(Marcas).pipe(map((resp) => resp['alimentos']), shareReplay(1)),
       of(Suplementos).pipe(map((resp) => resp['alimentos']), shareReplay(1))
     ];
+  }
+
+  public loadModelos(Modelos: Array<IRefeicao[]>) {
+    this.modelos$.next(Modelos);
   }
 
   public getAlimentos(tabela: string | number): Observable<Array<IAlimento>> {

@@ -13,6 +13,8 @@ import { AvaAntropComponent } from './ava-antrop/ava-antrop.component';
 import { PlanAlimComponent } from './plan-alim/plan-alim.component';
 import { PrimOrSecOpPipe } from './shared/pipes/prim-or-sec-op.pipe';
 import { ReplacePipe } from './shared/pipes/replace.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ReplacePipe } from './shared/pipes/replace.pipe';
     TextMaskModule,
     NgSelectModule,
     ModalModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

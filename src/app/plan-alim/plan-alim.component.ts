@@ -202,7 +202,7 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
               map((alimentos) => alimentos.filter((alimento) => alimento.id == (value))),
               map((alimentos) => {
                 this.alimSelected = alimentos[0];
-              alimentos[0] !== undefined ? alimentos[0].porcoes.map(element => {
+                alimentos[0] !== undefined ? alimentos[0].porcoes.map(element => {
                   this.porcoes.push(element);
                 }) : null;
               }),
@@ -538,5 +538,32 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
 
   }
 
-
+  public findModel(i: number): void {
+  
+    let hasRef;
+    this.refeicoes$.pipe(take(1)).subscribe( v => v === null ? hasRef = false : v === undefined ? hasRef = false : v.length > 0 ? hasRef = true : hasRef = false);
+    
+    if (hasRef === true) {
+      var r = confirm('Importando um modelo apagará a refeição salva. Deseja continuar?');
+      if (r == true) {
+        this.alimentosService.modelos$.asObservable().pipe(
+          take(1),
+          map((resp) => resp['modelos'])
+        )
+          .subscribe(modelosArray => {
+            this.refeicaoStore.set(modelosArray[i]);
+          }
+          );
+      };
+    } else {
+      this.alimentosService.modelos$.asObservable().pipe(
+        take(1),
+        map((resp) => resp['modelos'])
+      )
+        .subscribe(modelosArray => {
+          this.refeicaoStore.set(modelosArray[i]);
+        }
+        );
+    };  
+  }
 }

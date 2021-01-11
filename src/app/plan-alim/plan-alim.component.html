@@ -95,7 +95,18 @@
                 <div class="col-md-7">
                     <div class="d-flex justify-content-between">
                         <label for="desc" class="strong-class">Refeições</label>
-                        <div>
+                        <div class="row">
+                            <div class="input-group-prepend mr-3">
+                                <button class="btn btn-info dropdown-toggle" type="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Importar
+                                    Modelos</button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" (click)="findModel(0)">Alimentação Saudável 1</a>
+                                    <a class="dropdown-item" (click)="findModel(1)">Alimentação Saudável 2</a>
+                                    <a class="dropdown-item" (click)="findModel(2)">Alimentação Saudável 3</a>
+                                </div>
+                            </div>
+
                             <button type="submit" class="btn btn-success  mr-2"
                                 (click)="clearModalRef(); classicModal.show()">Adicionar</button>
                         </div>
@@ -1053,7 +1064,7 @@
                     </p> -->
             </div>
             <div class="col-lg-2" style="text-align: right;">
-                <button type="button" class="btn btn-outline-primary" (click)="downloadPdf()">Download pdf</button>
+                <button type="button" class="btn btn-outline-primary ml-3" (click)="downloadPdf()">Download pdf</button>
             </div>
         </div>
     </div>
@@ -1098,8 +1109,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row"><label class="strong-class ml-2" style="font-size: 11px; color: red" [hidden]="formModalRef.valid">*Campos
-                            obrigatórios</label></div>
+                        <div class="row"><label class="strong-class ml-2" style="font-size: 11px; color: red"
+                                [hidden]="formModalRef.valid">*Campos
+                                obrigatórios</label></div>
 
                         <div class="row mt-2">
                             <div class="col-12">
