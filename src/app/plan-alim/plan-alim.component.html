@@ -108,7 +108,7 @@
                                         <a class="dropdown-item" (click)="findModel(1)">Alimentação Saudável 2</a>
                                         <a class="dropdown-item" (click)="findModel(2)">Alimentação Saudável 3</a>
                                         <a class="dropdown-item" (click)="findModel(3)">Cardápio para o Inverno</a>
-                                        <!-- <a class="dropdown-item" (click)="findModel(4)">Colesterol Alto</a> -->
+                                        <a class="dropdown-item" (click)="findModel(4)">Colesterol Alto</a>
                                         <!-- <a class="dropdown-item" (click)="findModel(5)">Detox 1</a> -->
                                         <!-- <a class="dropdown-item" (click)="findModel(6)">Detox 2</a> -->
                                         <!-- <a class="dropdown-item" (click)="findModel(7)">Detox Líquido de 1 dia</a> -->
@@ -144,12 +144,12 @@
                         <div class="row mb-5" *ngFor="let ref of refs">
                             <div class="col-sm-4">
                                 <div class="row">
-                                    <div class="col-12 d-flex justify-content-end">
+                                    <div class="col-12 d-flex justify-content-start">
                                         <p>{{ ref.horario }} - {{ ref.descricao }}</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 d-flex justify-content-end">
+                                    <div class="col-sm-12 d-flex justify-content-start">
                                         <em class="fa mr-2 fas fa-edit"
                                             (click)="updateRef(ref.id, false); classicModal.show()"></em>
                                         <em class="fa mr-2 fas fa-trash" (click)="deleteRef(ref.id)"></em>
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-8">
-                                <ul *ngFor="let alim of ref.alimentos | primOrSecOp: 1">
+                                <ul *ngFor="let alim of ref.alimentos | primOrSecOp: 1" style="padding: 0px;">
                                     <li class="d-flex justify-content-between"
                                         (click)="showAlimInfo(alim); alimDetailModal.show()">
                                         <a>{{ alim.descricao }}</a>
@@ -240,7 +240,7 @@
             <div class="tab-content" id="nav-tabContent">
 
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <div class="panel-body">
+                    <div style="overflow-x: auto; padding: 16px;">
                         <table class="table table-bordered margn-t-md">
                             <thead>
                                 <tr>
@@ -252,20 +252,20 @@
                                 <tr>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-sm-6">Planejado</div>
-                                            <div class="col-sm-6">Obtido</div>
+                                            <div class="col-6">Planejado</div>
+                                            <div class="col-6">Obtido</div>
                                         </div>
                                     </th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-sm-6">Planejado</div>
-                                            <div class="col-sm-6">Obtido</div>
+                                            <div class="col-6">Planejado</div>
+                                            <div class="col-6">Obtido</div>
                                         </div>
                                     </th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-sm-6">Planejado</div>
-                                            <div class="col-sm-6">Obtido</div>
+                                            <div class="col-6">Planejado</div>
+                                            <div class="col-6">Obtido</div>
                                         </div>
                                     </th>
                                 </tr>
@@ -275,14 +275,14 @@
                                     <td class="padd-t-md-important">Carboidratos</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 <form [formGroup]="formPlanoAlim">
                                                     <input class="form-control center-block text-center" type="number"
                                                         step="0.01" placeholder="%" id="distChoPlan"
                                                         formControlName="distChoPlan">
                                                 </form>
                                             </div>
-                                            <div class="col-md-6" *ngIf="macro$ | async as macro">
+                                            <div class="col-6" *ngIf="macro$ | async as macro">
                                                 {{ (macro.gObtidoCho * 4 * 100)/(macro.gObtidoLip * 9 + macro.gObtidoCho
                                                 * 4 + macro.gObtidoPtn * 4) | replace:'%' }}
                                             </div>
@@ -290,15 +290,15 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">{{ macroPlan.kcalCho | replace:'kcal' }}</div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">{{ macroPlan.kcalCho | replace:'kcal' }}</div>
+                                            <div class="col-6">
                                                 {{ (macro.gObtidoCho * 4) | replace:'kcal' }}</div>
                                         </div>
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">{{ macroPlan.gCho | replace:'g' }}</div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">{{ macroPlan.gCho | replace:'g' }}</div>
+                                            <div class="col-6">
                                                 {{ macro.gObtidoCho | replace:'g' }}</div>
                                         </div>
                                     </td>
@@ -307,14 +307,14 @@
                                     <td class="padd-t-md-important">Proteinas</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 <form [formGroup]="formPlanoAlim">
                                                     <input class="form-control center-block text-center" type="number"
                                                         step="0.01" placeholder="%" id="distPtnPlan"
                                                         formControlName="distPtnPlan">
                                                 </form>
                                             </div>
-                                            <div class="col-md-6" *ngIf="macro$ | async as macro">
+                                            <div class="col-6" *ngIf="macro$ | async as macro">
                                                 {{ (macro.gObtidoPtn * 4 * 100)/(macro.gObtidoLip * 9 + macro.gObtidoCho
                                                 * 4 + macro.gObtidoPtn * 4) | replace:'%' }}
                                             </div>
@@ -322,15 +322,15 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">{{ macroPlan.kcalPtn | replace:'kcal' }}</div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">{{ macroPlan.kcalPtn | replace:'kcal' }}</div>
+                                            <div class="col-6">
                                                 {{ (macro.gObtidoPtn * 4) | replace:'kcal' }}</div>
                                         </div>
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">{{ macroPlan.gPtn | replace:'g' }}</div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">{{ macroPlan.gPtn | replace:'g' }}</div>
+                                            <div class="col-6">
                                                 {{ macro.gObtidoPtn | replace:'g' }}</div>
                                         </div>
                                     </td>
@@ -339,14 +339,14 @@
                                     <td class="padd-t-md-important">Lipideos</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 <form [formGroup]="formPlanoAlim">
                                                     <input class="form-control center-block text-center" type="number"
                                                         step="0.01" placeholder="%" id="distLipPlan"
                                                         formControlName="distLipPlan">
                                                 </form>
                                             </div>
-                                            <div class="col-md-6" *ngIf="macro$ | async as macro">
+                                            <div class="col-6" *ngIf="macro$ | async as macro">
                                                 {{ (macro.gObtidoLip * 9 * 100)/(macro.gObtidoLip * 9 + macro.gObtidoCho
                                                 * 4 + macro.gObtidoPtn * 4) | replace:'%' }}
                                             </div>
@@ -354,15 +354,15 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">{{ macroPlan.kcalLip | replace:'kcal' }}</div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">{{ macroPlan.kcalLip | replace:'kcal' }}</div>
+                                            <div class="col-6">
                                                 {{ (macro.gObtidoLip * 9) | replace:'kcal' }}</div>
                                         </div>
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">{{ macroPlan.gLip | replace:'g' }}</div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">{{ macroPlan.gLip | replace:'g' }}</div>
+                                            <div class="col-6">
                                                 {{ macro.gObtidoLip | replace:'g' }}</div>
                                         </div>
                                     </td>
@@ -373,21 +373,21 @@
                                     <th>Total</th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.distChoPlan.value +
                                                 formPlanoAlim.controls.distPtnPlan.value +
                                                 formPlanoAlim.controls.distLipPlan.value) | replace:'%' }}
                                             </div>
-                                            <div class="col-md-6">100,00 %</div>
+                                            <div class="col-6">100,00 %</div>
                                         </div>
                                     </th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (macroPlan.kcalCho + macroPlan.kcalPtn + macroPlan.kcalLip) |
                                                 replace:'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="macro$ | async as macro">
+                                            <div class="col-6" *ngIf="macro$ | async as macro">
                                                 {{ (macro.gObtidoLip * 9 + macro.gObtidoCho * 4 + macro.gObtidoPtn * 4)
                                                 | replace:'g' }}
                                             </div>
@@ -395,10 +395,10 @@
                                     </th>
                                     <th class="text-center">
                                         <div class="row" *ngIf="macro$ | async as macro">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (macroPlan.gCho + macroPlan.gPtn + macroPlan.gLip) | replace:'g' }}
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (macro.gObtidoLip + macro.gObtidoCho + macro.gObtidoPtn) |
                                                 replace:'g' }}
                                             </div>
@@ -408,7 +408,7 @@
                             </tfoot>
                         </table>
                         <div class="row margn-t-lg mt-2">
-                            <div class="col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-xs-12">
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -438,7 +438,7 @@
                                 </table>
                             </div>
 
-                            <div class="col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-xs-12">
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -474,7 +474,7 @@
                 </div>
 
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <div class="panel-body">
+                    <div style="overflow-x: auto; padding: 4px;">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -485,14 +485,14 @@
                                 <tr>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-sm-6">Planejado</div>
-                                            <div class="col-sm-6">Obtido</div>
+                                            <div class="col-6">Planejado</div>
+                                            <div class="col-6">Obtido</div>
                                         </div>
                                     </th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-sm-6">Planejado</div>
-                                            <div class="col-sm-6">Obtido</div>
+                                            <div class="col-6">Planejado</div>
+                                            <div class="col-6">Obtido</div>
                                         </div>
                                     </th>
                                 </tr>
@@ -502,11 +502,11 @@
                                     <td class="padd-t-md-important">Café da Manhã</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="cafe" formControlName="cafe">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.cafe * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -518,11 +518,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.cafe.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.cafe | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -531,12 +531,12 @@
                                     <td class="padd-t-md-important">Lanche da Manhã</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="lancheManha"
                                                     formControlName="lancheManha">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.lancheManha * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -548,11 +548,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.lancheManha.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.lancheManha | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -561,11 +561,11 @@
                                     <td class="padd-t-md-important">Almoço</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="almoco" formControlName="almoco">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.almoco * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -577,11 +577,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.almoco.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.almoco | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -590,12 +590,12 @@
                                     <td class="padd-t-md-important">Lanche da Tarde</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="lancheTarde"
                                                     formControlName="lancheTarde">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.lancheTarde * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -607,11 +607,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.lancheTarde.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.lancheTarde | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -620,11 +620,11 @@
                                     <td class="padd-t-md-important">Jantar</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="jantar" formControlName="jantar">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.jantar * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -636,11 +636,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.jantar.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.jantar | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -649,12 +649,12 @@
                                     <td class="padd-t-md-important">Lanche da Noite</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="lancheNoite"
                                                     formControlName="lancheNoite">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.lancheNoite * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -666,11 +666,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.lancheNoite.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.lancheNoite | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -679,12 +679,12 @@
                                     <td class="padd-t-md-important">Lanche Extra 1</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="lancheExtra1"
                                                     formControlName="lancheExtra1">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.lancheExtra1 * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -696,11 +696,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.lancheExtra1.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.lancheExtra1 | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -709,12 +709,12 @@
                                     <td class="padd-t-md-important">Lanche Extra 2</td>
                                     <td class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6" [formGroup]="formPlanoAlim">
+                                            <div class="col-6" [formGroup]="formPlanoAlim">
                                                 <input class="form-control center-block text-center" type="number"
                                                     step="1" placeholder="%" id="lancheExtra2"
                                                     formControlName="lancheExtra2">
                                             </div>
-                                            <div class="col-md-6 padd-t-xs"
+                                            <div class="col-6 padd-t-xs"
                                                 *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ (distEnergRef.lancheExtra2 * 100) / ( distEnergRef.cafe +
                                                 distEnergRef.lancheManha + distEnergRef.almoco +
@@ -726,11 +726,11 @@
                                     </td>
                                     <td class="text-center padd-t-md-important">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value *
                                                 (formPlanoAlim.controls.lancheExtra2.value / 100)) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ distEnergRef.lancheExtra2 | replace: 'kcal' }}</div>
                                         </div>
                                     </td>
@@ -741,7 +741,7 @@
                                     <th>Total</th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ ( formPlanoAlim.controls.cafe.value +
                                                 formPlanoAlim.controls.lancheManha.value +
                                                 formPlanoAlim.controls.almoco.value +
@@ -751,12 +751,12 @@
                                                 formPlanoAlim.controls.lancheExtra1.value +
                                                 formPlanoAlim.controls.lancheExtra2.value ) | replace : '%' }}
                                             </div>
-                                            <div class="col-md-6">100,00 %</div>
+                                            <div class="col-6">100,00 %</div>
                                         </div>
                                     </th>
                                     <th class="text-center">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-6">
                                                 {{ (formPlanoAlim.controls.energia.value * (
                                                 formPlanoAlim.controls.cafe.value / 100 +
                                                 formPlanoAlim.controls.lancheManha.value / 100 +
@@ -767,7 +767,7 @@
                                                 formPlanoAlim.controls.lancheExtra1.value / 100 +
                                                 formPlanoAlim.controls.lancheExtra2.value / 100 )) | replace: 'kcal' }}
                                             </div>
-                                            <div class="col-md-6" *ngIf="distEnergRef$ | async as distEnergRef">
+                                            <div class="col-6" *ngIf="distEnergRef$ | async as distEnergRef">
                                                 {{ ( distEnergRef.cafe + distEnergRef.lancheManha + distEnergRef.almoco
                                                 + distEnergRef.lancheTarde + distEnergRef.jantar +
                                                 distEnergRef.lancheNoite + distEnergRef.lancheExtra1 +
@@ -784,9 +784,9 @@
 
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <br><br> <br><br>
-                    <div class="panel-body">
+                    <div>
                         <div class="row" *ngIf="vitMinerals$ | async as vitMinerals">
-                            <div class="col-6">
+                            <div class="col-md-6 col-xs-12">
 
                                 <div class="row">
                                     <div class="col-6 d-flex justify-content-end">
@@ -935,7 +935,7 @@
 
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-md-6 col-xs-12">
 
                                 <div class="row">
                                     <div class="col-6 d-flex justify-content-end">
