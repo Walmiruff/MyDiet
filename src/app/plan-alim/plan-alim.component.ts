@@ -539,31 +539,31 @@ export class PlanAlimComponent implements OnInit, OnDestroy {
   }
 
   public findModel(i: number): void {
-    //  this.refeicoes$.subscribe(v => console.log(JSON.stringify(v)))
-    let hasRef;
-    this.refeicoes$.pipe(take(1)).subscribe( v => v === null ? hasRef = false : v === undefined ? hasRef = false : v.length > 0 ? hasRef = true : hasRef = false);
+    this.refeicoes$.subscribe(v => console.log(JSON.stringify(v)))
+    // let hasRef;
+    // this.refeicoes$.pipe(take(1)).subscribe( v => v === null ? hasRef = false : v === undefined ? hasRef = false : v.length > 0 ? hasRef = true : hasRef = false);
     
-    if (hasRef === true) {
-      var r = confirm('Importando um modelo apagará a refeição salva. Deseja continuar?');
-      if (r == true) {
-        this.alimentosService.modelos$.asObservable().pipe(
-          take(1),
-          map((resp) => resp['modelos'])
-        )
-          .subscribe(modelosArray => {
-            this.refeicaoStore.set(modelosArray[i]);
-          }
-          );
-      };
-    } else {
-      this.alimentosService.modelos$.asObservable().pipe(
-        take(1),
-        map((resp) => resp['modelos'])
-      )
-        .subscribe(modelosArray => {
-          this.refeicaoStore.set(modelosArray[i]);
-        }
-        );
-    };  
+    // if (hasRef === true) {
+    //   var r = confirm('Importando um modelo apagará a refeição salva. Deseja continuar?');
+    //   if (r == true) {
+    //     this.alimentosService.modelos$.asObservable().pipe(
+    //       take(1),
+    //       map((resp) => resp['modelos'])
+    //     )
+    //       .subscribe(modelosArray => {
+    //         this.refeicaoStore.set(modelosArray[i]);
+    //       }
+    //       );
+    //   };
+    // } else {
+    //   this.alimentosService.modelos$.asObservable().pipe(
+    //     take(1),
+    //     map((resp) => resp['modelos'])
+    //   )
+    //     .subscribe(modelosArray => {
+    //       this.refeicaoStore.set(modelosArray[i]);
+    //     }
+    //     );
+    // };  
   }
 }
