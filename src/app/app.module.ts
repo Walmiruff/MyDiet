@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { AdsenseModule } from 'ng2-adsense';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,9 +35,6 @@ import { environment } from '../environments/environment';
     ModalModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-3937154153155005',
-    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

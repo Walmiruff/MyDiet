@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'not-found', component: NotFoundComponent},
   {path: 'listas-subst', loadChildren: () => import('./listas-subst/listas-subst.module').then( m => m.ListasSubstModule)},
   {path: 'suplementos', loadChildren: () => import('./suplementos/suplementos.module').then(m => m.SuplementosModule) },
-  // {path: '', redirectTo: 'gastos-energ', pathMatch: 'prefix'},
-  // {path: '**', redirectTo: 'not-found' },
+  {path: '', redirectTo: 'plan-alim', pathMatch: 'prefix'},
+  {path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({
