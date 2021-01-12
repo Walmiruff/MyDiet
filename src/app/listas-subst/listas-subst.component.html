@@ -1,6 +1,20 @@
-<ul>
-    <li routerLink="diabeticos">diabeticos</li>
-    <li routerLink="hipertensos">hipertensos</li>
-</ul>
-
-<router-outlet></router-outlet>
+<h2 class="mb-2">Listas de Substituição</h2>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel-lista">
+                    <ul>
+                        <li routerLink="diabeticos" class="label-vermelho">Diabéticos</li>
+                        <li routerLink="hipertensos" class="label-azul">Hipertensos</li>
+                        <li routerLink="padrao" class="label-amarelo">Lista de Substituição Padrão</li>
+                        <li routerLink="ovolactoveg" class="label-laranja">Ovolactovegetariano</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

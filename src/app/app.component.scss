@@ -38,4 +38,53 @@ input[type=number] {
 
 }
 
+.panel-lista {
+  background-color: #f2f2f4;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  ul {
+      list-style-type: none;
+      padding: 0;
+      font-size: 16px;
+      max-height: 500px;
+      margin-top: 0;
+      margin-bottom: 10px;
+      li {
+          border-radius: 4px;
+          padding: 15px 10px 15px 15px;
+          border-width: 0 0 0 10px;
+          margin-bottom: 10px;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+  }
+}
+
+.label-laranja {
+  border-left-style: solid;
+  border-left-color: #f7a471;
+  background-color: #fff;
+}
+
+.label-vermelho {
+  border-left-style: solid;
+  border-left-color: #EE6F82;
+  background-color: #fff;
+}
+
+.label-azul {
+  border-left-style: solid;
+  border-left-color: #73CBF3;
+  background-color: #fff;
+}
+
+.label-amarelo {
+  border-left-style: solid;
+  border-left-color: #FAE88A;
+  background-color: #fff;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";
