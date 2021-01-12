@@ -5,10 +5,10 @@
             <div class="col-md-4">
                 <div class="panel-lista">
                     <ul>
-                        <li routerLink="diabeticos" class="label-vermelho">Diabéticos</li>
-                        <li routerLink="hipertensos" class="label-azul">Hipertensos</li>
-                        <li routerLink="padrao" class="label-amarelo">Lista de Substituição Padrão</li>
-                        <li routerLink="ovolactoveg" class="label-laranja">Ovolactovegetariano</li>
+                        <li class="label-vermelho"  routerLink="diabeticos" [routerLinkActive]="['active-label']"><a routerLink="diabeticos" [routerLinkActive]="['active-label']">Diabéticos</a></li>
+                        <li class="label-azul" routerLink="hipertensos" [routerLinkActive]="['active-label']"><a routerLink="hipertensos" [routerLinkActive]="['active-label']">Hipertensos</a></li>
+                        <li class="label-amarelo" routerLink="padrao" [routerLinkActive]="['active-label']"><a routerLink="padrao" [routerLinkActive]="['active-label']">Lista de Substituição Padrão</a></li>
+                        <li class="label-laranja" routerLink="ovolactoveg" [routerLinkActive]="['active-label']"><a routerLink="ovolactoveg" [routerLinkActive]="['active-label']">Ovolactovegetariano</a></li>
                     </ul>
                 </div>
             </div>

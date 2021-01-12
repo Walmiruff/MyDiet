@@ -1,1 +1,11 @@
 @import "../../app.component.scss";
+
+.card-body {
+    .row {
+        border-top: 1px solid #ddd;
+        padding: 8px 0px;
+    }
+    div:hover {
+        background-color: rgb(245, 245, 245);
+    }
+}
