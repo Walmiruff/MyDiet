@@ -1,6 +1,6 @@
 {
-  "name": "my-diet one",
-  "short_name": "my-diet one",
+  "name": "MyDiet One",
+  "short_name": "MyDiet One",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

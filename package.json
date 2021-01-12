@@ -25,6 +25,7 @@
     "angular2-text-mask": "^9.0.0",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "ng2-adsense": "^9.1.0",
     "ngx-bootstrap": "^6.2.0",
     "pdfmake": "^0.1.68",
     "popper.js": "^1.14.3",
