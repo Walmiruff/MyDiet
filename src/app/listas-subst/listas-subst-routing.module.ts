@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ListasSubstComponent } from './listas-subst.component';
 import { DiabeticosComponent } from './diabeticos/diabeticos.component';
 import { HipertensosComponent } from './hipertensos/hipertensos.component';
@@ -18,7 +19,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'diabeticos', pathMatch: 'prefix' },
     ]
   }
-
 ]
 
 @NgModule({
