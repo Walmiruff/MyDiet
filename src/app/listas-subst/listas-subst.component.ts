@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listas-subst.component.scss']
 })
 export class ListasSubstComponent implements OnInit {
-
+ 
   constructor() { }
 
   ngOnInit(): void {
