@@ -1,0 +1,19 @@
+<h2 class="mb-2">Suplementos</h2>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel-lista">
+                    <ul *ngFor="let item of fito">
+                        <li [class]="item.class" routerLink="details/{{ item.routeParam}}"
+                            [routerLinkActive]="['active-label']"><a routerLink="details/{{ item.routeParam}}"
+                                [routerLinkActive]="['active-label']">{{ item.label }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
