@@ -15,6 +15,7 @@ export class AlimentosComponent implements OnInit {
 
   public alimentos$ = new BehaviorSubject<Array<IAlimento>>(null);
   public alimDetail$ = new BehaviorSubject<IAlimento>(null);
+  public alimentos: any[] = [];
   public formModalAlim: FormGroup;
 
   constructor(
@@ -41,19 +42,21 @@ export class AlimentosComponent implements OnInit {
 
   public triggersControls(): void {
     this.formModalAlim.controls.tabelas.valueChanges.subscribe(value => {
-      value === 'Todas' ? this.alimentosService.getAllAlimentos().subscribe(alim => { this.alimentos$.next(alim.filter(alim => alim.id !== null)); }) :
-        this.alimentosService.getAlimentos(value.toString()).subscribe(alim => { this.alimentos$.next(alim.filter(alim => alim.id !== null)); });
+      this.alimentos.splice(0);
+      value === 'Todas' ? this.alimentosService.getAllAlimentos().subscribe(alim => { this.alimentos$.next(alim.filter(alim => alim.id !== null)); this.alimentos.push(alim.filter(alim => alim.id !== null))}) :
+        this.alimentosService.getAlimentos(value.toString()).subscribe(alim => { this.alimentos$.next(alim.filter(alim => alim.id !== null)); this.alimentos.push(alim.filter(alim => alim.id !== null)) });
     });
     
-    // this.formModalAlim.controls.search.valueChanges.pipe(
-    //   debounceTime(600),
-    //   distinctUntilChanged(),
-    //   switchMap(value => {
-    //     return this.alimentos$.pipe(
-    //       map(alims => alims.filter(alim => alim.descricao.includes(value)))
-    //     )
-    //   }),
-    // ).subscribe(alims => this.alimentos$.next(alims))
+    this.formModalAlim.controls.search.valueChanges.pipe(
+      debounceTime(600),
+      distinctUntilChanged(),
+      switchMap(value => {
+        this.alimentos.splice(0);
+        return this.alimentos$.pipe(
+          map(alims => alims.filter(alim => alim.descricao.includes(value)))
+        )
+      }),
+    ).subscribe(alims => this.alimentos.push(alims))
 
 
   }

@@ -11,8 +11,7 @@ import { GastosEnergComponent } from './gastos-energ/gastos-energ.component';
 import { AvaAntropComponent } from './ava-antrop/ava-antrop.component';
 import { PlanAlimComponent } from './plan-alim/plan-alim.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { PrimOrSecOpPipe } from './shared/pipes/prim-or-sec-op.pipe';
-import { ReplacePipe } from './shared/pipes/replace.pipe';
+import { SharedPipesModule } from './shared/pipes/shared-pipes.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
@@ -23,8 +22,6 @@ import { environment } from '../environments/environment';
     AvaAntropComponent,
     PlanAlimComponent,
     NotFoundComponent,
-    PrimOrSecOpPipe,
-    ReplacePipe
   ],
   imports: [
     BrowserModule,
@@ -34,6 +31,7 @@ import { environment } from '../environments/environment';
     NgSelectModule,
     ModalModule.forRoot(),
     AppRoutingModule,
+    SharedPipesModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
