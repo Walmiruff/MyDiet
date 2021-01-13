@@ -4,7 +4,7 @@
         <div class="row" [formGroup]="formModalAlim">
             <div class="col-md-5 mb-4">
                 <div class="input-group">
-                    <input id="search" formControlName="search" type="text" class="form-control" style="width: 65%;" placeholder="Ex.: Abaca; Fran; crua; cozi">
+                    <input id="search" formControlName="search" type="text" class="form-control" style="width: 65%;" placeholder="Ex.: Abac; Fran; crua; coz">
                     <select id="tabelas" formControlName="tabelas" class="form-control"
                         style="width: 30%; margin: 0 2.5%;">
                         <option value="Todas">Todos</option>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="modal-body" style="font-size: 14px;">
                             <div class="row">
-                                <div class="col-sm-6 d-flex flex-row">
+                                <div class="col-sm-6 d-flex flex-row mb-3">
                                     <b>Porção: </b>
                                     <select class="form-control ml-1" formControlName="porcoes" id="porcoes">
                                         <option *ngFor="let porcao of alim.porcoes"
