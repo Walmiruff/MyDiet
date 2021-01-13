@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-import { map, take, tap, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { map, take, tap, debounceTime, distinctUntilChanged, switchMap, filter } from 'rxjs/operators';
 
 import { IAlimento } from '../shared/models/alimentos.model';
 import { AlimentosService } from '../shared/services/alimentos.service';
@@ -46,9 +46,27 @@ export class AlimentosComponent implements OnInit {
   public triggersControls(): void {
     this.formModalAlim.controls.tabelas.valueChanges.subscribe(value => {
       this.alimentos.splice(0);
+      
       value === 'Todas' ? this.alimentosService.getAllAlimentos().subscribe(alim => { this.alimentos$.next(alim.filter(alim => alim.id !== null)); }) :
         this.alimentosService.getAlimentos(value.toString()).subscribe(alim => { this.alimentos$.next(alim.filter(alim => alim.id !== null)); });
-      this.alimentos$.pipe(take(1)).subscribe(alims => alims.map(alim => this.alimentos.push(alim)));
+      
+        this.alimentos$.pipe(take(1)).subscribe(alims =>  {
+        alims.map(alim => this.alimentos.push(alim));
+        if (value === 'TACO') {
+          this.alimDetail(2028);
+        } else if (value === 'IBGE') {
+          this.alimDetail(750);
+        } else if (value === 'Tucunduva') {
+          this.alimDetail(2463);
+        } else if (value === 'Marcas') {
+          this.alimDetail(5240);
+        } else if (value === 'Suplementos') {
+          this.alimDetail(7843);
+        } else {
+          this.alimDetail(2028);
+        }
+      });
+      
     });
 
     this.formModalAlim.controls.search.valueChanges.pipe(
@@ -57,7 +75,7 @@ export class AlimentosComponent implements OnInit {
       switchMap(value => {
         this.alimentos.splice(0);
         return this.alimentos$.pipe(
-          map(alims => alims.filter(alim => alim.descricao.includes(value)))
+          map(alims => alims.filter(alim => alim.descricao.includes(value))),
         )
       }),
     ).subscribe(alims => alims.map(alim => this.alimentos.push(alim)));
@@ -68,13 +86,14 @@ export class AlimentosComponent implements OnInit {
       switchMap(porcao => {
        return this.alimentos$.pipe(
           map(alims => alims.filter(alim => alim.id === this.idAlimDetail)),
+          filter(alims => alims.length > 0),
           tap(alims => {
               const alimCopy = JSON.parse(JSON.stringify(alims[0]))
               alimCopy.porcaoGramas = Number(porcao.split('-')[0]);
               alimCopy.quantidade = 1;
               const alimCopyCalc = this.alimStore.alimCalc(alimCopy);
               this.alimDetail$.next(alimCopyCalc);    
-          })
+          }),
         )
       })
     ) 
