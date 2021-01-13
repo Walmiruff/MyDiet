@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'listas-subst', loadChildren: () => import('./listas-subst/listas-subst.module').then( m => m.ListasSubstModule)},
   {path: 'suplementos', loadChildren: () => import('./suplementos/suplementos.module').then(m => m.SuplementosModule) },
   {path: 'fitoterapicos', loadChildren: () => import('./fitoterapicos/fitoterapicos.module').then(m => m.FitoterapicosModule) },
+  {path: 'alimentos', loadChildren: () => import('./alimentos/alimentos.module').then(m => m.AlimentosModule)},
   {path: '', redirectTo: 'plan-alim', pathMatch: 'prefix'},
   {path: '**', redirectTo: 'not-found' },
 ];
