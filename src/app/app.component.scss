@@ -87,4 +87,24 @@ input[type=number] {
   background-color: #fff;
 }
 
+
+.label-roxo {
+  border-left-style: solid;
+  border-left-color: #95A1E8;
+  background-color: #fff;
+}
+
+.label-verde {
+  border-left-style: solid;
+  border-left-color: #89CA97;
+  background-color: #fff;
+}
+
+
+.label-rosa {
+  border-left-style: solid;
+  border-left-color: #F593BC;
+  background-color: #fff;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";

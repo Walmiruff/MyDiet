@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'listas-subst', loadChildren: () => import('./listas-subst/listas-subst.module').then( m => m.ListasSubstModule)},
   {path: 'suplementos', loadChildren: () => import('./suplementos/suplementos.module').then(m => m.SuplementosModule) },
   {path: '', redirectTo: 'plan-alim', pathMatch: 'prefix'},
-  {path: '**', redirectTo: 'not-found' },
+  // {path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({

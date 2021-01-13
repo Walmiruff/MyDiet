@@ -1,10 +1,32 @@
-<p>suplementos works!</p>
-
-<ul>
-    <li><a routerLink="details/1">um</a></li>
-    <li><a routerLink="details/2">dois</a></li>
-    <!-- <li><a [routerLink]="['/details', 1]">Dragon Crisis</a></li>
-    <li><a [routerLink]="['/details', 2]">Dragon Crisis 2</a></li> -->
-</ul>
-
-<router-outlet></router-outlet>
+<h2 class="mb-2">Suplementos</h2>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="input-group" [formGroup]="form" >
+                    <select id="filterSupl" formControlName="filterSupl" class="form-control" style="width: 30%; margin: 0 2.5%;">
+                        <option value="0">Todos</option>
+                        <option value="1">Aminoácidos</option>
+                        <option value="2">Esportivos</option>
+                        <option value="3">Estéticos</option>
+                        <option value="4">Fibras</option>
+                        <option value="5">Minerais</option>
+                        <option value="6">Vitaminas</option>
+                        <option value="7">Outros</option>
+                    </select>
+                 </div>
+                <hr>
+                <div class="panel-lista">
+                    <ul *ngFor="let item of supl">
+                        <li [class]="item.class" routerLink="details/{{ item.routeParam}}"
+                            [routerLinkActive]="['active-label']"><a routerLink="details/{{ item.routeParam}}"
+                                [routerLinkActive]="['active-label']">{{ item.label }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
