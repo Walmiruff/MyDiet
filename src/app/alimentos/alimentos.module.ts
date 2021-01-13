@@ -11,6 +11,7 @@ import { AlimentosRoutingModule } from './alimentos-routing.module';
   imports: [
     CommonModule,
     FormsModule,
+    SharedPipesModule,
     ReactiveFormsModule,
     AlimentosRoutingModule,
   ]

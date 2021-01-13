@@ -1,11 +1,12 @@
 <h2 class="mb-2">Alimentos</h2>
 <div class="card">
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-5 mb-4" [formGroup]= "formModalAlim">
+        <div class="row" [formGroup]="formModalAlim">
+            <div class="col-md-5 mb-4">
                 <div class="input-group">
-                    <input id="search" formControlName="search"  type="text" class="form-control" style="width: 65%;">
-                    <select id="tabelas" formControlName="tabelas" class="form-control" style="width: 30%; margin: 0 2.5%;">
+                    <input id="search" formControlName="search" type="text" class="form-control" style="width: 65%;">
+                    <select id="tabelas" formControlName="tabelas" class="form-control"
+                        style="width: 30%; margin: 0 2.5%;">
                         <option value="Todas">Todos</option>
                         <option value="IBGE">IBGE</option>
                         <option value="TACO">TACO</option>
@@ -20,7 +21,7 @@
                     <ul *ngFor="let alim of alimentos">
                         <li [class]="alim.origem" (click)="alimDetail(alim.id)">{{ alim.descricao }}</li>
                     </ul>
-               
+
                 </div>
             </div>
             <div class="col-md-7">
@@ -31,20 +32,29 @@
                         </div>
                         <div class="modal-body" style="font-size: 14px;">
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <b>Porção:</b> <span>100g</span> <!--  <span>{{ alim.porcaoGramas | replace:'g' }}</span> -->
+                                <div class="col-sm-6 d-flex flex-row">
+                                    <b>Porção: </b>
+                                    <select class="form-control ml-1" formControlName="porcoes" id="porcoes">
+                                        <option *ngFor="let porcao of alim.porcoes"
+                                            [value]="porcao.gramas + '-' + porcao.descricao">
+                                            {{ porcao.descricao }}
+                                        </option>
+                                    </select>
                                 </div>
-                                <div class="col-sm-4">
-                                    <b>Valor Energético:</b><span>{{ alim.calorias | replace:'kcal' }}</span>
+                                <div class="col-sm-6">
+                                    <b>Valor Energético: </b><span>{{ alim.calorias | replace:'kcal' }}</span>
                                 </div>
-                                <div class="col-sm-4">
-                                    <b>Grupo:</b><span>{{ alim.grupoAlimentar }}</span>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <b>Grupo: </b><span>{{ alim.grupoAlimentar }}</span>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-6 span-custom">
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Carboidratos:</b>
@@ -53,7 +63,7 @@
                                             <span>{{ alim.carboidratos | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Açúcar:</b>
@@ -62,7 +72,7 @@
                                             <span>{{ alim.acucar | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Proteínas:</b>
@@ -71,7 +81,7 @@
                                             <span>{{ alim.proteinas | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Gorduras Totais:</b>
@@ -80,7 +90,7 @@
                                             <span>{{ alim.gordurasTotais | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Gorduras Saturadas:</b>
@@ -89,7 +99,7 @@
                                             <span>{{ alim.gordurasSaturadas | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Gorduras Monoinsaturadas:</b>
@@ -98,7 +108,7 @@
                                             <span>{{ alim.gordurasMonoinsaturadas | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Gorduras Poli-insaturadas:</b>
@@ -107,7 +117,7 @@
                                             <span>{{ alim.gordurasPoliInsaturadas | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Gorduras Trans:</b>
@@ -116,7 +126,7 @@
                                             <span>{{ alim.gordurasTrans | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Colesterol:</b>
@@ -125,7 +135,7 @@
                                             <span>{{ alim.colesterol | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Fibra Alimentar:</b>
@@ -134,7 +144,7 @@
                                             <span>{{ alim.fibras | replace:'g' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Sódio:</b>
@@ -143,7 +153,7 @@
                                             <span>{{ alim.sodio | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Cálcio:</b>
@@ -152,7 +162,7 @@
                                             <span>{{ alim.calcio | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Ferro:</b>
@@ -161,7 +171,7 @@
                                             <span>{{ alim.ferro | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Potássio:</b>
@@ -170,7 +180,7 @@
                                             <span>{{ alim.potassio | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Fósforo:</b>
@@ -179,7 +189,7 @@
                                             <span>{{ alim.fosforo | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Magnésio:</b>
@@ -188,10 +198,10 @@
                                             <span>{{ alim.magnesio | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                 </div>
                                 <div class="col-sm-6 span-custom">
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Zinco:</b>
@@ -200,7 +210,7 @@
                                             <span>{{ alim.zinco | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Manganês:</b>
@@ -209,7 +219,7 @@
                                             <span>{{ alim.manganes | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Cobre:</b>
@@ -218,7 +228,7 @@
                                             <span>{{ alim.cobre | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Selênio:</b>
@@ -227,7 +237,7 @@
                                             <span>{{ alim.selenio | replace:'mcg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Vitamina A:</b>
@@ -236,7 +246,7 @@
                                             <span>{{ alim.vitaminaA_Retinol | replace:'mcg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Vitamina D:</b>
@@ -245,7 +255,7 @@
                                             <span>{{ alim.vitaminaD | replace:'mcg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Vitamina E:</b>
@@ -254,7 +264,7 @@
                                             <span>{{ alim.vitaminaE | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Vitamina C:</b>
@@ -263,7 +273,7 @@
                                             <span>{{ alim.vitaminaC | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Niacina:</b>
@@ -272,7 +282,7 @@
                                             <span>{{ alim.vitaminaB3 | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Ácido Pantotênico:</b>
@@ -281,7 +291,7 @@
                                             <span>{{ alim.vitaminaB5 | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Vitamina B6:</b>
@@ -290,7 +300,7 @@
                                             <span>{{ alim.vitaminaB6 | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Riboflavina (Vit. B2):</b>
@@ -299,7 +309,7 @@
                                             <span>{{ alim.vitaminaB2 | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Tiamina (Vit. B1):</b>
@@ -308,7 +318,7 @@
                                             <span>{{ alim.vitaminaB1 | replace:'mg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Biotina:</b>
@@ -317,7 +327,7 @@
                                             <span>{{ alim.vitaminaB7 | replace:'mcg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Ácido Fólico:</b>
@@ -326,7 +336,7 @@
                                             <span>{{ alim.vitaminaB9 | replace:'mcg' }}</span>
                                         </div>
                                     </div>
-            
+
                                     <div class="d-flex justify-content-center">
                                         <div class="col-6 d-flex justify-content-end">
                                             <b>Vitamina B12:</b>
@@ -335,7 +345,7 @@
                                             <span>{{ alim.vitaminaB12 | replace:'mcg' }}</span>
                                         </div>
                                     </div>
-            
+
                                 </div>
                             </div>
                         </div>
