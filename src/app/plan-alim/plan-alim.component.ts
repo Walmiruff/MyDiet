@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable, BehaviorSubject, of } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { switchMap, map, filter, tap, take, delay, shareReplay } from 'rxjs/operators';
 import { v4 as uuid } from 'uuid';
 

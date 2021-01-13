@@ -1,15 +1,346 @@
-<h2 class="mb-2">Suplementos</h2>
+<h2 class="mb-2">Alimentos</h2>
 <div class="card">
     <div class="card-body">
         <div class="row">
-            <div class="col-md-5">
-                
+            <div class="col-md-5" [formGroup]= "formModalAlim">
+                <div class="input-group">
+                    <!-- <input id="search" formControlName="search"  type="text" class="form-control" style="width: 65%;"> -->
+                    <select id="tabelas" formControlName="tabelas" class="form-control" style="width: 30%; margin: 0 2.5%;">
+                        <option value="Todas">Todos</option>
+                        <option value="IBGE">IBGE</option>
+                        <option value="TACO">TACO</option>
+                        <option value="Tucunduva">Tucunduva</option>
+                        <option value="Marcas">Marcas</option>
+                        <option value="Suplementos">Suplementos</option>
+                    </select>
+                </div>
                 <hr>
-                <div class="panel-lista">
-                    
+                <div class="panel-lista" *ngIf="alimentos$ | async as alimentos">
+
+                    <ul *ngFor="let alim of alimentos">
+                        <li [class]="alim.origem" (click)="alimDetail(alim.id)">{{ alim.descricao }}</li>
+                    </ul>
+               
                 </div>
             </div>
             <div class="col-md-7">
+                <div *ngIf="alimDetail$ | async as alim">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">{{ alim.descricao }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <b>Porção:</b><span>{{ alim.porcaoGramas | replace2:'g' }}</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <b>Valor Energético:</b><span>{{ alim.calorias | replace2:'kcal' }}</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <b>Grupo:</b><span>{{ alim.grupoAlimentar }}</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-6 span-custom">
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Carboidratos:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.carboidratos | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Açúcar:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.acucar | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Proteínas:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.proteinas | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Gorduras Totais:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.gordurasTotais | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Gorduras Saturadas:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.gordurasSaturadas | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Gorduras Monoinsaturadas:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.gordurasMonoinsaturadas | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Gorduras Poli-insaturadas:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.gordurasPoliInsaturadas | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Gorduras Trans:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.gordurasTrans | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Colesterol:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.colesterol | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Fibra Alimentar:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.fibras | replace2:'g' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Sódio:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.sodio | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Cálcio:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.calcio | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Ferro:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.ferro | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Potássio:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.potassio | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Fósforo:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.fosforo | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Magnésio:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.magnesio | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                                <div class="col-sm-6 span-custom">
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Zinco:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.zinco | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Manganês:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.manganes | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Cobre:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.cobre | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Selênio:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.selenio | replace2:'mcg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Vitamina A:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaA_Retinol | replace2:'mcg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Vitamina D:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaD | replace2:'mcg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Vitamina E:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaE | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Vitamina C:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaC | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Niacina:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB3 | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Ácido Pantotênico:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB5 | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Vitamina B6:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB6 | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Riboflavina (Vit. B2):</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB2 | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Tiamina (Vit. B1):</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB1 | replace2:'mg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Biotina:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB7 | replace2:'mcg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Ácido Fólico:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB9 | replace2:'mcg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-center">
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <b>Vitamina B12:</b>
+                                        </div>
+                                        <div class="col-6">
+                                            <span>{{ alim.vitaminaB12 | replace2:'mcg' }}</span>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

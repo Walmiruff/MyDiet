@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlimentosComponent } from './alimentos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AlimentosComponent } from './alimentos.component';
 import { AlimentosRoutingModule } from './alimentos-routing.module';
+import { ReplacePipe2 } from '../shared/pipes/replace.pipe2';
 
 @NgModule({
-  declarations: [AlimentosComponent],
+  declarations: [AlimentosComponent, ReplacePipe2],
   imports: [
     CommonModule,
-    AlimentosRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    AlimentosRoutingModule,
   ]
 })
 export class AlimentosModule { }

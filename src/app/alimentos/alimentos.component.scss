@@ -1,1 +1,50 @@
 @import "../app.component.scss";
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.active-label {
+    background-color: rgb(249, 249, 249);
+    font-weight: 600;
+}
+
+.panel-lista {
+    max-height: 520px;
+    overflow-y: auto;
+}
+
+.TACO {
+  border-left-style: solid;
+  border-left-color: #f7a471;
+  background-color: #fff;
+}
+
+.IBGE {
+  border-left-style: solid;
+  border-left-color: #73CBF3;
+  background-color: #fff;
+}
+
+.Tucunduva {
+  border-left-style: solid;
+  border-left-color: #95A1E8;
+  background-color: #fff;
+}
+
+.Marcas {
+    border-left-style: solid;
+    border-left-color: #EE6F82;
+    background-color: #fff;
+}
+
+.Suplementos {
+    border-left-style: solid;
+    border-left-color: #FAE88A;
+    background-color: #fff;
+}

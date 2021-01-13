@@ -58,6 +58,6 @@ export class AlimentosService {
 
   public getAllAlimentos(): Observable<Array<IAlimento>> {
     return forkJoin(this.url)
-      .pipe(map(([a1, a2, a3, a4, a5]) => [...a1, ...a2, ...a3, ...a4, ...a5]), map((arr => arr.sort())));
+      .pipe(map(([a1, a2, a3, a4, a5]) => [...a1, ...a2, ...a3, ...a4, ...a5]));
   }
 }
