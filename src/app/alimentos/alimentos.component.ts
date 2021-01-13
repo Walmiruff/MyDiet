@@ -52,7 +52,7 @@ export class AlimentosComponent implements OnInit {
     });
 
     this.formModalAlim.controls.search.valueChanges.pipe(
-      debounceTime(800),
+      debounceTime(600),
       distinctUntilChanged(),
       switchMap(value => {
         this.alimentos.splice(0);
