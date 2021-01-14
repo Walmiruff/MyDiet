@@ -17,8 +17,8 @@
                  </div>
                 <hr>
                 <div class="panel-lista">
-                    <ul *ngFor="let item of supl">
-                        <li [class]="item.class" routerLink="details/{{ item.routeParam}}"
+                    <ul>
+                        <li *ngFor="let item of supl" [class]="item.class" routerLink="details/{{ item.routeParam}}"
                             [routerLinkActive]="['active-label']"><a routerLink="details/{{ item.routeParam}}"
                                 [routerLinkActive]="['active-label']">{{ item.label }}</a></li>
                     </ul>

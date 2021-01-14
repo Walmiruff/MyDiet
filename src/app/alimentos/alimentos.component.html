@@ -18,8 +18,8 @@
                 <hr>
                 <div class="panel-lista">
 
-                    <ul *ngFor="let alim of alimentos">
-                        <li [class]="alim.origem" (click)="alimDetail(alim.id)">{{ alim.descricao }}</li>
+                    <ul>
+                        <li *ngFor="let alim of alimentos" [class]="alim.origem" (click)="alimDetail(alim.id)">{{ alim.descricao }}</li>
                     </ul>
 
                 </div>

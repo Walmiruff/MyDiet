@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="panel-lista">
-                    <ul *ngFor="let item of fito">
-                        <li [class]="item.class" routerLink="details/{{ item.routeParam}}"
+                    <ul>
+                        <li *ngFor="let item of fito" [class]="item.class" routerLink="details/{{ item.routeParam}}"
                             [routerLinkActive]="['active-label']"><a routerLink="details/{{ item.routeParam}}"
                                 [routerLinkActive]="['active-label']">{{ item.label }}</a></li>
                     </ul>
