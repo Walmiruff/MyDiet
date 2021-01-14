@@ -1,0 +1,12 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.mydietone.app",
+            "sha256_cert_fingerprints": "C8:EE:61:0F:36:8D:F0:B7:A2:94:B4:E4:EC:00:7C:AE:3E:1B:BD:99:9C:9C:E6:89:6E:28:92:81:AF:55:66:14"
+        }
+    }
+]
